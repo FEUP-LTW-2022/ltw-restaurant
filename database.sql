@@ -43,6 +43,7 @@ CREATE TABLE users (
 	photoId VARCHAR,
 	type VARCHAR,
     password VARCHAR --crypt
+	
 );
 
 CREATE TABLE comments (
