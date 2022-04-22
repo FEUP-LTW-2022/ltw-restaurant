@@ -1,5 +1,5 @@
 CREATE TABLE restaurant (
-	id INTEGER PRIMARY KEY AUTO_INCREMENT,
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
 	OwnerID INTEGER,
 	name VARCHAR UNIQUE NOT NULL,
 	address VARCHAR,
@@ -13,29 +13,30 @@ CREATE TABLE restaurant (
 );
 
 CREATE TABLE reviews (
-	id INTEGER PRIMARY KEY AUTO_INCREMENT,
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
 	restaurant_id INTEGER,
-	FOREIGN KEY(restaurant_id) REFERENCES restaurant(id),
 	id_autor INTEGER,
-	FOREIGN KEY(id_autor) REFERENCES users(id),
 	title VARCHAR,
 	rate INTEGER NOT NULL,
 	text VARCHAR,
-	date DATE
+	date DATE,
+	FOREIGN KEY(restaurant_id) REFERENCES restaurant(id),
+	FOREIGN KEY(id_autor) REFERENCES users(id)
 );
 
 CREATE TABLE dish(
-	id INTEGER PRIMARY KEY AUTO_INCREMENT,
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
 	name VARCHAR UNIQUE NOT NULL,
 	restaurant_id INTEGER,
-	FOREIGN KEY(restaurant_id) REFERENCES restaurant(id),
-  price INTEGER,
-  photo VARCHAR,
-  category VARCHAR --(received, preparing, ready, delivered)
+    price INTEGER,
+    photo VARCHAR,
+    category VARCHAR,
+	--(received, preparing, ready, delivered)?
+	FOREIGN KEY(restaurant_id) REFERENCES restaurant(id)
 );--review dish?
 
 CREATE TABLE users (
-	id INTEGER PRIMARY KEY AUTO_INCREMENT,
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
     username VARCHAR,
 	fullName VARCHAR,
 	birthDate VARCHAR,
@@ -45,20 +46,20 @@ CREATE TABLE users (
 );
 
 CREATE TABLE comments (
-	id INTEGER PRIMARY KEY AUTO_INCREMENT,
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
 	review_id INTEGER,
-	FOREIGN KEY(review_id) REFERENCES reviews(id),
 	id_autor INTEGER,
-	FOREIGN KEY(id_autor) REFERENCES users(id),
 	text VARCHAR,
 	date TEXT,
-	likes INTEGER
+	likes INTEGER,
+	FOREIGN KEY(review_id) REFERENCES reviews(id),
+	FOREIGN KEY(id_autor) REFERENCES users(id)
 );
 
 
 CREATE TABLE categories (
-	id INTEGER PRIMARY KEY AUTO_INCREMENT,
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
 	restaurant_id INTEGER,
-	FOREIGN KEY(restaurant_id) REFERENCES restaurant(id),
-	category VARCHAR
+	category VARCHAR,
+	FOREIGN KEY(restaurant_id) REFERENCES restaurant(id)
 );
