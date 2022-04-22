@@ -1,5 +1,5 @@
 CREATE TABLE restaurant (
-	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	id INTEGER PRIMARY KEY AUTO_INCREMENT,
 	OwnerID INTEGER,
 	name VARCHAR UNIQUE NOT NULL,
 	address VARCHAR,
@@ -13,9 +13,11 @@ CREATE TABLE restaurant (
 );
 
 CREATE TABLE reviews (
-	id INTEGER PRIMARY KEY AUTOINCREMENT,
-	restaurant_id INTEGER REFERENCES restaurant,
-	id_autor INTEGER REFERENCES users,
+	id INTEGER PRIMARY KEY AUTO_INCREMENT,
+	restaurant_id INTEGER,
+	FOREIGN KEY(restaurant_id) REFERENCES restaurant(id),
+	id_autor INTEGER,
+	FOREIGN KEY(id_autor) REFERENCES users(id),
 	title VARCHAR,
 	rate INTEGER NOT NULL,
 	text VARCHAR,
@@ -23,28 +25,31 @@ CREATE TABLE reviews (
 );
 
 CREATE TABLE dish(
-	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	id INTEGER PRIMARY KEY AUTO_INCREMENT,
 	name VARCHAR UNIQUE NOT NULL,
-	restaurant_id INTEGER REFERENCES restaurant
-    price INTEGER,
-    photo VARCHAR,
-    category VARCHAR --(received, preparing, ready, delivered)
+	restaurant_id INTEGER,
+	FOREIGN KEY(restaurant_id) REFERENCES restaurant(id),
+  price INTEGER,
+  photo VARCHAR,
+  category VARCHAR --(received, preparing, ready, delivered)
 );--review dish?
 
 CREATE TABLE users (
-	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	id INTEGER PRIMARY KEY AUTO_INCREMENT,
     username VARCHAR,
 	fullName VARCHAR,
 	birthDate VARCHAR,
 	photoId VARCHAR,
 	type VARCHAR,
-    password text --crypt
+    password VARCHAR --crypt
 );
 
 CREATE TABLE comments (
-	id INTEGER PRIMARY KEY AUTOINCREMENT,
-	review_id INTEGER REFERENCES reviews,
-	id_autor INTEGER REFERENCES users,
+	id INTEGER PRIMARY KEY AUTO_INCREMENT,
+	review_id INTEGER,
+	FOREIGN KEY(review_id) REFERENCES reviews(id),
+	id_autor INTEGER,
+	FOREIGN KEY(id_autor) REFERENCES users(id),
 	text VARCHAR,
 	date TEXT,
 	likes INTEGER
@@ -52,7 +57,8 @@ CREATE TABLE comments (
 
 
 CREATE TABLE categories (
-	id INTEGER PRIMARY KEY AUTOINCREMENT,
-	restaurant_id INTEGER REFERENCES restaurant,
+	id INTEGER PRIMARY KEY AUTO_INCREMENT,
+	restaurant_id INTEGER,
+	FOREIGN KEY(restaurant_id) REFERENCES restaurant(id),
 	category VARCHAR
 );
