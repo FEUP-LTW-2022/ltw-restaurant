@@ -1,4 +1,12 @@
-CREATE TABLE restaurant (
+
+DROP TABLE IF EXISTS Album;
+DROP TABLE IF EXISTS Artist;
+DROP TABLE IF EXISTS Track;
+DROP TABLE IF EXISTS Customer;
+/*******************************************************************************
+   Create Tables
+********************************************************************************/
+CREATE TABLE Restaurant (
 	id INTEGER PRIMARY KEY AUTOINCREMENT,
 	OwnerID INTEGER,
 	name VARCHAR UNIQUE NOT NULL,
@@ -12,7 +20,7 @@ CREATE TABLE restaurant (
 
 );
 
-CREATE TABLE reviews (
+CREATE TABLE Reviews (
 	id INTEGER PRIMARY KEY AUTOINCREMENT,
 	restaurant_id INTEGER,
 	id_autor INTEGER,
@@ -24,7 +32,7 @@ CREATE TABLE reviews (
 	FOREIGN KEY(id_autor) REFERENCES users(id)
 );
 
-CREATE TABLE dish(
+CREATE TABLE Dish(
 	id INTEGER PRIMARY KEY AUTOINCREMENT,
 	name VARCHAR UNIQUE NOT NULL,
 	restaurant_id INTEGER,
@@ -35,7 +43,7 @@ CREATE TABLE dish(
 	FOREIGN KEY(restaurant_id) REFERENCES restaurant(id)
 );--review dish?
 
-CREATE TABLE users (
+CREATE TABLE Users (
 	id INTEGER PRIMARY KEY AUTOINCREMENT,
     username VARCHAR,
 	fullName VARCHAR,
@@ -46,7 +54,7 @@ CREATE TABLE users (
 	
 );
 
-CREATE TABLE comments (
+CREATE TABLE Comments (
 	id INTEGER PRIMARY KEY AUTOINCREMENT,
 	review_id INTEGER,
 	id_autor INTEGER,
@@ -58,9 +66,14 @@ CREATE TABLE comments (
 );
 
 
-CREATE TABLE categories (
+CREATE TABLE Categories (
 	id INTEGER PRIMARY KEY AUTOINCREMENT,
 	restaurant_id INTEGER,
 	category VARCHAR,
 	FOREIGN KEY(restaurant_id) REFERENCES restaurant(id)
 );
+
+/*********************************************************************************/
+/* Populate */
+
+INSERT INTO Restaurant(id, name) VALUES (1, 'Restaurante 1')
