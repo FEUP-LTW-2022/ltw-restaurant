@@ -1,0 +1,22 @@
+
+body > header{
+    grid-area: header;
+    position: relative;
+    height: 7em;
+
+    display: grid;
+    grid-template: 
+        "logo signup" auto
+        "logo signup" auto
+        / auto auto;
+}
+
+body > header > a{
+    grid-area: logo;
+}
+
+#signup{
+    grid-area: signup;
+    align-self: end;
+    justify-self: right;
+}

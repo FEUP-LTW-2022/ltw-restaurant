@@ -1,0 +1,49 @@
+
+
+*{
+    box-sizing: border-box;
+    color: inherit;
+    text-decoration: none;
+    padding: 0;
+    border: 0;
+   
+}
+
+ul{
+    list-style: none;
+}
+
+body{
+    font-family: "Poppins", sans-serif;
+}
+
+h1, h2{
+    font-family: "Lora", serif;
+}
+
+/* Header */
+body > header {
+    background-color: lightcyan;
+    color:  rgba(127, 255, 212, 1);
+    padding: 1em;
+}
+body > header a{
+    color: rgba(127, 255, 212, 1);
+    text-decoration: none;
+}
+body>header>a>img{
+    height: 5em;
+    width: 5em;
+}
+#signup {
+    margin-top: 1em;
+}
+
+#signup > a:first-child{
+    border-right: 1px  rgba(127, 255, 212, 1);
+    padding-left: 0;
+}
+
+#signup a{
+    padding: 0 1em;
+}

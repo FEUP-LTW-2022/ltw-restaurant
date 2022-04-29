@@ -2,17 +2,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
     <title>Title</title>
+    <meta charset="UTF-8">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/layout.css" rel="stylesheet">
 </head>
 <body>
-    <header id="header-index" class="header">
-        <img src="logo.png" alt="logo">
-        <ul id="account">
+    <header>
+        <a href="index.php">
+            <img src="logo.jpeg" alt="logo">
+        </a>
+        <ul id="signup">
             <li><a>Register</a></li>
             <li><a>Login</a></li>
         </ul>
-        <p>language</p>
     </header>
 
     <div id="search-box">
