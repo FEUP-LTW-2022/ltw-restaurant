@@ -12,17 +12,14 @@
         <a href="index.php">
             <img src="logo.jpeg" alt="logo">
         </a>
-        <ul id="signup">
-            <li><a>Register</a></li>
-            <li><a>Login</a></li>
-        </ul>
+        <form id="search-bar">
+            <input type="text" placeholder="Restaurant, city, ...">
+        </form>
+        <div id="signup">
+            <a href="register.php">Register</a>
+            <a href="login.php">Login</a>
+      </div>
     </header>
 
-    <div id="search-box">
-        <form method="post" action="search.php">
-            <input type="search">
-            <input type="button">
-        </form>
-    </div>
 </body>
 </html>

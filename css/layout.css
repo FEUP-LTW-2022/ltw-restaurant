@@ -2,21 +2,24 @@
 body > header{
     grid-area: header;
     position: relative;
-    height: 7em;
+    height: 6em;
 
     display: grid;
     grid-template: 
-        "logo signup" auto
-        "logo signup" auto
-        / auto auto;
+        "logo form signup" auto
+        / auto;
 }
 
 body > header > a{
     grid-area: logo;
 }
-
+#search-bar{
+    grid-area: form;
+    align-self: center;
+}
 #signup{
+    
     grid-area: signup;
-    align-self: end;
+    align-self: center;
     justify-self: right;
 }
