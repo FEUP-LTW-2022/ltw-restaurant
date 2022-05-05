@@ -49,12 +49,9 @@ body>header>a>img{
     border: 2px solid black;
     border-radius: 4px;
 }
-
-#signup > a:first-child{
-    border-right: 1px solid black;
-    padding-left: 0;
-}
-
 #signup a{
-    padding: 0 1em;
+    border-radius: 10px;
+    border-top: 10px;
+    border: 2px solid gray;
+    padding: 5px 1em;
 }

@@ -1,12 +1,14 @@
 
-DROP TABLE IF EXISTS Album;
-DROP TABLE IF EXISTS Artist;
-DROP TABLE IF EXISTS Track;
-DROP TABLE IF EXISTS Customer;
+DROP TABLE IF EXISTS restaurant;
+DROP TABLE IF EXISTS reviews;
+DROP TABLE IF EXISTS dish;
+DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS comments;
+DROP TABLE IF EXISTS categories;
 /*******************************************************************************
    Create Tables
 ********************************************************************************/
-CREATE TABLE Restaurant (
+CREATE TABLE restaurant (
 	id INTEGER PRIMARY KEY AUTOINCREMENT,
 	OwnerID INTEGER,
 	name VARCHAR UNIQUE NOT NULL,
@@ -20,7 +22,7 @@ CREATE TABLE Restaurant (
 
 );
 
-CREATE TABLE Reviews (
+CREATE TABLE reviews (
 	id INTEGER PRIMARY KEY AUTOINCREMENT,
 	restaurant_id INTEGER,
 	id_autor INTEGER,
@@ -32,7 +34,7 @@ CREATE TABLE Reviews (
 	FOREIGN KEY(id_autor) REFERENCES users(id)
 );
 
-CREATE TABLE Dish(
+CREATE TABLE dish(
 	id INTEGER PRIMARY KEY AUTOINCREMENT,
 	name VARCHAR UNIQUE NOT NULL,
 	restaurant_id INTEGER,
@@ -43,7 +45,7 @@ CREATE TABLE Dish(
 	FOREIGN KEY(restaurant_id) REFERENCES restaurant(id)
 );--review dish?
 
-CREATE TABLE Users (
+CREATE TABLE users (
 	id INTEGER PRIMARY KEY AUTOINCREMENT,
     username VARCHAR,
 	fullName VARCHAR,
@@ -54,7 +56,7 @@ CREATE TABLE Users (
 	
 );
 
-CREATE TABLE Comments (
+CREATE TABLE comments (
 	id INTEGER PRIMARY KEY AUTOINCREMENT,
 	review_id INTEGER,
 	id_autor INTEGER,
@@ -66,7 +68,7 @@ CREATE TABLE Comments (
 );
 
 
-CREATE TABLE Categories (
+CREATE TABLE categories (
 	id INTEGER PRIMARY KEY AUTOINCREMENT,
 	restaurant_id INTEGER,
 	category VARCHAR,
@@ -76,4 +78,8 @@ CREATE TABLE Categories (
 /*********************************************************************************/
 /* Populate */
 
-INSERT INTO Restaurant(id, name) VALUES (1, 'Restaurante 1')
+INSERT INTO restaurant(id, name) VALUES (1, 'Restaurante 1');
+INSERT INTO restaurant(id, name) VALUES (2, 'Restaurante 2');
+INSERT INTO restaurant(id, name) VALUES (3, 'Restaurante 3');
+INSERT INTO restaurant(id, name) VALUES (4, 'Restaurante 4');
+INSERT INTO restaurant(id, name) VALUES (5, 'Restaurante 5');

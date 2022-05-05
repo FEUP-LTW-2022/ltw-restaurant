@@ -6,8 +6,7 @@ body > header{
 
     display: grid;
     grid-template: 
-        "logo form signup" auto
-        / auto;
+        "logo form signup" 1fr
 }
 
 body > header > a{
@@ -22,4 +21,5 @@ body > header > a{
     grid-area: signup;
     align-self: center;
     justify-self: right;
+    padding-right: 2em;
 }
