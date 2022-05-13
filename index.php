@@ -1,18 +1,16 @@
-<?php /*
+<?php 
   $db = new PDO('sqlite:database/database.db');
 
   $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
   $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-  $stmt = $db->prepare('SELECT news.*, users.*, COUNT(comments.id) AS comments
-  FROM news JOIN
-       users USING (username) LEFT JOIN
-       comments ON comments.news_id = news.id
-  GROUP BY news.id, users.username
-  ORDER BY published DESC');
+  $stmt = $db->prepare('SELECT restaurant.id, reviews.rate, dish.name FROM restaurant
+   LEFT JOIN reviews ON reviews.restaurant_id=restaurant.id 
+   LEFT JOIN dish ON dish.restaurant_id=restaurant.id
+  GROUP BY restaurant.id');
 
   $stmt->execute();
-*/
+
 ?>
 
 <!DOCTYPE html>
