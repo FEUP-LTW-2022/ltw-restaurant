@@ -55,3 +55,8 @@ body>header>a>img{
     border: 2px solid gray;
     padding: 5px 1em;
 }
+
+/*restaurant list */
+#restaurants-list h1{
+   text-align: center;
+}

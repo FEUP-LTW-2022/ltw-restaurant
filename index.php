@@ -1,16 +1,9 @@
 <?php 
-  $db = new PDO('sqlite:database/database.db');
+  require_once('./database/connection.php');
+  require_once('./database/restaurants.php');
 
-  $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-  $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-  $stmt = $db->prepare('SELECT restaurant.* FROM restaurant
-   LEFT JOIN reviews ON reviews.restaurant_id=restaurant.id 
-   LEFT JOIN dish ON dish.restaurant_id=restaurant.id
-  GROUP BY restaurant.id');
-
-  $stmt->execute();
-  $restaurants = $stmt->fetchAll();
+  $db = getDatabaseConnection();
+  $restaurants = getAllRestaurants($db);
 ?>
 
 <!DOCTYPE html>
@@ -35,12 +28,10 @@
       </div>
     </header>
 
-    <section id="restaurants-examples">
+    <section id="restaurants-list" >
+        <h1>Our Restaurants</h1>
     <?php foreach( $restaurants as $restaurant) { ?>
-      <article>
-        <header>
           <h1><a href="item.php?id=<?= $restaurant['id'];?>"> <?=  $restaurant['name']; ?> </a></h1>
-        </header>
         <?php }?>
     </section>
 </body>

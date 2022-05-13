@@ -1,7 +1,13 @@
 <?php
+declare(strict_types=1);
 
-  function getDatabaseConnection() {
-    return new PDO('sqlite:database/news.db');
-  }
+function getDatabaseConnection(){
 
+    $db = new PDO('sqlite:database/database.db');
+    
+    $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    return $db;
+}
 ?>
