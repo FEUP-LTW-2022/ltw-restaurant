@@ -21,22 +21,7 @@ include_once('databases/connection.php');
         </div>
     </header>
     <div id="register">
-        <?php
-        if(strtoupper($_SERVER['REQUEST_METHOD']) === 'POST') {
 
-            header ('Location: login.php');
-
-            $dbh = getDatabaseConnection();
-            $stmt = $dbh->prepare('INSERT INTO Users (username, password)
-                                    VALUES (:name, :password)');
-            $stmt->bindParam(':name', $_POST['name']);
-            $stmt->bindParam(':password', $_POST['password']);
-            $stmt->execute();
-            exit;
-        }
-
-        // Include HTML sign up form
-        ?>
         <p>Create Account</p>
         <form method="post" action="register.php">
             <p>*Name <input name="name" type="text" required="required"></p>
@@ -48,6 +33,12 @@ include_once('databases/connection.php');
             <p><input name="termsofservice" type="checkbox" required="required" checked>* I Accept the terms of service</p>
             <p><input name="consenttopromotions" type="checkbox" checked>I Want to Receive Emails with promotional material</p>
             <p>*mandatory fields</p>
+            <?php
+                if ($_SESSION['error'] = 'email already registered'){?>
+                   <p>email already registered</p>
+            <?php
+                }
+            ?>
             <button formaction="" type="submit" name="submit" value="submit">Register</button>
         </form>
     </div>
