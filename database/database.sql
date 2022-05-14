@@ -1,4 +1,5 @@
 
+PRAGMA foreign_keys = ON;
 DROP TABLE IF EXISTS restaurant;
 DROP TABLE IF EXISTS reviews;
 DROP TABLE IF EXISTS dish;
@@ -45,19 +46,32 @@ CREATE TABLE dish(
 	FOREIGN KEY(restaurant_id) REFERENCES restaurant(id)
 );--review dish?
 
+CREATE TABLE request(
+    id INTEGER PRIMARY KEY ,
+    userID INTEGER REFERENCES Users(id) NOT NULL ,
+    restaurantID INTEGER REFERENCES Restaurant(id) NOT NULL
+);
+
+CREATE TABLE request_dish(
+    dishID INTEGER REFERENCES Dish(id),
+    request INTEGER REFERENCES request(id),
+    quantity INTEGER CHECK ( quantity > 0 ),
+    PRIMARY KEY (dishID,request)
+);
+
 CREATE TABLE users (
     id INTEGER PRIMARY KEY ,
     email VARCHAR NOT NULL UNIQUE,
-    username VARCHAR NOT NULL,
-	fullName VARCHAR,
+    name VARCHAR NOT NULL,
 	birthDate VARCHAR,
 	photoId VARCHAR,
 	type VARCHAR,
+	phoneNumber INTEGER,
     password VARCHAR NOT NULL --crypt
 );
 
 CREATE TABLE credit_card_info(
-    user_id REFERENCES users(id),
+    user_id REFERENCES users(id) NOT NULL,
     num integer PRIMARY KEY,
     cardholder VARCHAR NOT NULL,
     expiry_date DATE NOT NULL
@@ -81,3 +95,19 @@ CREATE TABLE categories (
 	category VARCHAR NOT NULL,
 	FOREIGN KEY(restaurant_id) REFERENCES restaurant(id)
 );
+
+
+--prevent the change of credit card info to prevent exploit
+DROP TRIGGER IF EXISTS is_change_credit_card_info;
+
+
+
+CREATE TRIGGER is_change_credit_card_info
+    BEFORE  UPDATE ON users
+    BEGIN
+        SELECT RAISE(FAIL, 'updates not allowed');
+    end;
+
+
+
+

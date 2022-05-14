@@ -3,7 +3,7 @@
   require_once('./database/restaurants.php');
 
   $db = getDatabaseConnection();
-  $restaurants = getAllRestaurants($db);
+  //$restaurants = getAllRestaurants($db);
 ?>
 
 <!DOCTYPE html>
