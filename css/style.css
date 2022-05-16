@@ -41,6 +41,20 @@ body>header>a>img{
     width: 6em;
 }
 
+main + footer {
+  padding: 16px;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.sticky + main + footer {
+  padding-top: 102px;
+}
+
 
 #search-bar> input[type=text]{
     
@@ -57,6 +71,49 @@ body>header>a>img{
 }
 
 /*restaurant list */
-#restaurants-list h1{
-   text-align: center;
-}
+
+
+main {
+  
+    margin: 1em;
+    padding: 1em;
+  }
+  
+  main a {
+    text-decoration: none;
+  }
+
+  main h1{
+    text-align: center;
+ }
+  
+ #restaurants-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    gap: 3em;
+  }
+  
+  #restaurants-list article {
+    display: grid;
+    justify-content: center;
+    width: 350px;
+  }
+  
+  #restaurants-list article * {
+    grid-column-start: 1;
+    grid-row-start: 1;
+  }
+  
+  #restaurants-list article a {
+    color: white;
+    text-decoration: none;
+    text-shadow: 2px 2px #333;
+  
+    font-size: 1.5em;
+  
+    align-self: center;
+    justify-self: center;
+  
+    text-align: center;
+  }

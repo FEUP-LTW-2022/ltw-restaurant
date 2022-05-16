@@ -1,39 +1,28 @@
 <?php 
   require_once('./database/connection.php');
   require_once('./database/restaurants.php');
+  require_once('./templates/elements.php');
+  
 
   $db = getDatabaseConnection();
   $restaurants = getAllRestaurants($db);
+
+  drawHeader();
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Title</title>
-    <meta charset="UTF-8">
-    <link href="css/style.css" rel="stylesheet">
-    <link href="css/layout.css" rel="stylesheet">
-</head>
-<body>
-    <header>
-        <a href="index.php">
-            <img src="logo.jpeg" alt="logo">
-        </a>
-        <form id="search-bar" action="search-results.php" method="get">
-            <input type="text" name="search-bar" placeholder="Restaurant, city, ...">
-        </form>
-        <div id="signup">
-            <a href="register.php">Register</a>
-            <a href="login.php">Login</a>
-      </div>
-    </header>
-
-    <section id="restaurants-list" >
+    <main>
         <h1>Our Restaurants</h1>
-    <?php foreach( $restaurants as $restaurant) { ?>
-          <h1><a href="item.php?id=<?= $restaurant['id'];?>"> <?=  $restaurant['name']; ?> </a></h1>
-        <?php }?>
-    </section>
+        <section id="restaurants-list" >
+        <?php foreach( $restaurants as $restaurant) { ?>
+            <article>
+                <img src="https://picsum.photos/350?<?=$restaurant['id']?>">
+                <a href="restaurant.php?id=<?=$restaurant['id']?>"><?=$restaurant['name']?> <p> RATING:</p> </a>
+
+            </article>
+            <?php }?>
+        </section>
+
+    </main>
 </body>
 </html>
 
@@ -46,4 +35,18 @@ document.getElementById('search-bar')
             document.querySelector('form').submit();
         }
     });
+
+window.onscroll = function() {myFunction()};
+
+var header = document.getElementById("myHeader");
+var sticky = header.offsetTop;
+
+function myFunction() {
+  if (window.pageYOffset > sticky) {
+    header.classList.add("sticky");
+  } else {
+    header.classList.remove("sticky");
+  }
+}
 </script>
+
