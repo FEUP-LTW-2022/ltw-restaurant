@@ -1,25 +1,11 @@
 <?php
 session_start();
 include_once('database/connection.php');
+require_once('templates/elements.php');
+
+drawHeader();
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Title</title>
-    <meta charset="UTF-8">
-    <link href="css/style.css" rel="stylesheet">
-    <link href="css/layout.css" rel="stylesheet">
-</head>
-<body>
-    <header>
-        <a href="index.php">
-            <img src="logo.jpeg" alt="logo">
-        </a>
-        <div id="signup">
-            <a href="register.php">Register</a>
-            <a href="login.php">Login</a>
-        </div>
-    </header>
+
     <div id="register">
 
 

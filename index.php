@@ -1,6 +1,7 @@
 <?php 
   require_once('./database/connection.php');
   require_once('./database/restaurants.php');
+  
   require_once('./templates/elements.php');
   
 
@@ -11,15 +12,20 @@
 ?>
 
     <main>
+
         <h1>Our Restaurants</h1>
         <section id="restaurants-list" >
-        <?php foreach( $restaurants as $restaurant) { ?>
-            <article>
-                <img src="https://picsum.photos/350?<?=$restaurant['id']?>">
-                <a href="restaurant.php?id=<?=$restaurant['id']?>"><?=$restaurant['name']?> <p> RATING:</p> </a>
-
-            </article>
-            <?php }?>
+          <?php foreach( $restaurants as $restaurant) {  
+            $rate = getAverageRate($db, $restaurant['id']) ?> 
+              <article>
+                <a  href="restaurant.php?id=<?=$restaurant['id']?>">
+                  <img src="https://picsum.photos/200?<?=$restaurant['id']?>">
+                  <div id="restaurant-category">categoria</div>
+                  <div id="restaurant-name"><?=$restaurant['name']?> </div>
+                  <div id="restaurant-rating"><?= drawRating($rate)?></div>
+               </a>
+              </article>
+          <?php }?>
         </section>
 
     </main>
@@ -36,6 +42,8 @@ document.getElementById('search-bar')
         }
     });
 
+///////
+
 window.onscroll = function() {myFunction()};
 
 var header = document.getElementById("myHeader");
@@ -48,5 +56,13 @@ function myFunction() {
     header.classList.remove("sticky");
   }
 }
+
+    
+
+ /* <span class="fa fa-star checked"></span>
+                  #<span class="fa fa-star checked"></span>
+                  #<span class="fa fa-star checked"></span>
+                  #<span class="fa fa-star"></span>
+                  #<span class="fa fa-star"></span> */
 </script>
 
