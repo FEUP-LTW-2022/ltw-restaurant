@@ -33,7 +33,7 @@
 </html>
 
 <script>
-document.getElementById('search-bar')
+/*document.getElementById('search-bar')
     .addEventListener('keyup', function(event) {
         if (event.code === 'Enter')
         {
@@ -55,14 +55,6 @@ function myFunction() {
   } else {
     header.classList.remove("sticky");
   }
-}
-
-    
-
- /* <span class="fa fa-star checked"></span>
-                  #<span class="fa fa-star checked"></span>
-                  #<span class="fa fa-star checked"></span>
-                  #<span class="fa fa-star"></span>
-                  #<span class="fa fa-star"></span> */
+}*/
 </script>
 

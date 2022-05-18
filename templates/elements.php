@@ -1,6 +1,6 @@
-<?php
+<?php function drawHeader(){?>
+    
 
-function drawHeader(){?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -12,6 +12,7 @@ function drawHeader(){?>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body> 
+
     <header id="myHeader">
         <a href="index.php">
             <img src="logo.jpeg" alt="logo">
@@ -24,7 +25,7 @@ function drawHeader(){?>
             <a href="login.php">Login</a>
       </div>
     </header>
-
+    <script src="/javascript/header.js"></script>
 
 <?php }
 
