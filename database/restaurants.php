@@ -13,6 +13,19 @@ function getAllRestaurants(PDO $db){
     return $stmt->fetchAll();
 }
 
+
+function drawRating($checked, $total=5){
+    $unchecked=$total-$checked;
+
+    for($i=0; $i<$checked;$i++){    
+        echo "<span class=\"fa fa-star checked\"></span>"; 
+    } 
+
+    for($i=0; $i<$unchecked;$i++){      
+        echo "<span class=\"fa fa-star\"></span>"; 
+    } 
+}
+
 function getAverageRate(PDO $db, int $id){
     $reviews = getRestaurantRate($db, $id) ;
     $i=0;

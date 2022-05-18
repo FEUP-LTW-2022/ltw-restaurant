@@ -23,3 +23,7 @@ INSERT INTO reviews(id, restaurant_id, rate) VALUES (4,1, 5);
 INSERT INTO users(id,email, name, password) VALUES (1, 'username@email.com', 'username', '123456');
 INSERT INTO users(id,email, name, password) VALUES (2, 'username1@email.com', 'username1', '123456');
 INSERT INTO users(id,email, name, password) VALUES (3, 'username2@email.com', 'username2', '123456');
+
+
+/*categories */ 
+INSERT INTO categories(id, name) VALUES (1, 'steakhouse');

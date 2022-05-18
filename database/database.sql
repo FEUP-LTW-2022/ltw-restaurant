@@ -20,7 +20,9 @@ CREATE TABLE restaurant (
     openHour DATE NOT NULL DEFAULT '1230',
     closeHour DATE NOT NULL DEFAULT '1930',
     email VARCHAR,
-    phoneNumber VARCHAR
+    phoneNumber VARCHAR,
+    category INTEGER NOT NULL DEFAULT 1, -- apagar default
+    FOREIGN KEY(category) REFERENCES categories(id)
 );
 
 CREATE TABLE reviews (
@@ -92,9 +94,7 @@ CREATE TABLE comments (
 
 CREATE TABLE categories (
 	id INTEGER PRIMARY KEY,
-	restaurant_id INTEGER,
-	category VARCHAR NOT NULL,
-	FOREIGN KEY(restaurant_id) REFERENCES restaurant(id)
+	name VARCHAR NOT NULL
 );
 
 /*
