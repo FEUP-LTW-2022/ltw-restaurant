@@ -16,7 +16,7 @@ ul{
 body{
     font-family: sans-serif;
     background-color: white;
-    margin: 8px 0px 8px 0px;
+    margin: 8px 0px 0px 0px;
 }
 h1, h2{
     font-family: serif;
@@ -47,7 +47,8 @@ body>header>a>img{
     width: 6em;
 }
 
-main  {
+/*sticky header */
+main, footer {
   padding: 16px;
 }
 
@@ -57,8 +58,8 @@ main  {
   width: 100%;
 }
 
-.sticky + main  {
-  padding-top: 102px;
+.sticky + main ,footer{
+  padding-top: 50px;
 }
 
 
@@ -98,7 +99,7 @@ main {
     flex-wrap: wrap;
     justify-content: left;
     gap: 3em;
-    margin: 0px 169px 0px 167px;
+    margin: 0px 170px 0px 170px;
   }
   
   #restaurants-list article {
@@ -130,3 +131,36 @@ main {
  .checked {
     color: orange;
   }
+
+  /*footer*/
+  footer{
+    background-color: black;
+    color: white;
+    padding: 50px 170px 1rem 170px;
+  }
+
+  #footer-main{
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  #footer-logo{
+    display: block;
+    padding: 0 2rem;
+    justify-content: center;
+   
+  }
+  #footer-logo img{
+    height: 7em;
+    width: 7em;
+  }
+
+  #footer-table{
+    display: block;
+  }
+  #footer-table li{
+    margin-bottom: 5px;
+    font-size: 15px;
+  }
+
+  

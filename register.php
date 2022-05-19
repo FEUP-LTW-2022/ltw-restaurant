@@ -1,7 +1,7 @@
 <?php
 session_start();
 include_once('database/connection.php');
-require_once('templates/elements.php');
+require_once('templates/elements.tpl.php');
 
 drawHeader();
 ?>
@@ -27,6 +27,5 @@ drawHeader();
                 <button type="submit">Register</button>
             </form>
         </div>
-    </main>
-</body>
-</html>
+        
+<?php drawFooter() ?>

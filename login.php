@@ -1,9 +1,10 @@
 <?php
 session_start();
-include_once('templates/elements.php');
+include_once('templates/elements.tpl.php');
 include_once ('database/connection.php');
 
 drawHeader();
+
 if(strtoupper($_SERVER['REQUEST_METHOD']) === 'POST') {
     $dbh = getDatabaseConnection();
     $stmt = $dbh->prepare("SELECT password FROM users WHERE email = :email");
@@ -21,6 +22,5 @@ if(strtoupper($_SERVER['REQUEST_METHOD']) === 'POST') {
             <p><input type="checkbox" checked name="stayloggedin">Stay logged in</p>
             <p><input type="submit"></p>
         </form>
-    </main>
-</body>
-</html>
+
+<?php drawFooter() ?>

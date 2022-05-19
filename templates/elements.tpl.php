@@ -1,7 +1,7 @@
+<?php declare(strict_types = 1); ?>
+
+
 <?php function drawHeader(){?>
-    
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,8 +30,28 @@
 
 <?php }
 
-function generateFooter(){}
-
-function generateRestaurantElement(){}
-
-function generateDishElement(){}
+function drawFooter(){ ?>
+     
+</main>
+    <footer>
+        <div id="footer-main">
+            <div id="footer-logo">
+            <img src="logo.jpeg" alt="logo">
+            </div>
+            <ul id="footer-table">
+            <li>
+                <a href="about-us.php">About Us</a>
+            </li>
+            <li>
+                <a href="contact-info.php">Contact Info</a>
+            </li>
+            <li>
+                <a href="faq.php">FAQ's</a>
+            </li>
+            
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>
+<?php } ?>
