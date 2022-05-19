@@ -15,11 +15,12 @@ if(strtoupper($_SERVER['REQUEST_METHOD']) === 'POST') {
 }
 ?>
 
-<form method="post">
-    <p>email:<input name="email" required="required" type="email"></p>
-    <p>password<input name="password" type="password" required="required"></p>
-    <p><input type="checkbox" checked name="stayloggedin">Stay logged in</p>
-    <p><input type="submit"></p>
-</form>
+        <form method="post">
+            <p>email:<input name="email" required="required" type="email"></p>
+            <p>password<input name="password" type="password" required="required"></p>
+            <p><input type="checkbox" checked name="stayloggedin">Stay logged in</p>
+            <p><input type="submit"></p>
+        </form>
+    </main>
 </body>
 </html>

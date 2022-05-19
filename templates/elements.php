@@ -26,6 +26,7 @@
       </div>
     </header>
     <script src="/javascript/header.js"></script>
+    <main>
 
 <?php }
 
