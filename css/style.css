@@ -163,4 +163,96 @@ main {
     font-size: 15px;
   }
 
+
+  /*login form */
+  .login{
+    margin: 0px 170px 0px 170px;
+  }
+
+  .login input[type=email], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin-top: 8px;
+    margin-bottom: 2em;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    gap:2em;
+    border-radius: 20px;
+  }
   
+  .login button , .login-newacc button {
+    background-color: #04AA6D;
+    color: white;
+    padding: 14px 20px;
+    margin-bottom: 1em;
+    margin-top: 8px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 20px
+  }
+  
+  .login button:hover , .login-newacc button:hover  {
+    opacity: 0.8;
+  }
+  
+  .login{
+    padding: 16px;
+  }
+  
+  .login span.psw {
+    float: right;
+  }
+  #login-checkbox{
+    margin-bottom: 1em;
+  }
+  #login-checkbox a:link {
+    color: green;
+    background-color: transparent;
+    text-decoration: none;
+  }
+  #login-checkbox a:hover {
+    color: red;
+    background-color: transparent;
+    text-decoration: underline;
+  }
+
+  /* Change styles for span and cancel button on extra small screens */
+  @media screen and (max-width: 300px) {
+    span.psw {
+       display: block;
+       float: none;
+    }
+  }
+  
+  hr.login-bar {
+    margin: 0px 200px 0px 200px;
+    height:2px;
+    border-width:0;
+    color:gray;
+    background-color:gray
+  }
+
+  .login-newacc{
+    margin: 0px 170px 0px 170px;
+    padding: 16px;
+  }
+  .login-newacc h2{
+    text-align: center; 
+  }
+  /*.login-newacc button {
+    background-color: #04AA6D;
+    color: white;
+    padding: 14px 20px;
+    margin-bottom: 1em;
+    margin-top: 8px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 20px
+  }
+  
+  .login-newacc button:hover {
+    opacity: 0.8;
+  }*/

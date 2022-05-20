@@ -73,6 +73,11 @@ CREATE TABLE users (
     password VARCHAR NOT NULL --crypt
 );
 
+CREATE TABLE user_login_token(
+    token TEXT NOT NULL,
+    userID INTEGER NOT NULL REFERENCES users(id)
+);
+
 /*CREATE TABLE credit_card_info(
     user_id REFERENCES users(id) NOT NULL,
     num integer PRIMARY KEY,

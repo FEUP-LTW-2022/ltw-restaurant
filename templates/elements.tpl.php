@@ -29,7 +29,7 @@
             else{
         ?>
         <div id="signup">
-            <a href="register.php">Register</a>
+            <a href="register.php">Sign Up</a>
             <a href="login.php">Login</a>
       </div>
         <?php }?>
