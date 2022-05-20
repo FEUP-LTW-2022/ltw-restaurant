@@ -12,7 +12,7 @@ drawHeader();
 <div class="row">
     <div class="column">
         <div class="card">
-            <img src="/w3images/team1.jpg" alt="Henrique" style="width:100%">
+            <img src="/Henrique.jpg" alt="Henrique" style="width:10%">
             <div class="container">
                 <h2>Henrique Pinho</h2>
                 <p class="title">CEO & Founder</p>
