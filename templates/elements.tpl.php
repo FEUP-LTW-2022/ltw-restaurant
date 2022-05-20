@@ -20,10 +20,19 @@
         <form id="search-bar" action="search-results.php" method="get">
             <input type="text" name="search-bar" placeholder="Restaurant, city, ...">
         </form>
+        <?php
+            if (account::isLoggedIn()){
+
+        ?>
+                <p>vdibmdibgf</p>
+        <?php }
+            else{
+        ?>
         <div id="signup">
             <a href="register.php">Register</a>
             <a href="login.php">Login</a>
       </div>
+        <?php }?>
     </header>
     <script src="/javascript/header.js"></script>
     <main>
