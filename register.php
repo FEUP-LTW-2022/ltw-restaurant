@@ -2,13 +2,15 @@
 session_start();
 include_once('database/connection.php');
 require_once('templates/elements.tpl.php');
-
+if (strtoupper($_SERVER['REQUEST_METHOD']) === 'POST') {
+    account::register($_POST);
+}
 drawHeader();
 ?>
 
         <div id="register">
             <p>Create Account</p>
-            <form method="post" action="database/register.php">
+            <form method="post" action="register.php">
                 <p>*Name <input name="name" type="text" required="required"></p>
                 <p>Surname <input name="surname" type="text"></p>
                 <p>*Email <input name="email" type="email" required="required"></p>
