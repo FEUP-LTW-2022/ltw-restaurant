@@ -1,4 +1,7 @@
-<?php declare(strict_types = 1); ?>
+<?php declare(strict_types = 1);
+    include_once("database/connection.php");
+?>
+
 
 
 <?php function drawHeader(){?>
@@ -20,15 +23,16 @@
         <form id="search-bar" action="search-results.php" method="get">
             <input type="text" name="search-bar" placeholder="Restaurant, city, ...">
         </form>
+        <div id="signup">
         <?php
             if (account::isLoggedIn()){
 
         ?>
-                <p>vdibmdibgf</p>
+                <a>vdibmdibgf</a>
         <?php }
             else{
         ?>
-        <div id="signup">
+
             <a href="register.php">Register</a>
             <a href="login.php">Login</a>
       </div>

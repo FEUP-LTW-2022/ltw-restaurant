@@ -1,6 +1,7 @@
 <?php
 session_start();
 include_once('database/connection.php');
+include_once ('database/account.php');
 require_once('templates/elements.tpl.php');
 if (strtoupper($_SERVER['REQUEST_METHOD']) === 'POST') {
     account::register($_POST);

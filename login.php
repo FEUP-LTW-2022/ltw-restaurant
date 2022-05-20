@@ -2,6 +2,7 @@
 session_start();
 include_once('templates/elements.tpl.php');
 include_once ('database/connection.php');
+include_once ('database/account.php');
 
 drawHeader();
 
