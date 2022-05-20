@@ -164,7 +164,7 @@ main {
   }
 /*
 /* Style inputs */
-input, select, textarea {
+/*input, select, textarea {
     width: 100%;
     padding: 12px;
     border: 1px solid #ccc;
@@ -185,14 +185,14 @@ input[type=submit]:hover {
     background-color: #45a049;
 }
 
-/* Style the container/contact section */
+/* Style the container/contact section
 .container {
     border-radius: 5px;
     background-color: #f2f2f2;
     padding: 10px;
 }
 
-/* Create two columns that float next to eachother */
+/* Create two columns that float next to eachother 
 .column {
     float: left;
     width: 50%;
@@ -200,12 +200,12 @@ input[type=submit]:hover {
     padding: 20px;
 }
 
-/* Clear floats after the columns */
+/* Clear floats after the columns 
 .row:after {
     content: "";
     display: table;
     clear: both;
-}
+} */
 
 
   /*login form */
