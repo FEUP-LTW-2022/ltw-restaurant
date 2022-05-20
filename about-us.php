@@ -9,10 +9,10 @@ drawHeader();
 </div>
 
 <h2 style="text-align:center">Our Team</h2>
-<div class="row">
-    <div class="column">
+<div class="row1">
+    <div class="column1">
         <div class="card">
-            <img src="/w3images/team1.jpg" alt="Henrique" style="width:100%">
+            <img src="/Henrique.jpg" alt="Henrique" style="width:10%">
             <div class="container">
                 <h2>Henrique Pinho</h2>
                 <p class="title">CEO & Founder</p>
@@ -23,7 +23,7 @@ drawHeader();
         </div>
     </div>
 
-    <div class="column">
+    <div class="column1">
         <div class="card">
             <img src="/Ricardo.png" alt="Ricardo" style="width:10%">
             <div class="container">
@@ -36,7 +36,7 @@ drawHeader();
         </div>
     </div>
 
-    <div class="column">
+    <div class="column1">
         <div class="card">
             <img src="/Tiago.jpg" alt="Tiago" style="width:10%">
             <div class="container">
