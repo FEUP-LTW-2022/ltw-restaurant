@@ -10,7 +10,7 @@ drawHeader();
         </div>
         <div class="row">
             <div class="column">
-                <img src="/contact.png" style="width:50% align=”middle">
+                <img src="./images/contact.png" style="width:50% align=”middle">
                 <h2>Contacts</h2>
                 <p>Cape Verde: +238 26184848/9982132 </p>
                 <p>Portugal: +351 231488549/931453211</p>

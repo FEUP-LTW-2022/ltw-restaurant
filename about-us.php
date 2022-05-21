@@ -12,7 +12,7 @@ drawHeader();
 <div class="row1">
     <div class="column1">
         <div class="card">
-            <img src="/Henrique.jpg" alt="Henrique" style="width:10%">
+            <img src="./images/Henrique.jpg" alt="Henrique" style="width:10%">
             <div class="container">
                 <h2>Henrique Pinho</h2>
                 <p class="title">CEO & Founder</p>
@@ -25,7 +25,7 @@ drawHeader();
 
     <div class="column1">
         <div class="card">
-            <img src="/Ricardo.png" alt="Ricardo" style="width:10%">
+            <img src="./images/Ricardo.png" alt="Ricardo" style="width:10%">
             <div class="container">
                 <h2>Ricardo da Cruz</h2>
                 <p class="title">CEO & Founder</p>
@@ -38,7 +38,7 @@ drawHeader();
 
     <div class="column1">
         <div class="card">
-            <img src="/Tiago.jpg" alt="Tiago" style="width:10%">
+            <img src="./images/Tiago.jpg" alt="Tiago" style="width:10%">
             <div class="container">
                 <h2>Tiago Pires</h2>
                 <p class="title">CEO & Founder</p>
