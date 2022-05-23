@@ -102,7 +102,7 @@ CREATE TABLE categories (
 	name VARCHAR NOT NULL
 );
 
-/*
+
 --prevent the change of credit card info to prevent exploit
 DROP TRIGGER IF EXISTS is_change_credit_card_info;
 
@@ -113,7 +113,7 @@ CREATE TRIGGER is_change_credit_card_info
     BEGIN
         SELECT RAISE(FAIL, 'updates not allowed');
     end;
-*/
+
 
 
 

@@ -5,12 +5,15 @@ include_once ('database/connection.php');
 include_once ('database/account.php');
 
 drawHeader();
-
+if (account::isLoggedIn()){
+    header("Location:index.php");
+    exit();
+}
 if(strtoupper($_SERVER['REQUEST_METHOD']) === 'POST') {
     account::login($_POST["email"],$_POST["password"]);
 }
 ?>
-    <form action="/index.php" method="post" class="login">
+    <form action="login.php" method="post" class="login">
         <h1>Login to your account</h1>
         <label for="email"><b>Email</b></label>
         <input name="email" required="required" type="email" placeholder="Enter email">

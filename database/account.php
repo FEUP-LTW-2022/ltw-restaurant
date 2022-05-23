@@ -11,11 +11,10 @@ class account{
         $stmt->execute();
         $value = $stmt->fetch(PDO::FETCH_ASSOC);
         if (security::checkPassword($value["password"],$password)){
-            $aa = security::generateToken();
-            $_SESSION["token"] = $_COOKIE["token"];
+            $_SESSION["token"] = security::generateToken();
             $_SESSION["email"] = $email;
             $stmt = $db->prepare("INSERT INTO user_login_token VALUES (:token,:id)");
-            $stmt->bindParam(":token",$_COOKIE["token"]);
+            $stmt->bindParam(":token",$_SESSION["token"]);
             $stmt->bindParam(":id",$value["id"]);
             $stmt->execute();
             header("Location:index.php");
@@ -69,6 +68,14 @@ class account{
         header('Location: ../login.php');
         exit();
     }
+
+    public static function getUsername(){
+        $stmt = getDatabaseConnection()->prepare("SELECT name FROM users WHERE email=:email");
+        $stmt->bindParam(":email",$_SESSION["email"]);
+        $stmt->execute();
+        return $stmt->fetch()["name"];
+    }
+
 
 
 }

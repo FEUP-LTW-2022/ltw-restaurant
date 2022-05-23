@@ -1,14 +1,15 @@
-<?php declare(strict_types = 1); ?>
+<?php declare(strict_types = 1);
+    include_once("database/connection.php");
+    include_once ("database/account.php");
 
-
-<?php function drawHeader(){?>
+function drawHeader(){?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <title>Title</title>
     <meta charset="UTF-8">
-    <link href="css/style.css" rel="stylesheet">
-    <link href="css/layout.css" rel="stylesheet">
+    <link href="./css/style.css" rel="stylesheet">
+    <link href="./css/layout.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body> 
@@ -20,12 +21,25 @@
         <form id="search-bar" action="search-results.php" method="get">
             <input type="text" name="search-bar" placeholder="Restaurant, city, ...">
         </form>
-
         <div id="signup">
-            <a href="register.php">Sign Up</a>
-            <a href="login.php">Login</a>
-      </div>
+        <?php
+            if (account::isLoggedIn()){
+            echo "<a href='user.php'>".account::getUsername()."</a>";
+        ?>
+            <div class="dropdown">
+                <button class="dropbtn"><img src="cart.svg"></button>
+                <div class="dropdown-content">
+                    <a href="#">Link 1</a>
+                    <a href="#">Link 2</a>
+                    <a href="#">Link 3</a>
+                </div>
+            </div>
+        <?php }else{ ?>
 
+            <a href="register.php">Register</a>
+            <a href="login.php">Login</a>
+        </div>
+        <?php }?>
     </header>
     <script src="/javascript/header.js"></script>
     <main>

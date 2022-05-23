@@ -162,6 +162,50 @@ main {
     margin-bottom: 5px;
     font-size: 15px;
   }
+
+
+
+/*
+dropdown menu
+ */
+
+
+.dropbtn {
+    background-color: #FFFFFF;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+}
+
+.dropdown {
+    position: relative;
+    background-color: transparent;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgba(0,0,0,0);
+    right: 1em;
+    min-width: 160px;
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    background-color: #f1f1f1;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #ddd;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover .dropbtn {background-color: #FFFFFF;}
 /*
 /* Style inputs */
 /*input, select, textarea {
@@ -261,6 +305,48 @@ input[type=submit]:hover {
     background-color: transparent;
     text-decoration: underline;
   }
+/*
+dropdown menu
+ */
+
+
+.dropbtn {
+    background-color: #FFFFFF;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+}
+
+.dropdown {
+    position: relative;
+    background-color: transparent;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgba(0,0,0,0);
+    right: 1em;
+    min-width: 160px;
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    background-color: #f1f1f1;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #ddd;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover .dropbtn {background-color: #FFFFFF;}
+
 
   /* Change styles for span and cancel button on extra small screens */
   @media screen and (max-width: 300px) {
