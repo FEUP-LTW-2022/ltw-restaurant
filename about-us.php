@@ -97,7 +97,7 @@
 
 			<div class = "AboutUsDivButton">
 				<div id = "AboutUsGoBackButton" class = "AboutUsButton" onclick = "goBack('AboutUsPageInfo','AboutUsPageMembers')">
-					Go Back To About Us Page
+					Back To About Us Page
 				</div>
 			</div>
 		</div>
