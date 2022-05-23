@@ -67,13 +67,13 @@ main, footer {
     
     width: 100%;    
     height: 2em;
-    border: 2px solid black;
+    border: 2px solid green;
     border-radius: 4px;
 }
 #signup a{
     border-radius: 10px;
     border-top: 10px;
-    border: 2px solid gray;
+    border: 2px solid green;
     padding: 5px 1em;
 }
 
@@ -300,3 +300,138 @@ input[type=submit]:hover {
   .login-newacc button:hover {
     opacity: 0.8;
   }*/
+
+/*****************************************************************/
+
+/* ABOUT US */
+#AboutUsPageMembers{
+  display: none;
+}
+
+.AboutUsPage{
+  display: flex;
+  flex-direction: column;
+  padding-top: 100px;
+  justify-content: space-around;
+  width:100%
+}
+
+.AboutUsBox{
+  background-color: rgb(255, 255, 255);
+  align-self: center;
+  display: flex;
+  border-radius: 4px;
+  flex-direction: column;
+  padding: 2.5em;
+  -webkit-box-shadow: 0px 5px 20px 3px rgba(138, 138, 138, 0.05);
+  box-shadow: 0px 5px 20px 3px rgba(138, 138, 138, 0.05);
+  border: 1px solid rgba(190, 190, 190, 0.418); 
+  width:40%;
+}
+
+.AboutUsTitle{
+  align-self: center;
+  color: black;
+  font-weight: 900;
+  font-size: 20px;
+  padding-bottom: 15px;
+}
+
+.AboutUsMemberSpace{
+  display: flex;
+  flex-flow: row;
+  justify-content: space-around;
+  color: black; 
+  margin-bottom: 3%;
+
+  background-color: rgb(241, 238, 238);
+  border-radius: 20px;
+}
+
+.AboutUsEmail{
+  color: rgb(131, 131, 131); 
+}
+
+.AboutUsMember{
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+}
+
+.AboutUsHR{
+  width: 90%;
+  align-self: center;
+  /*height: 5px;*/
+  color: black;
+  margin-bottom: 3%;
+}
+
+#AboutUsInfo{
+  color: rgb(148, 144, 144);
+  width: 90%;
+  align-self: center;
+  margin-bottom: 6%;
+}
+
+.AboutUsPhoto{
+  display: inline;
+  margin: 0 auto;
+  height: 150px;
+  width: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-top: 7%;
+  margin-bottom: 7%;
+}
+
+.AboutUsMemberName{
+  display: flex;
+  align-self: center;
+  flex-flow: column;
+  justify-content: center;
+}
+
+.AboutUsButton{
+  border: 0;
+  background-color: #2a9d8f;
+  padding: 13px;
+  border-radius: 20px;
+  font-size: 13px;
+  background-color:green;
+  color: white;
+  text-transform: uppercase;
+  font-weight: bold;
+  cursor: pointer;
+  width: 40%;
+  height: 5%;
+  display: flex;
+  justify-content: center;
+
+  margin-left: auto; 
+  margin-right: 0;
+}
+
+.AboutUsDivButton{
+  width: 90%;
+  align-self: center;
+  display: flex;
+}
+
+#AboutUsTeamDiv{
+  width: 90%;
+  align-self: center;
+}
+
+.AboutUsMembersInfo{
+  display: flex;
+  flex-flow: column;
+}
+
+.AboutUsDivIcon{
+  display: flex;
+  flex-flow: row;
+}
+
+.AboutUsIcon{
+  margin-right:10px;;
+}
