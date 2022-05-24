@@ -30,6 +30,14 @@ if(strtoupper($_SERVER['REQUEST_METHOD']) === 'POST') {
     <hr class="login-bar">
     <div class="login-newacc">
         <h2>Don't have an account?</h2>
-        <button href="/register.php">Sign Up here</button>
+        <button onclick=loginOnClick()>Sign Up here</button>
+        
     </div>
+
 <?php drawFooter() ?>
+
+<script> 
+ function loginOnClick(){
+    window.location.href="./register.php"
+ }
+ </script>

@@ -59,7 +59,7 @@ function drawFooter(){ ?>
                 <a href="about-us.php">About Us</a>
             </li>
             <li>
-                <a href="contact-info.php">Contact Info</a>
+                <a href="contact-us.php">Contact Us</a>
             </li>
             <li>
                 <a href="faq.php">FAQ's</a>
