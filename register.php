@@ -8,27 +8,66 @@ if (strtoupper($_SERVER['REQUEST_METHOD']) === 'POST') {
 }
 drawHeader();
 ?>
+    <div class="register">
+        <form method="post" action="register.php">
+            <h1>Create a new account</h1>
 
-        <div id="register">
-            <p>Create Account</p>
-            <form method="post" action="register.php">
-                <p>*Name <input name="name" type="text" required="required"></p>
-                <p>Surname <input name="surname" type="text"></p>
-                <p>*Email <input name="email" type="email" required="required"></p>
-                <p>*Date of Birth <input name="birthdate" type="date" required="required"></p>
-                <p>*Password <input name="password" type="password" required="required"></p>
-                <p>*Phone Number <input name="phoneNumber" type="number" max="999999999" min="100000000"></p>
-                <p><input name="termsOfService" type="checkbox" required="required" checked>I Accept the terms of service*</p>
-                <p><input name="consentToPromotions" type="checkbox" checked>I Want to Receive Emails with promotional material</p>
-                <?php
-                    if ($_SESSION["error"] = "email already registered"){
-                        echo "email already registered try logging in or a different email";
-                        unset($_SESSION["error"]);
-                    }
-                ?>
-                <p>*mandatory fields</p>
-                <button type="submit">Register</button>
-            </form>
+            <label for="name"><b>Name</b></label>
+            <input name="name" type="text" placeholder="Your name .."required>
+            
+            <label for="email"><b>Email</b></label>
+            <input name="email" type="email" placeholder="Your email .." required>
+
+            <label for="password"><b>Password</b></label>
+            <input name="password" type="password" placeholder="Password .." required>
+
+            <label for="phoneNumber"><b>Phone Number</b></label>
+            <input name="phoneNumber" type="number" max="999999999" min="900000000" placeholder="Your phone number ..">
+           
+            <label for="birthDate"><b>Birth date</b></label>
+            <input name="birthdate" type="date" id="date" max ='' required>  
+
+            <?php
+                if ($_SESSION["error"] = "email already registered"){
+                    echo "email already registered try logging in or a different email";
+                    unset($_SESSION["error"]);
+                }
+            ?>
+            <button type="submit">Register</button>
+        </form>
+        <hr id="register-bar">
+        <div id="regToLogin">
+            <h2>Already have an account?</h2>
+            <button onclick=RegToLogin()>Login</button>
+            
         </div>
-        
-<?php drawFooter() ?>
+    </div>
+<?php drawFooter()?>
+
+<script src="./javascript/login&register.js">
+
+RegToLogin()
+
+//setDate()
+
+/* function RegToLogin(){
+    window.location.href="./login.php"
+ }
+
+function setDate(){var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth() + 1; //January is 0!
+var yyyy = today.getFullYear();
+
+if (dd < 10) {
+   dd = '0' + dd;
+}
+
+if (mm < 10) {
+   mm = '0' + mm;
+} 
+    
+today = yyyy + '-' + mm + '-' + dd;
+document.getElementById("date").setAttribute("max", today);
+}*/
+ </script>

@@ -3,6 +3,7 @@
 require_once('./templates/elements.tpl.php');
 require_once('./templates/contact-us.tpl.php');
 
+realEmailSender(); // probably working, not tested 
 fakeEmailSender();
 drawHeader();
 
