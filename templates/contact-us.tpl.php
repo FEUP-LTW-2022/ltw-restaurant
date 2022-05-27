@@ -27,7 +27,7 @@ function fakeEmailSender(){
         $lastname = $_POST['lastname'];
         $subject = "Form submission";
         $subject2 = "Copy of your form submission";
-        $message = "{$firstname} {$lastname}  wrote the following:" . "\n\n" . $_POST['message'] . "\n\n";
+        $message = "{$firstname} {$lastname} ()  wrote the following:" . "\n\n" . $_POST['message'] . "\n\n";
         $message2 = "Here is a copy of your message " . $firstname . "\n\n" . $_POST['message'] ;
         
     $fp = fopen('./emails/email.txt', 'a');

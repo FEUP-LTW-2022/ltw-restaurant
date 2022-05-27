@@ -10,6 +10,7 @@ class account{
         $stmt->bindParam(':email', $email);
         $stmt->execute();
         $value = $stmt->fetch(PDO::FETCH_ASSOC);
+        
         if (security::checkPassword($value["password"],$password)){
             $_SESSION["token"] = security::generateToken();
             $_SESSION["email"] = $email;
