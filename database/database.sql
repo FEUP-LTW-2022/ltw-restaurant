@@ -14,7 +14,7 @@ CREATE TABLE restaurant (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     ownerID INTEGER NOT NULL REFERENCES users(id),
     name VARCHAR UNIQUE NOT NULL,
-    location VARCHAR,
+    city VARCHAR,
     address VARCHAR NOT NULL,
     website VARCHAR,
     openHour DATE NOT NULL DEFAULT '1230',
