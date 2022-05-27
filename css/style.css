@@ -135,7 +135,7 @@ main {
     text-align: center;
  }
   
- #restaurants-list {
+ .restaurants-list {
     display: flex;
     flex-wrap: wrap;
     justify-content: left;
@@ -143,19 +143,20 @@ main {
     margin: 0px 170px 0px 170px;
   }
   
-  #restaurants-list article {
-    display: grid;
-    justify-content: center;
+  .restaurants-list article {
     width: 350px;
+    height: 280px;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-around;
+    color: black; 
+    background-color: rgb(241, 238, 238);
+    border-radius: 20px;
     
   }
+
   
-  #restaurants-list article * {
-    grid-column-start: 1;
-    grid-row-start: 1;
-  }
-  
-  #restaurants-list article a {
+  .restaurants-list article a {
     color: black;
     text-decoration: none;
   
@@ -165,11 +166,20 @@ main {
     text-align: left;
   }
 
-  #restaurant-category{
-    font-size: 15px;
+  .restaurants-list #restaurant-info div:first-child {
+    border-right: 1px solid black;
   }
 
- .checked {
+ .restaurants-list #restaurant-category{
+    font-size: 15px;
+    opacity: 0.6;
+  }
+  .restaurants-list #restaurant-category{
+    font-size: 15px;
+    opacity: 0.6;
+  }
+
+  .checked {
     color: orange;
   }
 
@@ -463,7 +473,7 @@ hr#register-bar {
 
 
 #FAQ {
-  margin: 100px auto;
+  margin: 0px auto;
   padding: 40px;
   width: 70%;
   min-width: 300px;
@@ -503,7 +513,7 @@ hr#register-bar {
 
 .active_faq,
 .faq-page:hover {
-  background: rgba(32, 184, 53, 0.2);
+  background: rgb(241, 238, 238);
 }
 .faq-body {
   padding: 0 18px;
