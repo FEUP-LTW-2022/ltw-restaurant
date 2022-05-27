@@ -166,15 +166,13 @@ main {
     text-align: left;
   }
 
-  .restaurants-list #restaurant-info div:first-child {
-    border-right: 1px solid black;
-  }
 
- .restaurants-list #restaurant-category{
+ .restaurants-list #restaurant-category {
     font-size: 15px;
     opacity: 0.6;
   }
-  .restaurants-list #restaurant-category{
+
+  .restaurants-list #restaurant-city{
     font-size: 15px;
     opacity: 0.6;
   }

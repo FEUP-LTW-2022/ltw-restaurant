@@ -12,9 +12,9 @@
                 <a  href="restaurant.php?id=<?=$restaurant['id']?>">
                   <img src="https://picsum.photos/200?<?=$restaurant['id']?>">
                   <div id="restaurant-info">
-                    <div id="restaurant-category">categoria</div>
-                    <div id="restaurant-city"><?=$restaurant['city']?> algo</div>
-                  </div>
+                    <span id="restaurant-category">categoria</span>
+                    <span id="restaurant-city">cidade</span>
+                 </div>
 
                   <div id="restaurant-name"><b><?=$restaurant['name']?> </b> </div>
                   <div id="restaurant-rating"><?= drawRating($rate)?></div>
