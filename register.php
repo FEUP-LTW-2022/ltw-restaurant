@@ -19,7 +19,7 @@ drawHeader();
             <input name="email" type="email" placeholder="Your email .." required>
 
             <label for="password"><b>Password</b></label>
-            <input name="password" type="password" placeholder="Password .." required>
+            <input name="password" type="password" placeholder="Password .." minlength="8" required>
 
             <label for="phoneNumber"><b>Phone Number</b></label>
             <input name="phoneNumber" type="number" max="999999999" min="900000000" placeholder="Your phone number ..">
