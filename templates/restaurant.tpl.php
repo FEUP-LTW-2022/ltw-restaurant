@@ -11,13 +11,12 @@
               <article>
                 <a  href="restaurant.php?id=<?=$restaurant['id']?>">
                   <img src="https://picsum.photos/200?<?=$restaurant['id']?>">
-                  <div id="restaurant-info">
-                    <span id="restaurant-category">categoria</span>
-                    <span id="restaurant-city">cidade</span>
-                 </div>
-
-                  <div id="restaurant-name"><b><?=$restaurant['name']?> </b> </div>
-                  <div id="restaurant-rating"><?= drawRating($rate)?></div>
+                  <span id="restaurant-category">categoria</span>
+                  <div id="rest_info_rate">
+                    <div id="restaurant-info"><b><?=$restaurant['name']?> </b> </div>
+                    <div id="restaurant-rating"><b><?= $rate?></b></div>
+                  </div>
+                  <span id="restaurant-city"><b>cidade</b></span>
                </a>
               </article>
           <?php }?>

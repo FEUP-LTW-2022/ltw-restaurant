@@ -17,8 +17,8 @@ CREATE TABLE restaurant (
     city VARCHAR,
     address VARCHAR NOT NULL,
     website VARCHAR,
-    openHour DATE NOT NULL DEFAULT '1230',
-    closeHour DATE NOT NULL DEFAULT '1930',
+    openHour INTEGER NOT NULL DEFAULT '900',
+    closeHour INTEGER NOT NULL DEFAULT '2200',
     email VARCHAR,
     phoneNumber VARCHAR,
     category INTEGER NOT NULL DEFAULT 1, -- apagar default
@@ -66,11 +66,11 @@ CREATE TABLE users (
     email VARCHAR NOT NULL UNIQUE,
     name VARCHAR NOT NULL,
 	birthDate VARCHAR,
-	photoId VARCHAR,
+	photo BLOB,
 	type VARCHAR,
 	phoneNumber INTEGER,
     isOwner NOT NULL DEFAULT False,
-    password VARCHAR NOT NULL --crypt
+    password VARCHAR NOT NULL
 );
 
 CREATE TABLE user_login_token(
@@ -78,12 +78,6 @@ CREATE TABLE user_login_token(
     userID INTEGER NOT NULL REFERENCES users(id)
 );
 
-/*CREATE TABLE credit_card_info(
-    user_id REFERENCES users(id) NOT NULL,
-    num integer PRIMARY KEY,
-    cardholder VARCHAR NOT NULL,
-    expiry_date DATE NOT NULL
-);*/
 
 CREATE TABLE comments (
 	id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -102,17 +96,6 @@ CREATE TABLE categories (
 	name VARCHAR NOT NULL
 );
 
-
---prevent the change of credit card info to prevent exploit
-DROP TRIGGER IF EXISTS is_change_credit_card_info;
-
-
-
-CREATE TRIGGER is_change_credit_card_info
-    BEFORE  UPDATE ON users
-    BEGIN
-        SELECT RAISE(FAIL, 'updates not allowed');
-    end;
 
 
 
