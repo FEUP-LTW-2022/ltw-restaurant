@@ -23,3 +23,16 @@
         </section>
 
 <?php } ?>
+
+<?php function drawDishesList(PDO $db, array $dishes){ ?>
+    <section class="dishes-list">
+    <?php foreach( $dishes as $dish) {
+       // $rate = getAverageRate($db, $dish['id']) ?>
+        <article>
+
+            </article>
+    </section>
+<?php }
+}
+
+

@@ -33,6 +33,14 @@ function getRestaurant(PDO $db, int $id){
     return $stmt->fetch();
 }
 
+function getDishes(int $id){
+    $db = getDatabaseConnection();
+    $stmt = $db->prepare('SELECT * FROM dish WHERE restaurant_id = ?');
+    $stmt->execute(array($id));
+
+    return $stmt->fetchAll();
+
+}
 
 function getAverageRate(PDO $db, int $id){
     $reviews = getRestaurantRate($db, $id) ;
