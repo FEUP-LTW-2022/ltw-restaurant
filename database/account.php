@@ -3,6 +3,19 @@
 include_once ("password.php");
 
 class account{
+    public static function getUserRequest($count){
+        $db = getDatabaseConnection();
+        $stmt = $db->prepare("SELECT id FROM users WHERE email=:email");
+        $stmt->bindParam(":email",$_SESSION["email"]);
+        $stmt->execute();
+        $userID = $stmt->fetch();
+        $stmt = $db->prepare("SELECT * FROM request WHERE userID = :userID ORDER BY date LIMIT :count");
+        $stmt->bindParam(":userID",$userID);
+        $stmt->bindParam(":count",$count);
+        $stmt->execute();
+        return $stmt->fetchAll();
+
+    }
 
     public static function login($email,$password){
         $db = getDatabaseConnection();
@@ -28,7 +41,6 @@ class account{
 
     public static function isLoggedIn(): bool
     {
-        error_log("session is ".$_SESSION["token"]);
         if (isset($_SESSION["token"]) and isset($_SESSION["email"])){
             $stmt = getDatabaseConnection()->prepare("SELECT id FROM users WHERE email = :email");
             $stmt->bindParam(":email",$_SESSION["email"]);
@@ -70,6 +82,12 @@ class account{
         exit();
     }
 
+    public static function getUserID(){
+        $stmt = getDatabaseConnection()->prepare("SELECT id FROM users WHERE email=:email");
+        $stmt->bindParam(":email",$_SESSION["email"]);
+        $stmt->execute();
+        return $stmt->fetch()["id"];
+    }
     public static function getUsername(){
         $stmt = getDatabaseConnection()->prepare("SELECT name FROM users WHERE email=:email");
         $stmt->bindParam(":email",$_SESSION["email"]);

@@ -11,6 +11,16 @@ GROUP BY reviews.id';
 const RESTAURANT='SELECT restaurant.* FROM restaurant WHERE id=?';
 
 
+
+
+function registerRestaurant($values){
+
+    $stmt = getDatabaseConnection()->prepare("INSERT INTO restaurant (ownerID,name,city,address,website,openHour,closeHour,email,phoneNumber) 
+                            VALUES (?,?,?,?,?,?,?,?,?)");
+    $stmt->execute(array(account::getUserID(),$values["name"],$values["city"],$values["address"],$values["website"],$values["open-hour"],
+                            $values["closeHour"],$values["email"],$values["phoneNumber"]));
+}
+
 function getAllRestaurants(PDO $db){
     $stmt = $db->prepare(ALL_RESTAURANTS_Q);
     $stmt->execute();

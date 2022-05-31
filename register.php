@@ -12,23 +12,29 @@ drawHeader();
         <form method="post" action="register.php">
             <h1>Create a new account</h1>
 
-            <label for="name"><b>Name</b></label>
-            <input name="name" type="text" placeholder="Your name .."required>
+            <label for="name">
+                <b>Name</b>
+                <input name="name" type="text" placeholder="Your name .." required>
+            </label>
             
-            <label for="email"><b>Email</b></label>
+            <label for="email"><b>Email</b>
             <input name="email" type="email" placeholder="Your email .." required>
+            </label>
 
-            <label for="password"><b>Password</b></label>
+            <label for="password"><b>Password</b>
             <input name="password" type="password" placeholder="Password .." minlength="8" required>
+            </label>
 
-            <label for="phoneNumber"><b>Phone Number</b></label>
+            <label for="phoneNumber"><b>Phone Number</b>
             <input name="phoneNumber" type="number" max="999999999" min="900000000" placeholder="Your phone number ..">
+            </label>
            
-            <label for="birthDate"><b>Birth date</b></label>
-            <input name="birthdate" type="date" id="date" max ='' required>  
+            <label for="birthDate"><b>Birth date</b>
+            <input name="birthdate" type="date" id="date" max ='' required>
+            </label>
 
             <?php
-                if ($_SESSION["error"] = "email already registered"){
+                if ($_SESSION["error"] == "email already registered"){
                     echo "email already registered try logging in or a different email";
                     unset($_SESSION["error"]);
                 }
@@ -39,7 +45,6 @@ drawHeader();
         <div id="regToLogin">
             <h2>Already have an account?</h2>
             <button onclick=RegToLogin()>Login</button>
-            
         </div>
     </div>
 <?php drawFooter()?>

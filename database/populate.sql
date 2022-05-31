@@ -9,12 +9,9 @@ INSERT INTO restaurant(id,ownerID, name, address) VALUES (3, 3, 'Restaurante 3',
 INSERT INTO restaurant(id,ownerID, name, address) VALUES (4, 4, 'Restaurante 4', 'Rua do restaurante4');
 INSERT INTO restaurant(id,ownerID, name, address) VALUES (5, 5, 'Restaurante 5', 'Rua do restaurante5');
 INSERT INTO restaurant(id,ownerID, name, address) VALUES (6, 6, 'Restaurante 6', 'Rua do restaurante6');
-INSERT INTO restaurant(id,ownerID, name, address) VALUES (7, 7, 'Restaurante 7', 'Rua do restaurante7');
-INSERT INTO restaurant(id,ownerID, name, address) VALUES (8, 8, 'Restaurante 8', 'Rua do restaurante8');
-INSERT INTO restaurant(id,ownerID, name, address) VALUES (9, 9, 'Restaurante 9', 'Rua do restaurante9');
-INSERT INTO restaurant(id,ownerID, name, address) VALUES (10, 10, 'Restaurante 10', 'Rua do restaurante10');
-INSERT INTO restaurant(id,ownerID, name, address) VALUES (11, 11, 'Restaurante 11', 'Rua do restaurante11');
-INSERT INTO restaurant(id,ownerID, name, address) VALUES (12, 12, 'Restaurante 12', 'Rua do restaurante12');
+INSERT INTO restaurant(id,ownerID, name, address) VALUES (6, 6, 'Restaurante 7', 'Rua do restaurante7');
+INSERT INTO restaurant(id,ownerID, name, address) VALUES (6, 6, 'Restaurante 8', 'Rua do restaurante8');
+INSERT INTO restaurant(id,ownerID, name, address) VALUES (6, 6, 'Restaurante 9', 'Rua do restaurante9');
 
 /*reviews*/
 INSERT INTO reviews(id, restaurant_id, rate) VALUES (1,2, 5);
