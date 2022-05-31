@@ -21,6 +21,7 @@ INSERT INTO reviews(id, restaurant_id, rate) VALUES (4,1, 5);
 
 /*Dish*/
 --INSERT INTO dish(id,name, restaurant_id) VALUES (1,'dish', 3);
+INSERT INTO dish(id,name, restaurant_id,price) VALUES (1,'Hamburguer de vaca', 1,50);
 
 
 /*admin*/

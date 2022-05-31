@@ -29,8 +29,10 @@
     <?php foreach( $dishes as $dish) {
        // $rate = getAverageRate($db, $dish['id']) ?>
         <article>
-
-            </article>
+            <div id="dish-info">
+                <div id="dish-name"><b><?=$dish['name']?> </b> </div>
+            </div>
+        </article>
     </section>
 <?php }
 }
