@@ -17,7 +17,7 @@ ul{
 body{
     font-family: Arial, Helvetica, sans-serif;;
     background-color: white;
-    margin: 8px 0px 0px 0px;
+    margin: 8px 0 0 0;
 }
 h1, h2{
     font-family: serif;
@@ -27,10 +27,10 @@ h1, h2{
 body > header {
     background-color: white;
     color:  black;  
-    box-shadow: 0px 7px 14px rgb(194, 195, 197);
+    box-shadow: 0 7px 14px rgb(194, 195, 197);
     width: 100%;
-    margin-left: 0px;
-    margin-right: 0px;
+    margin-left: 0;
+    margin-right: 0;
 
     
 }
@@ -116,10 +116,8 @@ main, footer {
 
 
 main {
-  
-    margin: 1em;
     padding: 1em;
-    margin: 0px 170px 0px 170px;
+    margin: 0 170px 0 170px;
   }
   
   main a {
@@ -157,7 +155,7 @@ main {
     justify-self: center;
     display: flex;
     flex-direction: column;
-    padding: 10px 10px 0px 10px;
+    padding: 10px 10px 0 10px;
 
   }
   .restaurants-list article a:hover {
@@ -281,7 +279,7 @@ main {
   }
   
   hr#login-bar {
-    margin: 0px 200px 0px 200px;
+    margin: 0 200px 0 200px;
     height:2px;
     border-width:0;
     color:gray;
@@ -328,7 +326,7 @@ main {
 
 
 hr#register-bar {
-  margin: 0px 200px 0px 200px;
+  margin: 0 200px 0 200px;
   height:2px;
   border-width:0;
   color:gray;
@@ -358,8 +356,8 @@ hr#register-bar {
   border-radius: 4px;
   flex-direction: column;
   padding: 2.5em;
-  -webkit-box-shadow: 0px 5px 20px 3px rgba(138, 138, 138, 0.05);
-  box-shadow: 0px 5px 20px 3px rgba(138, 138, 138, 0.05);
+  -webkit-box-shadow: 0 5px 20px 3px rgba(138, 138, 138, 0.05);
+  box-shadow: 0 5px 20px 3px rgba(138, 138, 138, 0.05);
   border: 1px solid rgba(190, 190, 190, 0.418); 
   width:40%;
 }
@@ -410,13 +408,11 @@ hr#register-bar {
 
 .AboutUsPhoto{
   display: inline;
-  margin: 0 auto;
-  height: 150px;
+    height: 150px;
   width: 150px;
   object-fit: cover;
   border-radius: 50%;
-  margin-top: 7%;
-  margin-bottom: 7%;
+    margin: 7% auto;
 }
 
 .AboutUsMemberName{
@@ -428,7 +424,6 @@ hr#register-bar {
 
 .AboutUsButton{
   border: 0;
-  background-color: #2a9d8f;
   padding: 13px;
   border-radius: 20px;
   font-size: 13px;
@@ -475,7 +470,7 @@ hr#register-bar {
 
 
 #FAQ {
-  margin: 0px auto;
+  margin: 0 auto;
   padding: 40px;
   width: 70%;
   min-width: 300px;

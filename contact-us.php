@@ -13,7 +13,7 @@ drawHeader();
       <h2>Contact Us</h2>
       <h3 id="text">
           To contact us please fill out this form or contact us via email@email.com
-      </h3l>
+      </h3>
   </div>
 
   <div class="ContactUs-container">
