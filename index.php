@@ -12,5 +12,5 @@
   drawHeader();
   drawRestaurantList($db, $restaurants);
   drawFooter();
-?>
+
    

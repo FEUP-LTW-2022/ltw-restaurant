@@ -64,7 +64,8 @@ function getRestaurantRate(PDO $db, int $id){
     return $stmt->fetchAll();
 }
 
-function countReviews(PDO $db, int $id){
+function countReviews(PDO $db, int $id): array
+{
     $reviews = getRestaurantRate($db, $id);
     $storeRev=[0,0,0,0,0,0];
     
@@ -81,6 +82,3 @@ function sumReviews(array $reviews){
     }
     return $counter; 
 }
-
-
-?>

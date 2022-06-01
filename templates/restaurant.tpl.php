@@ -9,8 +9,8 @@
           <?php foreach( $restaurants as $restaurant) {  
             $rate = getAverageRate($db, $restaurant['id']) ?> 
               <article>
-                <a  href="restaurant.php?id=<?=$restaurant['id']?>">
-                  <img src="https://picsum.photos/200?<?=$restaurant['id']?>">
+                <a  href="/restaurant.php?id=<?=$restaurant['id']?>">
+                  <img src="https://picsum.photos/200?<?=$restaurant['id']?>" alt="restaurant photo">
                   <span id="restaurant-category">categoria</span>
                   <div id="rest_info_rate">
                     <div id="restaurant-info"><b><?=$restaurant['name']?> </b> </div>

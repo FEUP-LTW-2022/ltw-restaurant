@@ -60,7 +60,7 @@ main, footer {
 }
 
 
-#search-bar> input[type=text], #signup a{
+#search-bar>label> input[type=text], #signup a{
     width: 100%;
     padding: 12px;
     border: 1px solid green;
@@ -255,15 +255,15 @@ main {
   .login span.psw {
     float: right;
   }
-  #login-checkbox{
+  #login-opt{
     margin-bottom: 1em;
   }
-  #login-checkbox a:link {
+  #login-opt a:link {
     color: green;
     background-color: transparent;
     text-decoration: none;
   }
-  #login-checkbox a:hover {
+  #login-opt a:hover {
     color: red;
     background-color: transparent;
     text-decoration: underline;
