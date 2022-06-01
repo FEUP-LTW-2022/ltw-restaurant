@@ -24,17 +24,18 @@
 
 <?php } ?>
 
-<?php function drawDishesList(PDO $db, array $dishes){ ?>
+<?php function drawDishesList(array $dishes){ ?>
     <section class="dishes-list">
-    <?php foreach( $dishes as $dish) {
-       // $rate = getAverageRate($db, $dish['id']) ?>
-        <article>
-            <div id="dish-info">
-                <div id="dish-name"><b><?=$dish['name']?> </b> </div>
-            </div>
-        </article>
+      <?php foreach( $dishes as $dish) {
+        // $rate = getAverageRate($db, $dish['id']) ?>
+          <article>
+              <div id="dish-info">
+                  <div id="dish-name"><b><?=$dish['name']?> </b> </div>
+              </div>
+          </article>
+          <?php }?>
     </section>
-<?php }
+<?php 
 }
 
 

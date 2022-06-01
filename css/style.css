@@ -111,13 +111,6 @@ main, footer {
 
 .dropdown:hover .dropbtn {background-color: #FFFFFF;}
 
-/*#signup a{
-    /*border-radius: 10px;
-    border-top: 10px;
-    border: 2px solid green;
-    padding: 5px 1em;
-   
-}*/
 
 /*restaurant list */
 
@@ -126,6 +119,7 @@ main {
   
     margin: 1em;
     padding: 1em;
+    margin: 0px 170px 0px 170px;
   }
   
   main a {
@@ -142,7 +136,7 @@ main {
     align-items: center;
     justify-content: center;
     gap: 3em;
-    margin: 0px 170px 0px 170px;
+
   }
   
   .restaurants-list article {
@@ -226,9 +220,7 @@ main {
 
 
   /*login form */
-  .login{
-    margin: 0px 170px 0px 170px;
-  }
+
 
   .login input[type=email], .login input[type=password] {
     width: 100%;
@@ -302,7 +294,7 @@ main {
  
 /* REGISTER FORM */
 .register{
-  margin: 0px 170px 0px 170px;
+
   padding: 16px;
 }
 
@@ -575,6 +567,61 @@ hr#register-bar {
   background-color: #45a049;
 }
 
-.ContactUs {
-  margin: 0px 170px 0px 170px;
+
+
+/**********************************************/
+/* Restaurant page */
+.rate-table hr{
+  border:3px solid #f1f1f1;
+}
+.rate-table #side {
+  float: left;
+  width: 15%;
+  margin-top:10px;
+}
+
+.rate-table #middle {
+  margin-top:10px;
+  float: left;
+  width: 70%;
+}
+
+/* Place text to the right */
+.rate-table #right {
+  margin-top:10px;
+  float: right;
+  text-align: right;
+  width: auto;
+}
+
+/* Clear floats after the columns */
+.rate-table #row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* The bar container */
+.rate-table #bar-container {
+  width: 100%;
+  background-color: #f1f1f1;
+  text-align: center;
+  color: white;
+}
+
+/* Individual bars */
+.rate-table #bar-5 {width: 60%; height: 18px; background-color: #04AA6D;}
+/*{width: 30%; height: 18px; background-color: #2196F3;}
+ {width: 10%; height: 18px; background-color: #00bcd4;}
+ {width: 4%; height: 18px; background-color: #ff9800;}
+ {width: 15%; height: 18px; background-color: #f44336;}*/
+
+/* Responsive layout - make the columns stack on top of each other instead of next to each other */
+@media (max-width: 400px) {
+  .rate-table #side, .rate-table #middle {
+    width: 100%;
+  }
+  .rate-table #right {
+    display: none;
+  }
 }

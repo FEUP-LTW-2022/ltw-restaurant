@@ -10,6 +10,8 @@ GROUP BY reviews.id';
 
 const RESTAURANT='SELECT restaurant.* FROM restaurant WHERE id=?';
 
+const REST_DISHES='SELECT * FROM dish WHERE restaurant_id = ?';
+
 
 
 
@@ -33,9 +35,9 @@ function getRestaurant(PDO $db, int $id){
     return $stmt->fetch();
 }
 
-function getDishes(int $id){
-    $db = getDatabaseConnection();
-    $stmt = $db->prepare('SELECT * FROM dish WHERE restaurant_id = ?');
+function getDishes(PDO $db, int $id){
+
+    $stmt = $db->prepare(REST_DISHES);
     $stmt->execute(array($id));
 
     return $stmt->fetchAll();
@@ -68,8 +70,17 @@ function countReviews(PDO $db, int $id){
     
     foreach ( $reviews as $review){
         $storeRev[$review['rate']]=$storeRev[$review['rate']]+1;
-      } 
+    } 
       return $storeRev;
 }
+
+function sumReviews(array $reviews){
+    $counter=0;
+    for($i=0; $i<sizeof($reviews); $i+=1){
+        $counter+=$reviews[$i];
+    }
+    return $counter; 
+}
+
 
 ?>

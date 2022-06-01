@@ -43,7 +43,7 @@ CREATE TABLE dish(
 	restaurant_id INTEGER,
     price INTEGER NOT NULL CHECK ( price > 0 ),
     photo VARCHAR,
-    category VARCHAR,
+    category VARCHAR, --criar categorias -> carne, peixe, vegetariano/vegan, sobremesas, entradas,
 	--(received, preparing, ready, delivered)?
 	FOREIGN KEY(restaurant_id) REFERENCES restaurant(id)
 );--review dish?
