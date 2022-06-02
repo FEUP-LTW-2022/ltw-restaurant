@@ -1,6 +1,6 @@
 <?php declare(strict_types = 1);
     include_once("database/connection.php");
-    include_once ("database/account.php");
+    include_once("database/account.class.php");
 
 function drawHeader(){?>
 <!DOCTYPE html>

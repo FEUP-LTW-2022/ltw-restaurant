@@ -3,15 +3,18 @@
 
 /*restaurants */
 
-INSERT INTO restaurant(id,ownerID, name, address) VALUES (1, 1, 'Restaurante 1', 'Rua do restaurante1');
-INSERT INTO restaurant(id,ownerID, name, address) VALUES (2, 2, 'Restaurante 2', 'Rua do restaurante2');
-INSERT INTO restaurant(id,ownerID, name, address) VALUES (3, 3, 'Restaurante 3', 'Rua do restaurante3');
-INSERT INTO restaurant(id,ownerID, name, address) VALUES (4, 4, 'Restaurante 4', 'Rua do restaurante4');
-INSERT INTO restaurant(id,ownerID, name, address) VALUES (5, 5, 'Restaurante 5', 'Rua do restaurante5');
-INSERT INTO restaurant(id,ownerID, name, address) VALUES (6, 6, 'Restaurante 6', 'Rua do restaurante6');
-INSERT INTO restaurant(id,ownerID, name, address) VALUES (6, 6, 'Restaurante 7', 'Rua do restaurante7');
-INSERT INTO restaurant(id,ownerID, name, address) VALUES (6, 6, 'Restaurante 8', 'Rua do restaurante8');
-INSERT INTO restaurant(id,ownerID, name, address) VALUES (6, 6, 'Restaurante 9', 'Rua do restaurante9');
+INSERT INTO restaurant VALUES(1,1,'Restaurante 1',NULL,'Rua do restaurante1',NULL,900,2200,NULL,NULL,1);
+INSERT INTO restaurant VALUES(2,2,'Restaurante 2',NULL,'Rua do restaurante2',NULL,900,2200,NULL,NULL,1);
+INSERT INTO restaurant VALUES(3,3,'Restaurante 3',NULL,'Rua do restaurante3',NULL,900,2200,NULL,NULL,1);
+INSERT INTO restaurant VALUES(4,4,'Restaurante 4',NULL,'Rua do restaurante4',NULL,900,2200,NULL,NULL,1);
+INSERT INTO restaurant VALUES(5,5,'Restaurante 5',NULL,'Rua do restaurante5',NULL,900,2200,NULL,NULL,1);
+INSERT INTO restaurant VALUES(6,6,'Restaurante 6',NULL,'Rua do restaurante6',NULL,900,2200,NULL,NULL,1);
+INSERT INTO restaurant VALUES(7,7,'Restaurante 7',NULL,'Rua do restaurante7',NULL,900,2200,NULL,NULL,1);
+INSERT INTO restaurant VALUES(8,8,'Restaurante 8',NULL,'Rua do restaurante8',NULL,900,2200,NULL,NULL,1);
+INSERT INTO restaurant VALUES(9,9,'Restaurante 9',NULL,'Rua do restaurante9',NULL,900,2200,NULL,NULL,1);
+INSERT INTO restaurant VALUES(10,10,'Restaurante 10',NULL,'Rua do restaurante10',NULL,900,2200,NULL,NULL,1);
+INSERT INTO restaurant VALUES(11,11,'Restaurante 11',NULL,'Rua do restaurante11',NULL,900,2200,NULL,NULL,1);
+INSERT INTO restaurant VALUES(12,12,'Restaurante 12',NULL,'Rua do restaurante12',NULL,900,2200,NULL,NULL,1);
 
 /*reviews*/
 INSERT INTO reviews(id, restaurant_id, rate) VALUES (1,2, 5);

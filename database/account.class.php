@@ -95,6 +95,14 @@ class account{
         return $stmt->fetch()["name"];
     }
 
+    public static function getPhoto(){
+        $stmt = getDatabaseConnection()->prepare("SELECT users.* FROM users WHERE email=:email");
+        $stmt->bindParam(":email",$_SESSION["email"]);
+        $stmt->execute();
+        return $stmt->fetch();
+    }
+
+
 
 
 }

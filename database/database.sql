@@ -1,20 +1,11 @@
+PRAGMA foreign_keys=OFF;
+BEGIN TRANSACTION;
 
-PRAGMA foreign_keys = ON;
-DROP TABLE IF EXISTS restaurant;
-DROP TABLE IF EXISTS reviews;
-DROP TABLE IF EXISTS dish;
-DROP TABLE IF EXISTS users;
-DROP TABLE IF EXISTS credit_card_info;
-DROP TABLE IF EXISTS comments;
-DROP TABLE IF EXISTS categories;
-/*******************************************************************************
-   Create Tables
-********************************************************************************/
 CREATE TABLE restaurant (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     ownerID INTEGER NOT NULL REFERENCES users(id),
     name VARCHAR UNIQUE NOT NULL,
-    location VARCHAR,
+    city VARCHAR,
     address VARCHAR NOT NULL,
     website VARCHAR,
     openHour INTEGER NOT NULL DEFAULT '900',
@@ -43,16 +34,15 @@ CREATE TABLE dish(
 	restaurant_id INTEGER,
     price INTEGER NOT NULL CHECK ( price > 0 ),
     photo VARCHAR,
-    category VARCHAR, --criar categorias -> carne, peixe, vegetariano/vegan, sobremesas, entradas,
+    category VARCHAR,
 	--(received, preparing, ready, delivered)?
 	FOREIGN KEY(restaurant_id) REFERENCES restaurant(id)
-);--review dish?
+);
 
 CREATE TABLE request(
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    userID INTEGER REFERENCES Users(id) NOT NULL,
-    restaurantID INTEGER REFERENCES Restaurant(id) NOT NULL,
-    date INTEGER DEFAULT (strftime('%s','now'))
+    userID INTEGER REFERENCES Users(id) NOT NULL ,
+    restaurantID INTEGER REFERENCES Restaurant(id) NOT NULL
 );
 
 CREATE TABLE request_dish(
@@ -62,23 +52,10 @@ CREATE TABLE request_dish(
     PRIMARY KEY (dishID,request)
 );
 
-CREATE TABLE users (
-    id INTEGER PRIMARY KEY AUTOINCREMENT ,
-    email VARCHAR NOT NULL UNIQUE,
-    name VARCHAR NOT NULL,
-	birthDate VARCHAR,
-	photo BLOB,
-	type VARCHAR,
-	phoneNumber INTEGER,
-    isOwner NOT NULL DEFAULT False,
-    password VARCHAR NOT NULL
-);
-
 CREATE TABLE user_login_token(
     token TEXT NOT NULL,
     userID INTEGER NOT NULL REFERENCES users(id)
 );
-
 
 CREATE TABLE comments (
 	id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -91,22 +68,23 @@ CREATE TABLE comments (
 	FOREIGN KEY(id_author) REFERENCES users(id)
 );
 
-
 CREATE TABLE categories (
 	id INTEGER PRIMARY KEY,
 	name VARCHAR NOT NULL
 );
 
 
-CREATE TABLE photo(
-    id INTEGER PRIMARY KEY,
-    name VARCHAR NOT NULL,
-    mime VARCHAR NOT NULL,
-    size INTEGER NOT NULL,
-    data BLOB NOT NULL
+CREATE TABLE IF NOT EXISTS "users"
+(
+    id          INTEGER
+        primary key autoincrement,
+    email       VARCHAR not null
+        unique,
+    name        VARCHAR not null,
+    birthDate   VARCHAR,
+    photo       VARCHAR default '../images/default/default-user-image.png',
+    type        VARCHAR,
+    phoneNumber INTEGER,
+    isOwner             default False not null,
+    password    VARCHAR not null
 );
-
-
-
-
-
