@@ -12,21 +12,22 @@ CREATE TABLE restaurant (
     closeHour INTEGER NOT NULL ,
     email VARCHAR,
     phoneNumber VARCHAR,
+    photo VARCHAR DEFAULT '../images/default/default-rest.png',
     category INTEGER NOT NULL, -- apagar default
     FOREIGN KEY(category) REFERENCES categories(id)
 );
-INSERT INTO restaurant VALUES(1,1,'Restaurante 1','cidade','Rua do restaurante1',NULL,900,2200,NULL,NULL,1);
-INSERT INTO restaurant VALUES(2,2,'Restaurante 2','cidade2','Rua do restaurante2',NULL,900,2200,NULL,NULL,1);
-INSERT INTO restaurant VALUES(3,3,'Restaurante 3','cidade3','Rua do restaurante3',NULL,900,2200,NULL,NULL,1);
-INSERT INTO restaurant VALUES(4,4,'Restaurante 4','cidade4','Rua do restaurante4',NULL,900,2200,NULL,NULL,1);
-INSERT INTO restaurant VALUES(5,5,'Restaurante 5','cidade5','Rua do restaurante5',NULL,900,2200,NULL,NULL,1);
-INSERT INTO restaurant VALUES(6,6,'Restaurante 6','cidade6','Rua do restaurante6',NULL,900,2200,NULL,NULL,1);
-INSERT INTO restaurant VALUES(7,7,'Restaurante 7','cidade7','Rua do restaurante7',NULL,900,2200,NULL,NULL,1);
-INSERT INTO restaurant VALUES(8,8,'Restaurante 8','cidade8','Rua do restaurante8',NULL,900,2200,NULL,NULL,1);
-INSERT INTO restaurant VALUES(9,9,'Restaurante 9','cidade9','Rua do restaurante9',NULL,900,2200,NULL,NULL,1);
-INSERT INTO restaurant VALUES(10,10,'Restaurante 10','cidade10','Rua do restaurante10',NULL,900,2200,NULL,NULL,1);
-INSERT INTO restaurant VALUES(11,11,'Restaurante 11','cidade11','Rua do restaurante11',NULL,900,2200,NULL,NULL,1);
-INSERT INTO restaurant VALUES(12,12,'Restaurante 12','cidade12','Rua do restaurante12',NULL,900,2200,NULL,NULL,1);
+INSERT INTO restaurant VALUES(1,1,'Restaurante 1','cidade','Rua do restaurante1',NULL,900,2200,NULL,NULL,NULL,1);
+INSERT INTO restaurant VALUES(2,2,'Restaurante 2','cidade2','Rua do restaurante2',NULL,900,2200,NULL,NULL,NULL,1);
+INSERT INTO restaurant VALUES(3,3,'Restaurante 3','cidade3','Rua do restaurante3',NULL,900,2200,NULL,NULL,NULL,1);
+INSERT INTO restaurant VALUES(4,4,'Restaurante 4','cidade4','Rua do restaurante4',NULL,900,2200,NULL,NULL,NULL,1);
+INSERT INTO restaurant VALUES(5,5,'Restaurante 5','cidade5','Rua do restaurante5',NULL,900,2200,NULL,NULL,NULL,1);
+INSERT INTO restaurant VALUES(6,6,'Restaurante 6','cidade6','Rua do restaurante6',NULL,900,2200,NULL,NULL,NULL,1);
+INSERT INTO restaurant VALUES(7,7,'Restaurante 7','cidade7','Rua do restaurante7',NULL,900,2200,NULL,NULL,NULL,1);
+INSERT INTO restaurant VALUES(8,8,'Restaurante 8','cidade8','Rua do restaurante8',NULL,900,2200,NULL,NULL,NULL,1);
+INSERT INTO restaurant VALUES(9,9,'Restaurante 9','cidade9','Rua do restaurante9',NULL,900,2200,NULL,NULL,NULL,1);
+INSERT INTO restaurant VALUES(10,10,'Restaurante 10','cidade10','Rua do restaurante10',NULL,900,2200,NULL,NULL,NULL,1);
+INSERT INTO restaurant VALUES(11,11,'Restaurante 11','cidade11','Rua do restaurante11',NULL,900,2200,NULL,NULL,NULL,1);
+INSERT INTO restaurant VALUES(12,12,'Restaurante 12','cidade12','Rua do restaurante12',NULL,900,2200,NULL,NULL,NULL,1);
 
 
 
@@ -54,7 +55,7 @@ CREATE TABLE dish(
 	restaurant_id INTEGER,
     price INTEGER NOT NULL CHECK ( price > 0 ),
     photo VARCHAR,
-    category VARCHAR,
+    category VARCHAR, --(desert, meat, fish, vegan, etc)
 	--(received, preparing, ready, delivered)?
 	FOREIGN KEY(restaurant_id) REFERENCES restaurant(id)
 );
@@ -122,7 +123,7 @@ CREATE TABLE IF NOT EXISTS "users"
     password    VARCHAR not null
 );
 INSERT INTO users VALUES(1,'up201805000@g.uporto.pt','Henrique Pinho','2022-05-11','''../images/default/default-user-image.png''','costumer',912345678,0,'$2a$10$zdhB12u9ydmOXyyIFhLfvOSYC.O471gfa41YWHZ5QRTXn4sBIGqLG');
-DELETE FROM sqlite_sequence;
+
 INSERT INTO sqlite_sequence VALUES('restaurant',12);
 INSERT INTO sqlite_sequence VALUES('reviews',4);
 INSERT INTO sqlite_sequence VALUES('dish',1);
