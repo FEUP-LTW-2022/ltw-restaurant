@@ -12,7 +12,7 @@ CREATE TABLE restaurant (
     closeHour INTEGER NOT NULL ,
     email VARCHAR,
     phoneNumber VARCHAR,
-    photo VARCHAR DEFAULT '../images/default/default-rest.png',
+    photo VARCHAR DEFAULT '../images/default/default-rest.jpg',
     category INTEGER NOT NULL, -- apagar default
     FOREIGN KEY(category) REFERENCES categories(id)
 );
