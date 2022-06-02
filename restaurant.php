@@ -1,4 +1,5 @@
 <?php
+
 require_once('./database/connection.php');
 require_once('./database/restaurants.php');
 
@@ -37,24 +38,25 @@ drawHeader();
     </section>
 
 <div class="rate-table">
-    <h2>Rating table</h2>
+    <h2>Rating table </h2>
 
     <p><?= $avgRev. " average based on ".$numRev." reviews." ?> </p>
     <hr>
-
     <div id="row">
+        <?php for($i=5; $i>0; $i-=1){?>
 
         <div id="side">
-            <div>5 star</div>
-        </div>
-        <div id="middle">
-            <div id="bar-container">
-            <div id="bar-5"></div>
+                <div> <?= $i?> star</div>
             </div>
-        </div>
-        <div id="right">
-            <div><?=$storeRev[5]?></div>
-        </div>
+            <div id="middle">
+                <div id="bar-container">
+                <div id="bar-<?=$i?>" style="width: <?=(int) (($storeRev[$i]*100)/$numRev)?>%"></div>
+                </div>
+            </div>
+            <div id="right">
+                <div><?=$storeRev[$i]?></div>
+            </div>
+         <?php } ?>
     </div>
 </div>
 

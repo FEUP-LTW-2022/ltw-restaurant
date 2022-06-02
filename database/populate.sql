@@ -18,7 +18,7 @@ INSERT INTO restaurant VALUES(12,12,'Restaurante 12',NULL,'Rua do restaurante12'
 
 /*reviews*/
 INSERT INTO reviews(id, restaurant_id, rate) VALUES (1,2, 5);
-INSERT INTO reviews(id, restaurant_id, rate) VALUES (2,2, 0);
+INSERT INTO reviews(id, restaurant_id, rate) VALUES (2,2, 1);
 INSERT INTO reviews(id, restaurant_id, rate) VALUES (3,2, 5);
 INSERT INTO reviews(id, restaurant_id, rate) VALUES (4,1, 5);
 

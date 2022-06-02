@@ -13,11 +13,17 @@
 ul{
     list-style: none;
 }
-
+html {
+    margin: 0;
+    height: 100%;
+    width: 100%;
+}
 body{
-    font-family: Arial, Helvetica, sans-serif;;
+    font-family: Arial, Helvetica, sans-serif;
     background-color: white;
-    margin: 8px 0 0 0;
+    margin:0;
+    min-height: 100%;
+    width: 100%;
 }
 h1, h2{
     font-family: serif;
@@ -186,10 +192,10 @@ main {
   }
 
   /*footer*/
-  footer{
-    background-color: black;
-    color: white;
-    padding: 50px 170px 1rem 170px;
+  footer {
+      background-color: black;
+      color: white;
+      padding: 50px 170px 1rem 170px;
   }
 
   #footer-main{
@@ -605,11 +611,11 @@ hr#register-bar {
 }
 
 /* Individual bars */
-.rate-table #bar-5 {width: 60%; height: 18px; background-color: #04AA6D;}
-/*{width: 30%; height: 18px; background-color: #2196F3;}
- {width: 10%; height: 18px; background-color: #00bcd4;}
- {width: 4%; height: 18px; background-color: #ff9800;}
- {width: 15%; height: 18px; background-color: #f44336;}*/
+.rate-table #bar-5 {width: 0; height: 18px; background-color: #04AA6D;}
+.rate-table #bar-4{width: 0; height: 18px; background-color: #2196F3;}
+.rate-table #bar-3 {width: 0; height: 18px; background-color: #00bcd4;}
+.rate-table #bar-2 {width: 0; height: 18px; background-color: #ff9800;}
+.rate-table #bar-1{width: 0; height: 18px; background-color: #f44336;}
 
 /* Responsive layout - make the columns stack on top of each other instead of next to each other */
 @media (max-width: 400px) {

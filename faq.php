@@ -1,4 +1,5 @@
-<?php 
+<?php
+
  require_once('./templates/elements.tpl.php');
 
  drawHeader() ?>
