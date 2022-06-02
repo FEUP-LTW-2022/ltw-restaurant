@@ -24,7 +24,9 @@ drawHeader();
 
 //drawDishesList($dishes);
 ?>
+<div>
 
+</div>
 <div class="restaurant-page">
     <span><a id="header-category"><?= $category['name']  ?></a> </span> <!-- href -> search de todos restaurantes da categoria -->
     <div class="res-page-name">
@@ -36,8 +38,6 @@ drawHeader();
     </div>
     <span id="maps"> <a href="https://www.google.com/maps/search/?api=1&query=<?=$restaurant['address']?>"><u><?= $restaurant['address']?></u></a></span>
     <p><img src="<?=$restaurant['photo']?>" alt="restaurant photo" style="  width: 800px; height: 300px;"></p>
-
-
 
     <section class="menu">
         <h2>Menu</h2>
