@@ -194,15 +194,56 @@ main {
   }
   /***************************************************/
 /*restaurant page*/
-
+.restaurant-page{
+  margin-top: 2rem;
+}
 .restaurant-page #header-category{
     color: rgba(0,0,0,0.6);
     text-align: left;
 }
-.restaurant-page h1{
+.restaurant-page h3{
   text-align: left;
   margin-top: 0;
+  color: rgba(0,0,0,0.8);
 }
+.restaurant-page #maps:hover{
+  color: green;
+  background-color: transparent;
+}
+
+.res-page-name{
+  display: flex;
+  justify-content: space-between;
+
+}
+.res-page-name #r_name{
+  font-size: 2rem;
+  text-align: left;
+  margin-bottom: 2rem;
+}
+.res-page-name #r_rate{
+  font-size: 3rem;
+  text-align: right;
+}
+.menu > article{
+display: flex;
+}
+.menu > article hr#menuHr{
+  border-top: 1px dashed rgba(0,0,0,0.8);
+  margin: 0.5em auto;
+  width: 100%;
+}
+.menu > article #dish-price{
+  margin-left: 5px;
+  font-size: small;
+}
+.menu > article #dish-name{
+  font-size: small;
+  white-space: nowrap;
+  margin-right: 5px;
+}
+
+
 
   /*footer*/
   footer {
