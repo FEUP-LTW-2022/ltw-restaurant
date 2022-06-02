@@ -18,6 +18,8 @@ $numRev=sumReviews($storeRev);
 
 $dishes = getDishes($db,$id);
 
+$category= getRestaurantCategory($db, $restaurant['category']);
+
 
 
 drawHeader();
@@ -26,9 +28,8 @@ drawHeader();
 ?>
 
 <div class="restaurant-page">
-    <?= $restaurant['category']?>
+    <a id="header-category"><?= $category['name']?></a> <!-- href -> search de todos restaurantes da categoria -->
     <h1><?= $restaurant['name']?> </h1>
-
     <section class="dishes-list">
         <?php foreach( $dishes as $dish) {?>
             <article>
