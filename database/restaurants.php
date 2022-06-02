@@ -1,6 +1,6 @@
 <?php 
 
-const ALL_RESTAURANTS_Q= 'SELECT restaurant.* FROM restaurant
+const ALL_RESTAURANTS_Q= 'SELECT * FROM restaurant
 GROUP BY restaurant.id
 ORDER BY RANDOM() LIMIT 9';
 
@@ -8,12 +8,9 @@ const REVIEWS_Q='SELECT reviews.rate FROM reviews
 WHERE restaurant_id = ?
 GROUP BY reviews.id';
 
-const RESTAURANT='SELECT restaurant.* FROM restaurant WHERE id=?';
+const RESTAURANT='SELECT * FROM restaurant WHERE id=?';
 
-const REST_DISHES='SELECT * FROM dish WHERE restaurant_id = ?';
-
-
-
+const RESTAURANT_CAT='SELECT * FROM categories WHERE id=?';
 
 function registerRestaurant($values){
 
@@ -35,14 +32,6 @@ function getRestaurant(PDO $db, int $id){
     return $stmt->fetch();
 }
 
-function getDishes(PDO $db, int $id){
-
-    $stmt = $db->prepare(REST_DISHES);
-    $stmt->execute(array($id));
-
-    return $stmt->fetchAll();
-
-}
 
 function getAverageRate(PDO $db, int $id){
     $reviews = getRestaurantRate($db, $id) ;
@@ -81,4 +70,10 @@ function sumReviews(array $reviews){
         $counter+=$reviews[$i];
     }
     return $counter; 
+}
+
+function getRestaurantCategory(PDO $db, int $id){
+    $stmt = $db->prepare(RESTAURANT_CAT);
+    $stmt->execute(array($id));
+    return $stmt->fetch();
 }

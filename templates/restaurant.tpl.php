@@ -1,22 +1,23 @@
 <?php
    require_once('./database/restaurants.php');
+
 ?>
 
 <?php function drawRestaurantList(PDO $db, array $restaurants){ ?>
-
     <h1>Our Restaurants</h1>
          <section class="restaurants-list" >
           <?php foreach( $restaurants as $restaurant) {  
-            $rate = getAverageRate($db, $restaurant['id']) ?> 
+            $rate = getAverageRate($db, $restaurant['id']) ;
+             $category= getRestaurantCategory($db, $restaurant['category']); ?>
               <article>
                 <a  href="/restaurant.php?id=<?=$restaurant['id']?>">
                   <img src="https://picsum.photos/200?<?=$restaurant['id']?>" alt="restaurant photo">
-                  <span id="restaurant-category">categoria</span>
+                  <span id="restaurant-category"><?=$category['name']?></span>
                   <div id="rest_info_rate">
                     <div id="restaurant-info"><b><?=$restaurant['name']?> </b> </div>
                     <div id="restaurant-rating"><b><?= $rate?></b></div>
                   </div>
-                  <span id="restaurant-city"><b>cidade</b></span>
+                  <span id="restaurant-city"><b><?=$restaurant['city']?></b></span>
                </a>
               </article>
           <?php }?>

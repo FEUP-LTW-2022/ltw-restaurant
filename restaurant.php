@@ -1,7 +1,8 @@
 <?php
-
+session_start();
 require_once('./database/connection.php');
 require_once('./database/restaurants.php');
+require_once ('./database/dishes.php');
 
 require_once('./templates/elements.tpl.php');
 require_once('./templates/restaurant.tpl.php');
@@ -25,6 +26,7 @@ drawHeader();
 ?>
 
 <div class="restaurant-page">
+    <?= $restaurant['category']?>
     <h1><?= $restaurant['name']?> </h1>
 
     <section class="dishes-list">

@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require_once('./templates/elements.tpl.php');
 require_once('./templates/contact-us.tpl.php');
 

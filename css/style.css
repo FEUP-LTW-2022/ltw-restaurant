@@ -173,7 +173,8 @@ main {
 
  .restaurants-list #restaurant-category {
     font-size: 13px;
-    opacity: 0.6;
+     color: rgba(0,0,0,0.6);
+
   }
   .restaurants-list #rest_info_rate{
     display:flex;
