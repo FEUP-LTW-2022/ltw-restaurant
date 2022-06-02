@@ -26,7 +26,13 @@ drawHeader();
 
 //drawDishesList($dishes);
 ?>
-
+<div>
+<form id="search-bar" action="/search-results.php" method="get">
+    <label>
+        <input type="text" name="search-bar" placeholder="Foods, drinks, ...">
+    </label>
+</form>
+</div>
 <div class="restaurant-page">
     <a id="header-category"><?= $category['name']?></a> <!-- href -> search de todos restaurantes da categoria -->
     <h1><?= $restaurant['name']?> </h1>
@@ -34,8 +40,14 @@ drawHeader();
         <?php foreach( $dishes as $dish) {?>
             <article>
                 <div id="dish-info">
-                    <div id="dish-name"><b><?=$dish['name']?> </b> </div>
+                    <div id="dish-name"> <b> <?=$dish['name']?></b> </div>
+                    <div id="dish-price"><?=$dish['price']?> $</div>
                 </div>
+                <form>
+                    <button id="button1" formaction="" formmethod="post" type="submit">
+                        Add
+                    </button>
+                </form>
             </article>
             <?php }?>
     </section>

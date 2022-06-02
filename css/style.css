@@ -623,6 +623,17 @@ hr#register-bar {
   color: white;
 }
 
+#button1{
+    border: none;
+    color: black;
+    padding: 10px 25px;
+    margin-top: 1vh;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
 /* Individual bars */
 .rate-table #bar-5 {width: 0; height: 18px; background-color: #04AA6D;}
 .rate-table #bar-4{width: 0; height: 18px; background-color: #2196F3;}
