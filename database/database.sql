@@ -7,6 +7,7 @@ DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS credit_card_info;
 DROP TABLE IF EXISTS comments;
 DROP TABLE IF EXISTS categories;
+DROP TABLE IF EXISTS photo;
 /*******************************************************************************
    Create Tables
 ********************************************************************************/
@@ -17,6 +18,7 @@ CREATE TABLE restaurant (
     location VARCHAR,
     address VARCHAR NOT NULL,
     website VARCHAR,
+    restaurant_logo INTEGER REFERENCES photo(id),
     openHour INTEGER NOT NULL DEFAULT '900',
     closeHour INTEGER NOT NULL DEFAULT '2200',
     email VARCHAR,
@@ -97,13 +99,9 @@ CREATE TABLE categories (
 	name VARCHAR NOT NULL
 );
 
-
 CREATE TABLE photo(
-    id INTEGER PRIMARY KEY,
-    name VARCHAR NOT NULL,
-    mime VARCHAR NOT NULL,
-    size INTEGER NOT NULL,
-    data BLOB NOT NULL
+    id INT PRIMARY KEY ,
+    extension VARCHAR NOT NULL
 );
 
 

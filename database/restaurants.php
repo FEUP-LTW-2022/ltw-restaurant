@@ -1,4 +1,5 @@
-<?php 
+<?php
+include_once("upload-image.php");
 
 const ALL_RESTAURANTS_Q= 'SELECT restaurant.* FROM restaurant
 GROUP BY restaurant.id
@@ -11,14 +12,21 @@ GROUP BY reviews.id';
 const RESTAURANT='SELECT restaurant.* FROM restaurant WHERE id=?';
 
 
+/**
+ * @throws Exception
+ */
+function registerRestaurant($values, $files){
+    $db = getDatabaseConnection();
 
+        $photo_id = upload($files);
 
-function registerRestaurant($values){
+    $stmt = $db->prepare("INSERT INTO restaurant (ownerID,name,city,address,website,openHour,closeHour,email,phoneNumber,restaurant_logo) 
+                            VALUES (?,?,?,?,?,?,?,?,?,?)");
 
-    $stmt = getDatabaseConnection()->prepare("INSERT INTO restaurant (ownerID,name,city,address,website,openHour,closeHour,email,phoneNumber) 
-                            VALUES (?,?,?,?,?,?,?,?,?)");
-    $stmt->execute(array(account::getUserID(),$values["name"],$values["city"],$values["address"],$values["website"],$values["open-hour"],
-                            $values["closeHour"],$values["email"],$values["phoneNumber"]));
+    $stmt->execute(array(account::getUserID(),$values["RestaurantName"],$values["city"],$values["address"],$values["website"],$values["open-time"],
+                            $values["close-time"],$values["email"],$values["phoneNumber"],$photo_id));
+
+    header("Location: ../manage-restaurant.php");
 }
 
 function getAllRestaurants(PDO $db){
@@ -32,7 +40,6 @@ function getRestaurant(PDO $db, int $id){
     $stmt->execute(array($id));
     return $stmt->fetch();
 }
-
 
 function getAverageRate(PDO $db, int $id){
     $reviews = getRestaurantRate($db, $id) ;
