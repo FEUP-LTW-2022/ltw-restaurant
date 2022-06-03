@@ -68,7 +68,7 @@ main, footer {
 #search-bar>label> input[type=text], #signup a{
     width: 100%;
     padding: 12px;
-    border: 1px solid green;
+    border: 1px solid #04AA6D;
     border-radius: 20px;
     box-sizing: border-box;
   
@@ -207,7 +207,7 @@ main {
   color: rgba(0,0,0,0.8);
 }
 .restaurant-page #maps:hover{
-  color: green;
+  color:#04AA6D;
   background-color: transparent;
 }
 .res-page-name{
@@ -278,6 +278,22 @@ display: flex;
   font-size: small;
   white-space: nowrap;
   margin-right: 5px;
+}
+.partial-menu #menuBtn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.partial-menu  button{
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 20px;
+  margin: 1em auto;
+  border: none;
+  cursor: pointer;
+  width: 30%;
+  border-radius: 20px;
+
 }
 .rate-table > hr{
   border:1px solid #f1f1f1;
@@ -387,7 +403,7 @@ display: flex;
     margin-bottom: 1em;
   }
   #login-opt a:link {
-    color: green;
+    color: #04AA6D;
     background-color: transparent;
     text-decoration: none;
   }
@@ -556,7 +572,7 @@ hr#register-bar {
   padding: 13px;
   border-radius: 20px;
   font-size: 13px;
-  background-color:green;
+  background-color:#04AA6D;
   color: white;
   text-transform: uppercase;
   font-weight: bold;

@@ -6,6 +6,10 @@
     if (strtoupper($_SERVER['REQUEST_METHOD']) === 'POST') {
         registerRestaurant($_POST);
     }
+if (!account::isLoggedIn()){
+    header("Location:/login.php");
+    die();
+}
 ?>
     <div class="register">
         <form method="post" action="register-restaurant.php">

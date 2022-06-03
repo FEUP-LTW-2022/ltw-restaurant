@@ -41,6 +41,8 @@ drawRestaurantInfo($category, $restaurant, $avgRev);
                 <span id="dish-price"><?=$dish['price']?>&euro;</span>
             </article>
             <?php }?>
+
+        <span id="menuBtn"><button onclick="openTab(1,'menuRest')">Complete Menu</button></span>
     </section>
 
     <div class="rate-table">
