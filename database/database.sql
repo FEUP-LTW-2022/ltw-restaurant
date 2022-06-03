@@ -12,7 +12,7 @@ CREATE TABLE restaurant (
     closeHour INTEGER NOT NULL ,
     email VARCHAR,
     phoneNumber VARCHAR,
-    photo VARCHAR DEFAULT '../images/default/default-rest.jpg',
+    photo VARCHAR NOT NULL DEFAULT './images/default/default-rest.jpg',
     category INTEGER NOT NULL, -- apagar default
     FOREIGN KEY(category) REFERENCES categories(id)
 );
@@ -37,7 +37,7 @@ CREATE TABLE dish(
 	name VARCHAR UNIQUE NOT NULL,
 	restaurant_id INTEGER,
     price INTEGER NOT NULL CHECK ( price > 0 ),
-    category VARCHAR, --(desert, meat, fish, vegan, etc)
+    category VARCHAR, --(Starters, desert, meat, fish, vegan, etc)
 	--(received, preparing, ready, delivered)?
 	FOREIGN KEY(restaurant_id) REFERENCES restaurant(id)
 );
@@ -79,7 +79,7 @@ CREATE TABLE IF NOT EXISTS "users"
         unique,
     name        VARCHAR not null,
     birthDate   VARCHAR,
-    photo       VARCHAR default '../images/default/default-user-image.png',
+    photo       VARCHAR default './images/default/default-user-image.png',
     type        VARCHAR,
     phoneNumber INTEGER,
     isOwner             default False not null,

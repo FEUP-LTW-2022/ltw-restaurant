@@ -215,11 +215,44 @@ main {
   justify-content: space-between;
 
 }
+
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+
+
+.restTab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+.restTab button:hover {
+  background-color:#f1f1f1;
+}
+
+#menuRest,  #reviewsRest{
+  display: none;
+}
+
+hr#tabLine {
+  border:1px solid #f1f1f1;
+  background-color:#f1f1f1;
+  width: 100%;
+}
 .res-page-name #r_name{
   font-size: 2rem;
   text-align: left;
   margin-bottom: 2rem;
 }
+
 .res-page-name #r_rate{
   font-size: 3rem;
   text-align: right;
@@ -228,20 +261,20 @@ main {
   display: block;
   margin: 2rem auto;
 }
-.menu > article{
+.partial-menu > article{
 display: flex;
 }
-.menu > article hr#menuHr{
+.partial-menu > article hr#menuHr{
   border-top: 1px dashed rgba(0,0,0,0.8);
   margin: 0.5em auto;
   width: 100%;
   background-color: rgba(0,0,0,0.8) ;
 }
-.menu > article #dish-price{
+.partial-menu > article #dish-price{
   margin-left: 5px;
   font-size: small;
 }
-.menu > article #dish-name{
+.partial-menu > article #dish-name{
   font-size: small;
   white-space: nowrap;
   margin-right: 5px;
@@ -281,6 +314,7 @@ display: flex;
 
   /*footer*/
   footer {
+
       background-color: black;
       color: white;
       padding: 1rem 11rem 1rem 11rem;
