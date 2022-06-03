@@ -268,7 +268,6 @@ display: flex;
   border-top: 1px dashed rgba(0,0,0,0.8);
   margin: 0.5em auto;
   width: 100%;
-  background-color: rgba(0,0,0,0.8) ;
 }
 .partial-menu > article #dish-price{
   margin-left: 5px;
@@ -293,7 +292,9 @@ display: flex;
   cursor: pointer;
   width: 30%;
   border-radius: 20px;
-
+}
+.partial-menu  button:hover{
+  opacity: 0.8;
 }
 .rate-table > hr{
   border:1px solid #f1f1f1;
