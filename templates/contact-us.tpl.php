@@ -21,14 +21,11 @@ function realEmailSender(){
 function fakeEmailSender(){
     if(isset($_POST['submit']))
     {
-        $to = "up201805000@up.pt"; 
         $from = $_POST['email']; 
         $firstname = $_POST['firstname'];
         $lastname = $_POST['lastname'];
-        $subject = "Form submission";
-        $subject2 = "Copy of your form submission";
-        $message = "{$firstname} {$lastname} ()  wrote the following:" . "\n\n" . $_POST['message'] . "\n\n";
-        $message2 = "Here is a copy of your message " . $firstname . "\n\n" . $_POST['message'] ;
+        $message = "$firstname $lastname ($from) wrote the following:" . "\n\n" . $_POST['message'] . "\n\n";
+
         
     $fp = fopen('./emails/email.txt', 'a');
     fwrite($fp, $message);

@@ -1,7 +1,6 @@
 
 
 *{
-    box-sizing: border-box;
     color: inherit;
     text-decoration: none;
     padding: 0;
@@ -13,11 +12,17 @@
 ul{
     list-style: none;
 }
-
+html {
+    margin: 0;
+    height: 100%;
+    width: 100%;
+}
 body{
-    font-family: Arial, Helvetica, sans-serif;;
+    font-family: Arial, Helvetica, sans-serif;
     background-color: white;
-    margin: 8px 0px 0px 0px;
+    margin:0;
+    min-height: 100%;
+    width: 100%;
 }
 h1, h2{
     font-family: serif;
@@ -27,10 +32,10 @@ h1, h2{
 body > header {
     background-color: white;
     color:  black;  
-    box-shadow: 0px 7px 14px rgb(194, 195, 197);
+    box-shadow: 0 7px 14px rgb(194, 195, 197);
     width: 100%;
-    margin-left: 0px;
-    margin-right: 0px;
+    margin-left: 0;
+    margin-right: 0;
 
     
 }
@@ -60,7 +65,7 @@ main, footer {
 }
 
 
-#search-bar> input[type=text], #signup a{
+#search-bar>label> input[type=text], #signup a{
     width: 100%;
     padding: 12px;
     border: 1px solid green;
@@ -111,21 +116,15 @@ main, footer {
 
 .dropdown:hover .dropbtn {background-color: #FFFFFF;}
 
-/*#signup a{
-    /*border-radius: 10px;
-    border-top: 10px;
-    border: 2px solid green;
-    padding: 5px 1em;
-   
-}*/
 
 /*restaurant list */
 
 
 main {
-  
-    margin: 1em;
     padding: 1em;
+   /* margin: 0 11rem 0 11rem;*/
+    margin: auto;
+    max-width: 66rem;
   }
   
   main a {
@@ -142,11 +141,11 @@ main {
     align-items: center;
     justify-content: center;
     gap: 3em;
-    margin: 0px 170px 0px 170px;
+
   }
   
   .restaurants-list article {
-    width: 350px;
+    width: 300px;
     height: 290px;
     display: flex;
     flex-flow: row;
@@ -163,7 +162,7 @@ main {
     justify-self: center;
     display: flex;
     flex-direction: column;
-    padding: 10px 10px 0px 10px;
+    padding: 10px 10px 0 10px;
 
   }
   .restaurants-list article a:hover {
@@ -175,7 +174,8 @@ main {
 
  .restaurants-list #restaurant-category {
     font-size: 13px;
-    opacity: 0.6;
+     color: rgba(0,0,0,0.6);
+
   }
   .restaurants-list #rest_info_rate{
     display:flex;
@@ -192,12 +192,70 @@ main {
   .restaurants-list #restaurant-city{
     font-size: 1rem;
   }
+  /***************************************************/
+/*restaurant page*/
+.restaurant-page{
+  margin-top: 2rem;
+}
+.restaurant-page #header-category{
+    color: rgba(0,0,0,0.6);
+    text-align: left;
+}
+.restaurant-page h3{
+  text-align: left;
+  margin-top: 0;
+  color: rgba(0,0,0,0.8);
+}
+.restaurant-page #maps:hover{
+  color: green;
+  background-color: transparent;
+}
+.res-page-name{
+  display: flex;
+  justify-content: space-between;
+
+}
+.res-page-name #r_name{
+  font-size: 2rem;
+  text-align: left;
+  margin-bottom: 2rem;
+}
+.res-page-name #r_rate{
+  font-size: 3rem;
+  text-align: right;
+}
+.restaurant-page >img{
+  display: block;
+  margin: 2rem auto;
+}
+.menu > article{
+display: flex;
+}
+.menu > article hr#menuHr{
+  border-top: 1px dashed rgba(0,0,0,0.8);
+  margin: 0.5em auto;
+  width: 100%;
+}
+.menu > article #dish-price{
+  margin-left: 5px;
+  font-size: small;
+}
+.menu > article #dish-name{
+  font-size: small;
+  white-space: nowrap;
+  margin-right: 5px;
+}
+
+/*******************************************************/
+
+
 
   /*footer*/
-  footer{
-    background-color: black;
-    color: white;
-    padding: 50px 170px 1rem 170px;
+  footer {
+      background-color: black;
+      color: white;
+      padding: 1rem 11rem 1rem 11rem;
+      margin-top: 1rem;
   }
 
   #footer-main{
@@ -226,9 +284,6 @@ main {
 
 
   /*login form */
-  .login{
-    margin: 0px 170px 0px 170px;
-  }
 
   .login input[type=email], .login input[type=password] {
     width: 100%;
@@ -265,15 +320,15 @@ main {
   .login span.psw {
     float: right;
   }
-  #login-checkbox{
+  #login-opt{
     margin-bottom: 1em;
   }
-  #login-checkbox a:link {
+  #login-opt a:link {
     color: green;
     background-color: transparent;
     text-decoration: none;
   }
-  #login-checkbox a:hover {
+  #login-opt a:hover {
     color: red;
     background-color: transparent;
     text-decoration: underline;
@@ -289,7 +344,7 @@ main {
   }
   
   hr#login-bar {
-    margin: 0px 200px 0px 200px;
+    margin: 0 200px 0 200px;
     height:2px;
     border-width:0;
     color:gray;
@@ -302,7 +357,7 @@ main {
  
 /* REGISTER FORM */
 .register{
-  margin: 0px 170px 0px 170px;
+
   padding: 16px;
 }
 
@@ -336,7 +391,7 @@ main {
 
 
 hr#register-bar {
-  margin: 0px 200px 0px 200px;
+  margin: 0 200px 0 200px;
   height:2px;
   border-width:0;
   color:gray;
@@ -366,8 +421,8 @@ hr#register-bar {
   border-radius: 4px;
   flex-direction: column;
   padding: 2.5em;
-  -webkit-box-shadow: 0px 5px 20px 3px rgba(138, 138, 138, 0.05);
-  box-shadow: 0px 5px 20px 3px rgba(138, 138, 138, 0.05);
+  -webkit-box-shadow: 0 5px 20px 3px rgba(138, 138, 138, 0.05);
+  box-shadow: 0 5px 20px 3px rgba(138, 138, 138, 0.05);
   border: 1px solid rgba(190, 190, 190, 0.418); 
   width:40%;
 }
@@ -418,13 +473,11 @@ hr#register-bar {
 
 .AboutUsPhoto{
   display: inline;
-  margin: 0 auto;
-  height: 150px;
+    height: 150px;
   width: 150px;
   object-fit: cover;
   border-radius: 50%;
-  margin-top: 7%;
-  margin-bottom: 7%;
+    margin: 7% auto;
 }
 
 .AboutUsMemberName{
@@ -436,7 +489,6 @@ hr#register-bar {
 
 .AboutUsButton{
   border: 0;
-  background-color: #2a9d8f;
   padding: 13px;
   border-radius: 20px;
   font-size: 13px;
@@ -483,7 +535,7 @@ hr#register-bar {
 
 
 #FAQ {
-  margin: 0px auto;
+  margin: 0 auto;
   padding: 40px;
   width: 70%;
   min-width: 300px;
@@ -575,6 +627,62 @@ hr#register-bar {
   background-color: #45a049;
 }
 
-.ContactUs {
-  margin: 0px 170px 0px 170px;
+
+
+/**********************************************/
+/* Restaurant page */
+.rate-table hr{
+  border:3px solid #f1f1f1;
+}
+.rate-table #side {
+  float: left;
+  width: 15%;
+  margin-top:10px;
+}
+
+.rate-table #middle {
+  margin-top:10px;
+  float: left;
+  width: 70%;
+}
+
+/* Place text to the right */
+.rate-table #right {
+  margin-top:10px;
+  float: right;
+  text-align: right;
+  width: auto;
+}
+
+/* Clear floats after the columns */
+.rate-table #row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* The bar container */
+.rate-table #bar-container {
+  width: 100%;
+  background-color: #f1f1f1;
+  text-align: center;
+  color: white;
+}
+
+
+/* Individual bars */
+.rate-table #bar-5 {width: 0; height: 18px; background-color: #04AA6D;}
+.rate-table #bar-4{width: 0; height: 18px; background-color: #2196F3;}
+.rate-table #bar-3 {width: 0; height: 18px; background-color: #00bcd4;}
+.rate-table #bar-2 {width: 0; height: 18px; background-color: #ff9800;}
+.rate-table #bar-1{width: 0; height: 18px; background-color: #f44336;}
+
+/* Responsive layout - make the columns stack on top of each other instead of next to each other */
+@media (max-width: 400px) {
+  .rate-table #side, .rate-table #middle {
+    width: 100%;
+  }
+  .rate-table #right {
+    display: none;
+  }
 }

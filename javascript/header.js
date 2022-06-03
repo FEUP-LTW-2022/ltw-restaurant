@@ -1,3 +1,4 @@
+'use strict'
 document.getElementById('search-bar')
     .addEventListener('keyup', function(event) {
         if (event.code === 'Enter')
@@ -11,8 +12,8 @@ document.getElementById('search-bar')
 
 window.onscroll = function() {myFunction()};
 
-var header = document.getElementById("myHeader");
-var sticky = header.offsetTop;
+let header = document.getElementById("myHeader");
+let sticky = header.offsetTop;
 
 function myFunction() {
   if (window.pageYOffset > sticky) {
