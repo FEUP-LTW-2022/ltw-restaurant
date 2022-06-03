@@ -235,6 +235,7 @@ display: flex;
   border-top: 1px dashed rgba(0,0,0,0.8);
   margin: 0.5em auto;
   width: 100%;
+  background-color: rgba(0,0,0,0.8) ;
 }
 .menu > article #dish-price{
   margin-left: 5px;
@@ -244,6 +245,33 @@ display: flex;
   font-size: small;
   white-space: nowrap;
   margin-right: 5px;
+}
+.rate-table > hr{
+  border:3px solid #f1f1f1;
+  background-color:#f1f1f1;
+}
+.rate-table #line{
+  display: flex;
+  margin-top:1em;
+}
+.rate-table #middle{
+  width: 100%;
+  background: #777777;
+  height: 18px;
+}
+
+/* Individual bars */
+.rate-table #bar-5 { width:0; height: 18px; background-color: #04AA6D; display: inline-block;}
+.rate-table #bar-4{ width: 0; ; height: 18px; background-color: #2196F3; display: inline-block;}
+.rate-table #bar-3 { width: 0; ; height: 18px; background-color: #00bcd4;display: inline-block;}
+.rate-table #bar-2 { width: 0;  height: 18px; background-color: #ff9800;display: inline-block;}
+.rate-table #bar-1{ width: 0;  height: 18px; background-color: #f44336;display: inline-block;}
+
+/* Responsive layout - make the columns stack on top of each other instead of next to each other */
+@media (max-width: 400px) {
+  .rate-table #right {
+    display: none;
+  }
 }
 
 /*******************************************************/
@@ -462,6 +490,7 @@ hr#register-bar {
   /*height: 5px;*/
   color: black;
   margin-bottom: 3%;
+  background-color:black;
 }
 
 #AboutUsInfo{
@@ -631,58 +660,3 @@ hr#register-bar {
 
 /**********************************************/
 /* Restaurant page */
-.rate-table hr{
-  border:3px solid #f1f1f1;
-}
-.rate-table #side {
-  float: left;
-  width: 15%;
-  margin-top:10px;
-}
-
-.rate-table #middle {
-  margin-top:10px;
-  float: left;
-  width: 70%;
-}
-
-/* Place text to the right */
-.rate-table #right {
-  margin-top:10px;
-  float: right;
-  text-align: right;
-  width: auto;
-}
-
-/* Clear floats after the columns */
-.rate-table #row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-/* The bar container */
-.rate-table #bar-container {
-  width: 100%;
-  background-color: #f1f1f1;
-  text-align: center;
-  color: white;
-}
-
-
-/* Individual bars */
-.rate-table #bar-5 {width: 0; height: 18px; background-color: #04AA6D;}
-.rate-table #bar-4{width: 0; height: 18px; background-color: #2196F3;}
-.rate-table #bar-3 {width: 0; height: 18px; background-color: #00bcd4;}
-.rate-table #bar-2 {width: 0; height: 18px; background-color: #ff9800;}
-.rate-table #bar-1{width: 0; height: 18px; background-color: #f44336;}
-
-/* Responsive layout - make the columns stack on top of each other instead of next to each other */
-@media (max-width: 400px) {
-  .rate-table #side, .rate-table #middle {
-    width: 100%;
-  }
-  .rate-table #right {
-    display: none;
-  }
-}
