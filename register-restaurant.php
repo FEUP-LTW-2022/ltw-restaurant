@@ -23,8 +23,12 @@
                 <input name="address" type="text" required>
             </label>
 
+            <label><b>Postal Code</b>
+                <input name="postal code" type="text" required>
+            </label>
 
-            <label><b>website</b>
+
+            <label><b>Website</b>
                 <input name="website" type="text">
             </label>
 
@@ -34,7 +38,7 @@
             </label>
             <br>
 
-            <label for="email"><b>Company Email</b>
+            <label id="company-email" for="email"><b>Company Email</b>
                 <input name="email" type="email" required>
             </label>
 
@@ -42,10 +46,11 @@
                 <input name="phoneNumber" type="number" max="999999999" min="900000000">
             </label>
 
+            <label><b>Restaurant Logo</b>
+                <input name="image" type="file" id="actual-btn" accept="image/*"><br>
+            </label>
+
             <button type="submit">Register</button>
-
-
-
 
         </form>
     </div>

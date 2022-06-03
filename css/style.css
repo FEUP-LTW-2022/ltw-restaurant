@@ -670,6 +670,7 @@ hr#register-bar {
 }
 
 
+
 /* Individual bars */
 .rate-table #bar-5 {width: 0; height: 18px; background-color: #04AA6D;}
 .rate-table #bar-4{width: 0; height: 18px; background-color: #2196F3;}
@@ -686,3 +687,27 @@ hr#register-bar {
     display: none;
   }
 }
+/************************************************/
+/*Register Restaurant Page*/
+.register #actual-btn{
+  content: 'Select some files';
+  display: inline-block;
+  background: linear-gradient(top, #f9f9f9, #e3e3e3);
+  border: 1px solid #999;
+  border-radius: 3px;
+  padding: 5px 8px;
+  outline: none;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  cursor: pointer;
+  text-shadow: 1px 1px #fff;
+  font-weight: 700;
+  font-size: 10pt;
+  margin-bottom: 1em;
+}
+
+.register #company-email{
+  margin-top: 1em;
+}
+
+
