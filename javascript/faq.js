@@ -1,4 +1,4 @@
-
+'use strict'
 let faq = document.getElementsByClassName("faq-page");
 let i;
 for (i = 0; i < faq.length; i++) {

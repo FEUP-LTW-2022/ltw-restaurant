@@ -23,32 +23,20 @@ $category= getRestaurantCategory($db, $restaurant['category']);
 drawHeader();
 
 //drawDishesList($dishes);
+
+drawRestaurantInfo($category, $restaurant, $avgRev);
 ?>
-<div>
 
-</div>
-<div class="restaurant-page">
-    <span><a id="header-category"><?= $category['name']  ?></a> </span> <!-- href -> search de todos restaurantes da categoria -->
-    <div class="res-page-name">
-        <span id="r_name"><b><?= $restaurant['name']." - ".$restaurant['city']?> </b></span>
-        <div>
-            <span id="r_rate"><?=$avgRev?></span>
-            <span>/5</span>
-        </div>
-    </div>
-    <span id="maps"> <a href="https://www.google.com/maps/search/?api=1&query=<?=$restaurant['address']?>"><u><?= $restaurant['address']?></u></a></span>
-    <img src="<?=$restaurant['photo']?>" alt="restaurant photo" style="  width: 50%; height: 300px;">
-
-    <section class="menu">
-        <h2>Menu</h2>
-        <?php foreach( $dishes as $dish) {?>
-            <article>
-                <span id="dish-name"><?=$dish['name']?></span>
-                <hr id="menuHr">
-                <span id="dish-price"><?=$dish['price']?>&euro;</span>
-            </article>
-            <?php }?>
-    </section>
+<section class="menu">
+    <h2>Menu</h2>
+    <?php foreach( $dishes as $dish) {?>
+        <article>
+            <span id="dish-name"><?=$dish['name']?></span>
+            <hr id="menuHr">
+            <span id="dish-price"><?=$dish['price']?>&euro;</span>
+        </article>
+        <?php }?>
+</section>
 
 <div class="rate-table">
     <h2>Rating table </h2>

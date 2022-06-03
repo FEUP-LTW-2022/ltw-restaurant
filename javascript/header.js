@@ -1,3 +1,4 @@
+'use strict'
 document.getElementById('search-bar')
     .addEventListener('keyup', function(event) {
         if (event.code === 'Enter')

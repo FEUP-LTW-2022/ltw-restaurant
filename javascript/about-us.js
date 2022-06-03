@@ -1,3 +1,4 @@
+'use strict'
 function showMembersTeam(AboutUsID, AboutUsMembersID){
     document.getElementById(AboutUsID).style.display = "none";
     document.getElementById(AboutUsMembersID).style.display = "flex";

@@ -1,3 +1,5 @@
+
+'use strict'
 function RegToLogin(){
     window.location.href="./login.php"
 }
