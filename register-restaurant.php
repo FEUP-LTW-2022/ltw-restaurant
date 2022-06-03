@@ -23,7 +23,7 @@
                 <input name="address" type="text" required>
             </label>
 
-            <label><b>Postal Code</b>
+            <label><b>ZIP Code</b>
                 <input name="postal code" type="text" required>
             </label>
 
@@ -34,6 +34,7 @@
 
             <label for="openHours"><b>Open hours</b>
                 <input name="open-time" type="time" required>
+                to
                 <input name="close-time" type="time" required>
             </label>
             <br>
