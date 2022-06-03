@@ -210,7 +210,6 @@ main {
   color: green;
   background-color: transparent;
 }
-
 .res-page-name{
   display: flex;
   justify-content: space-between;
@@ -224,6 +223,10 @@ main {
 .res-page-name #r_rate{
   font-size: 3rem;
   text-align: right;
+}
+.restaurant-page >img{
+  display: block;
+  margin: 2rem auto;
 }
 .menu > article{
 display: flex;
@@ -242,6 +245,8 @@ display: flex;
   white-space: nowrap;
   margin-right: 5px;
 }
+
+/*******************************************************/
 
 
 
@@ -279,7 +284,6 @@ display: flex;
 
 
   /*login form */
-
 
   .login input[type=email], .login input[type=password] {
     width: 100%;
