@@ -22,8 +22,6 @@ $category= getRestaurantCategory($db, $restaurant['category']);
 
 drawHeader();
 
-//drawDishesList($dishes);
-
 drawRestaurantInfo($category, $restaurant, $avgRev);
 ?>
 
@@ -43,23 +41,15 @@ drawRestaurantInfo($category, $restaurant, $avgRev);
 
     <p><?= $avgRev. " average based on ".$numRev." reviews." ?> </p>
     <hr>
-    <div id="row">
-        <?php for($i=5; $i>0; $i-=1){?>
-
-        <div id="side">
-                <div> <?= $i?> star</div>
-            </div>
+    <?php for($i=5; $i>0; $i-=1){?>
+        <div id="line">
+            <span><?=$i?>&nbsp;star</span>
             <div id="middle">
-                <div id="bar-container">
-                <div id="bar-<?=$i?>" style="width: <?=(int) (($storeRev[$i]*100)/$numRev)?>%"></div>
-                </div>
+                <span id="bar-<?=$i?>" style="width: <?=(int) (($storeRev[$i]*100)/$numRev)?>%"></span>
             </div>
-            <div id="right">
-                <div><?=$storeRev[$i]?></div>
-            </div>
-         <?php } ?>
-    </div>
-</div>
+            <span id="right" ><?=$storeRev[$i]?></span>
+        </div>
+    <?php } ?>
 
 <?php drawFooter(); ?>
 
