@@ -31,18 +31,22 @@ drawRestaurantInfo($category, $restaurant, $avgRev);
 </div>
 <hr id="tabLine">
 
+<!-- dar print de 3/4 pratos -->
 <div id="aboutRest" class="tabcontent">
     <section class="partial-menu">
         <h2>Menu</h2>
         <?php foreach( $dishes as $dish) {?>
             <article>
-                <span id="dish-name"><?=$dishes[0]['name']?></span>
+                <span id="dish-name"><?=$dish['name']?></span>
                 <hr id="menuHr">
                 <span id="dish-price"><?=$dish['price']?>&euro;</span>
             </article>
             <?php }?>
+
+        <span id="menuBtn"><button onclick="openTab(1,'menuRest')">Complete Menu</button></span>
     </section>
 
+    <!-- dar print de alguns comments-->
     <div class="rate-table">
         <h2>Rating table </h2>
 
