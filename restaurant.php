@@ -22,8 +22,6 @@ $category= getRestaurantCategory($db, $restaurant['category']);
 
 drawHeader();
 
-//drawDishesList($dishes);
-
 drawRestaurantInfo($category, $restaurant, $avgRev);
 ?>
 
