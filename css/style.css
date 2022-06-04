@@ -269,12 +269,15 @@ display: flex;
   margin: 0.5em auto;
   width: 100%;
 }
+
+.partial-menu > article{
+  font-size: 1rem;
+}
 .partial-menu > article #dish-price{
   margin-left: 5px;
-  font-size: small;
 }
 .partial-menu > article #dish-name{
-  font-size: small;
+
   white-space: nowrap;
   margin-right: 5px;
 }

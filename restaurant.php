@@ -17,25 +17,25 @@ $avgRev=getAverageRate($db, $id);
 $numRev=sumReviews($storeRev);
 
 $dishes = getDishes($db,$id);
+$randDishes= getRandDishes($db, $id);
 
 $category= getRestaurantCategory($db, $restaurant['category']);
+
+
 
 drawHeader();
 
 drawRestaurantInfo($category, $restaurant, $avgRev);
 ?>
-<div class="restTab">
-    <button class="tablinks" onclick="openTab(0,'aboutRest')">About</button>
-    <button class="tablinks" onclick="openTab(1,'menuRest')">Menu</button>
-    <button class="tablinks" onclick="openTab(2,'reviewsRest')">Reviews</button>
-</div>
-<hr id="tabLine">
+
 
 <!-- dar print de 3/4 pratos -->
 <div id="aboutRest" class="tabcontent">
+
     <section class="partial-menu">
         <h2>Menu</h2>
-        <?php foreach( $dishes as $dish) {?>
+
+        <?php foreach( $randDishes as $dish) {?>
             <article>
                 <span id="dish-name"><?=$dish['name']?></span>
                 <hr id="menuHr">
@@ -62,30 +62,17 @@ drawRestaurantInfo($category, $restaurant, $avgRev);
             </div>
         <?php } ?>
     </div>
+
 </div>
+
 <div id="menuRest" class="tabcontent">
     test
 </div>
+
 <div id="reviewsRest" class="tabcontent">
     test2
 </div>
 
 <?php drawFooter(); ?>
 
-<script>
-    function openTab(x, TabName) {
-        let i, tabcontent, tablinks;
-        tabcontent = document.getElementsByClassName("tabcontent");
-        for (i = 0; i < tabcontent.length; i++) {
-            tabcontent[i].style.display = "none";
-        }
-        tablinks = document.getElementsByClassName("tablinks");
-        for (i = 0; i < tablinks.length; i++) {
-            tablinks[i].className = tablinks[i].className.replace(" active", "");
-            tablinks[i].style.borderBottom="none";}
-
-       tablinks[x].style.borderBottom="4px solid green";
-        document.getElementById(TabName).style.display = "block";
-
-    }
-</script>
+<script src="./javascript/restaurant.js"></script>
