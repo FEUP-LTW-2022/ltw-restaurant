@@ -751,3 +751,33 @@ hr#register-bar {
 .vertical-menu img{
   border-radius: 50%;
 }
+
+/****************************************/
+/* Edit profile page*/
+
+.edit-profile{
+  padding: 16px;
+}
+.edit-profile input[type=email], .edit-profile input[type=text],.edit-profile input[type=number]{
+  width: 100%;
+  padding: 12px 20px;
+  margin-top: 8px;
+  margin-bottom: 2em;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  gap:2em;
+  border-radius: 20px;
+}
+
+.edit-profile button {
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 20px;
+  margin-bottom: 1em;
+  margin-top: 8px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  border-radius: 20px
+}
