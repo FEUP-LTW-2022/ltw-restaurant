@@ -7,22 +7,24 @@ session_start();
  $user = account::getPhoto();
 
 drawHeader();
-
-
 ?>
-<div>
-    <a href="change-password.php">change password</a>
-    <a href="register-restaurant.php">register restaurant</a>
-<?php
-if (account::isLoggedIn()) { ?>
-   <img alt="user pic" src=<?=$user['photo']?>>
-<?php }?>
+
+
+<div class="vertical-menu">
+    <?php
+    if (account::isLoggedIn()) { ?>
+    <img alt="user pic" src=<?=$user['photo']?> width="100" height="100">
+    <?php }?>
+
+
+
+
+  <a href="change-password.php">Change password</a>
+  <a href="register-restaurant.php">Register restaurant</a>
+
 </div>
 
-<div>
-
-</div>
 
 <?php
-
 drawFooter();
+?>
