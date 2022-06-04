@@ -2,14 +2,19 @@
     session_start();
     include_once ("templates/elements.tpl.php");
     include_once ("database/restaurants.php");
+    include_once ("database/account.class.php");
 
     drawHeader();
     if (strtoupper($_SERVER['REQUEST_METHOD']) === 'POST') {
         registerRestaurant($_POST);
     }
+    if (!account::isLoggedIn()){
+        header("Content: index.php");
+    }
+
 ?>
     <div class="register">
-        <form method="post" action="register-restaurant.php">
+        <form method="post" action="register-restaurant.php" enctype="multipart/form-data">
             <h1>Register a restaurant</h1>
 
             <label for="RestaurantName"><b>Restaurant name</b>
@@ -42,7 +47,6 @@
             <label for="CompanyNumber"><b>Phone Number</b>
                 <input name="phoneNumber" type="number" max="999999999" min="900000000">
             </label>
-
             <label><b>Restaurant Logo</b>
                 <input name="image" type="file" id="actual-btn" accept="image/*"><br>
             </label>
@@ -54,9 +58,6 @@
                 }
             ?>
             <button type="submit">Register</button>
-
-
-
 
         </form>
     </div>

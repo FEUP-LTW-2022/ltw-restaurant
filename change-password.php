@@ -5,6 +5,10 @@ include_once('database/account.class.php');
 require_once('templates/elements.tpl.php');
 
 drawHeader();
+if (!account::isLoggedIn()){
+    header("Content: index.php");
+}
+
 ?>
 <div class="change-password">
     <form method="post" action="edit-profile.php">
@@ -31,3 +35,7 @@ drawHeader();
 
 
 
+<form>
+    <label> old Password<input type="password" name="oldPassword"></label>
+
+</form>
