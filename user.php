@@ -15,10 +15,7 @@ drawHeader();
     if (account::isLoggedIn()) { ?>
     <img alt="user pic" src=<?=$user['photo']?> width="100" height="100">
     <?php }?>
-
-
-
-
+  <a href="edit-profile.php">Edit profile</a>
   <a href="change-password.php">Change password</a>
   <a href="register-restaurant.php">Register restaurant</a>
 
