@@ -109,7 +109,7 @@ CREATE TABLE photo(
 
 
 
-CREATE TABLE IF NOT EXISTS "users"
+CREATE TABLE  users
 (
     id          INTEGER
         primary key autoincrement,

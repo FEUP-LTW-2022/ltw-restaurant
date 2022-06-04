@@ -738,7 +738,7 @@ hr#register-bar {
   width: 20%; /* Set a width if you like */
 }
 
-.vertical-menu a {
+.vertical-menu a, .vertical-menu button {
   background-color: #eee; /* Grey background color */
   color: black; /* Black text color */
   display: block; /* Make the links appear below each other */
@@ -746,8 +746,8 @@ hr#register-bar {
   text-decoration: none; /* Remove underline from links */
 }
 
-.vertical-menu a:hover {
-  background-color: #04AA6D ; /* Dark grey background on mouse-over */
+.vertical-menu a:hover, .vertical-menu button:hover {
+  background-color: #04AA6D ; /* Green background on mouse-over */
   opacity: 0.8;
 }
 
