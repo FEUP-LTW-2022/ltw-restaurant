@@ -82,6 +82,14 @@ class account{
         header('Location: ../login.php');
         exit();
     }
+    public static  function updateUserInfo(&$info){
+            $db = getDatabaseConnection();
+            $stmt = $db->prepare("UPDATE Users SET (name, address, phoneNumber)
+                                        VALUES (:name, :address, :phoneNumber)");
+            $stmt->bindParam(':name' , $info['name']);
+            $stmt->bindParam(':address' , $info['address']);
+            $stmt->execute();
+    }
 
     public static function getUserID(){
         $stmt = getDatabaseConnection()->prepare("SELECT id FROM users WHERE email=:email");
