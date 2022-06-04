@@ -50,29 +50,5 @@ drawHeader();
 <?php drawFooter()?>
 
 <script src="./javascript/login&register.js">
-
 RegToLogin()
-
-//setDate()
-
-/* function RegToLogin(){
-    window.location.href="./login.php"
- }
-
-function setDate(){var today = new Date();
-var dd = today.getDate();
-var mm = today.getMonth() + 1; //January is 0!
-var yyyy = today.getFullYear();
-
-if (dd < 10) {
-   dd = '0' + dd;
-}
-
-if (mm < 10) {
-   mm = '0' + mm;
-} 
-    
-today = yyyy + '-' + mm + '-' + dd;
-document.getElementById("date").setAttribute("max", today);
-}*/
  </script>

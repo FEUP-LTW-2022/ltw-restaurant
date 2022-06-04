@@ -1,4 +1,5 @@
 
+
 PRAGMA foreign_keys = ON;
 DROP TABLE IF EXISTS restaurant;
 DROP TABLE IF EXISTS reviews;
@@ -23,15 +24,16 @@ CREATE TABLE restaurant (
     closeHour INTEGER NOT NULL DEFAULT '2200',
     email VARCHAR,
     phoneNumber VARCHAR,
-    category INTEGER NOT NULL DEFAULT 1, -- apagar default
+    photo VARCHAR NOT NULL DEFAULT './images/default/default-rest.jpg',
+    category INTEGER NOT NULL, -- apagar default
     FOREIGN KEY(category) REFERENCES categories(id)
 );
+
 
 CREATE TABLE reviews (
 	id INTEGER PRIMARY KEY AUTOINCREMENT,
 	restaurant_id INTEGER,
-	id_author INTEGER,
-	title VARCHAR,
+	id_author INTEGER NOT NULL ,
 	rate INTEGER NOT NULL,
 	text VARCHAR,
 	date DATE,
@@ -56,6 +58,7 @@ CREATE TABLE request(
     restaurantID INTEGER REFERENCES Restaurant(id) NOT NULL,
     date INTEGER DEFAULT (strftime('%s','now'))
 );
+
 
 CREATE TABLE request_dish(
     dishID INTEGER REFERENCES Dish(id),
@@ -106,5 +109,19 @@ CREATE TABLE photo(
 
 
 
+CREATE TABLE IF NOT EXISTS "users"
+(
+    id          INTEGER
+        primary key autoincrement,
+    email       VARCHAR not null
+        unique,
+    name        VARCHAR not null,
+    birthDate   VARCHAR,
+    photo       VARCHAR default './images/default/default-user-image.png',
+    type        VARCHAR,
+    phoneNumber INTEGER,
+    isOwner             default False not null,
+    password    VARCHAR not null
+);
 
 

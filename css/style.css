@@ -68,7 +68,7 @@ main, footer {
 #search-bar>label> input[type=text], #signup a{
     width: 100%;
     padding: 12px;
-    border: 1px solid green;
+    border: 1px solid #04AA6D;
     border-radius: 20px;
     box-sizing: border-box;
   
@@ -207,7 +207,7 @@ main {
   color: rgba(0,0,0,0.8);
 }
 .restaurant-page #maps:hover{
-  color: green;
+  color:#04AA6D;
   background-color: transparent;
 }
 .res-page-name{
@@ -215,11 +215,44 @@ main {
   justify-content: space-between;
 
 }
+
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+
+
+.restTab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+.restTab button:hover {
+  background-color:#f1f1f1;
+}
+
+#menuRest,  #reviewsRest{
+  display: none;
+}
+
+hr#tabLine {
+  border:1px solid #f1f1f1;
+  background-color:#f1f1f1;
+  width: 100%;
+}
 .res-page-name #r_name{
   font-size: 2rem;
   text-align: left;
   margin-bottom: 2rem;
 }
+
 .res-page-name #r_rate{
   font-size: 3rem;
   text-align: right;
@@ -228,22 +261,68 @@ main {
   display: block;
   margin: 2rem auto;
 }
-.menu > article{
+.partial-menu > article{
 display: flex;
 }
-.menu > article hr#menuHr{
+.partial-menu > article hr#menuHr{
   border-top: 1px dashed rgba(0,0,0,0.8);
   margin: 0.5em auto;
   width: 100%;
 }
-.menu > article #dish-price{
+.partial-menu > article #dish-price{
   margin-left: 5px;
   font-size: small;
 }
-.menu > article #dish-name{
+.partial-menu > article #dish-name{
   font-size: small;
   white-space: nowrap;
   margin-right: 5px;
+}
+.partial-menu #menuBtn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.partial-menu  button{
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 20px;
+  margin: 1em auto;
+  border: none;
+  cursor: pointer;
+  width: 30%;
+  border-radius: 20px;
+}
+.partial-menu  button:hover{
+  opacity: 0.8;
+}
+.rate-table > hr{
+  border:1px solid #f1f1f1;
+  background-color:#f1f1f1;
+}
+.rate-table #line{
+  display: flex;
+  margin-top:1em;
+}
+.rate-table #middle{
+  width: 100%;
+  background: #f1f1f1;
+  height: 18px;
+  margin: 0 1em;
+}
+
+/* Individual bars */
+.rate-table #bar-5 { width:0; height: 18px; background-color: #04AA6D; display: inline-block;}
+.rate-table #bar-4{ width: 0; ; height: 18px; background-color: #2196F3; display: inline-block;}
+.rate-table #bar-3 { width: 0; ; height: 18px; background-color: #00bcd4;display: inline-block;}
+.rate-table #bar-2 { width: 0;  height: 18px; background-color: #ff9800;display: inline-block;}
+.rate-table #bar-1{ width: 0;  height: 18px; background-color: #f44336;display: inline-block;}
+
+/* Responsive layout - make the columns stack on top of each other instead of next to each other */
+@media (max-width: 400px) {
+  .rate-table #right {
+    display: none;
+  }
 }
 
 /*******************************************************/
@@ -252,6 +331,7 @@ display: flex;
 
   /*footer*/
   footer {
+
       background-color: black;
       color: white;
       padding: 1rem 11rem 1rem 11rem;
@@ -324,7 +404,7 @@ display: flex;
     margin-bottom: 1em;
   }
   #login-opt a:link {
-    color: green;
+    color: #04AA6D;
     background-color: transparent;
     text-decoration: none;
   }
@@ -397,6 +477,21 @@ hr#register-bar {
   color:gray;
   background-color:gray
 }
+/*register restaurant*/
+
+.register #city_zip{
+  display: flex;
+  flex-direction: row;
+}
+.register #city_zip >label {
+  width: 50%;
+}
+.register #city_zip >label:last-child {
+  margin-left: 1rem;
+}
+.register #city_zip >label:first-child {
+  margin-right: 1rem;
+}
 
 #regToLogin h2{
   text-align: center; 
@@ -462,6 +557,7 @@ hr#register-bar {
   /*height: 5px;*/
   color: black;
   margin-bottom: 3%;
+  background-color:black;
 }
 
 #AboutUsInfo{
@@ -492,7 +588,7 @@ hr#register-bar {
   padding: 13px;
   border-radius: 20px;
   font-size: 13px;
-  background-color:green;
+  background-color:#04AA6D;
   color: white;
   text-transform: uppercase;
   font-weight: bold;
@@ -631,58 +727,3 @@ hr#register-bar {
 
 /**********************************************/
 /* Restaurant page */
-.rate-table hr{
-  border:3px solid #f1f1f1;
-}
-.rate-table #side {
-  float: left;
-  width: 15%;
-  margin-top:10px;
-}
-
-.rate-table #middle {
-  margin-top:10px;
-  float: left;
-  width: 70%;
-}
-
-/* Place text to the right */
-.rate-table #right {
-  margin-top:10px;
-  float: right;
-  text-align: right;
-  width: auto;
-}
-
-/* Clear floats after the columns */
-.rate-table #row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-/* The bar container */
-.rate-table #bar-container {
-  width: 100%;
-  background-color: #f1f1f1;
-  text-align: center;
-  color: white;
-}
-
-
-/* Individual bars */
-.rate-table #bar-5 {width: 0; height: 18px; background-color: #04AA6D;}
-.rate-table #bar-4{width: 0; height: 18px; background-color: #2196F3;}
-.rate-table #bar-3 {width: 0; height: 18px; background-color: #00bcd4;}
-.rate-table #bar-2 {width: 0; height: 18px; background-color: #ff9800;}
-.rate-table #bar-1{width: 0; height: 18px; background-color: #f44336;}
-
-/* Responsive layout - make the columns stack on top of each other instead of next to each other */
-@media (max-width: 400px) {
-  .rate-table #side, .rate-table #middle {
-    width: 100%;
-  }
-  .rate-table #right {
-    display: none;
-  }
-}
