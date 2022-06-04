@@ -118,9 +118,8 @@ CREATE TABLE IF NOT EXISTS "users"
     name        VARCHAR not null,
     birthDate   VARCHAR,
     photo       VARCHAR default './images/default/default-user-image.png',
-    type        VARCHAR,
+    address        VARCHAR,
     phoneNumber INTEGER,
-    isOwner             default False not null,
     password    VARCHAR not null
 );
 

@@ -269,12 +269,15 @@ display: flex;
   margin: 0.5em auto;
   width: 100%;
 }
+
+.partial-menu > article{
+  font-size: 1rem;
+}
 .partial-menu > article #dish-price{
   margin-left: 5px;
-  font-size: small;
 }
 .partial-menu > article #dish-name{
-  font-size: small;
+
   white-space: nowrap;
   margin-right: 5px;
 }
@@ -724,6 +727,60 @@ hr#register-bar {
 }
 
 
-
 /**********************************************/
 /* Restaurant page */
+
+
+
+/*******************************************/
+/* User page*/
+.vertical-menu {
+  width: 20%; /* Set a width if you like */
+}
+
+.vertical-menu a {
+  background-color: #eee; /* Grey background color */
+  color: black; /* Black text color */
+  display: block; /* Make the links appear below each other */
+  padding: 12px; /* Add some padding */
+  text-decoration: none; /* Remove underline from links */
+}
+
+.vertical-menu a:hover {
+  background-color: #04AA6D ; /* Dark grey background on mouse-over */
+  opacity: 0.8;
+}
+
+.vertical-menu img{
+  border-radius: 50%;
+}
+
+/****************************************/
+/* Edit profile and change password pages*/
+
+.edit-profile, .change-password{
+  padding: 16px;
+}
+.edit-profile input[type=email], .edit-profile input[type=text],.edit-profile input[type=number], .change-password input[type=password]{
+  width: 100%;
+  padding: 12px 20px;
+  margin-top: 8px;
+  margin-bottom: 2em;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  gap:2em;
+  border-radius: 20px;
+}
+
+.edit-profile button, .change-password button{
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 20px;
+  margin-bottom: 1em;
+  margin-top: 8px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  border-radius: 20px
+}

@@ -86,3 +86,4 @@ function getRestaurantCategory(PDO $db, int $id){
     $stmt->execute(array($id));
     return $stmt->fetch();
 }
+
