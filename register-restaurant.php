@@ -18,19 +18,22 @@ if (!account::isLoggedIn()){
             <label for="RestaurantName"><b>Restaurant name</b>
                 <input name="RestaurantName" type="text" required>
             </label>
-
-            <label><b>City</b>
-                <input name="city" type="text" required>
+            <label><b>Category</b>
+                <input name="category" type="text" maxlength="14" required>
             </label>
+            <span id="city_zip">
+                <label><b>City</b>
+                    <input name="city" type="text" required>
+                </label>
+                <label><b>ZIP Code</b>
+                <input name="postal code" type="text" required>
+            </label>
+            </span>
+
 
             <label><b>Address</b>
                 <input name="address" type="text" required>
             </label>
-
-            <label><b>ZIP Code</b>
-                <input name="postal code" type="text" required>
-            </label>
-
 
             <label><b>Website</b>
                 <input name="website" type="text">

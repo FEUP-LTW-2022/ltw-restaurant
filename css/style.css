@@ -477,6 +477,21 @@ hr#register-bar {
   color:gray;
   background-color:gray
 }
+/*register restaurant*/
+
+.register #city_zip{
+  display: flex;
+  flex-direction: row;
+}
+.register #city_zip >label {
+  width: 50%;
+}
+.register #city_zip >label:last-child {
+  margin-left: 1rem;
+}
+.register #city_zip >label:first-child {
+  margin-right: 1rem;
+}
 
 #regToLogin h2{
   text-align: center; 
