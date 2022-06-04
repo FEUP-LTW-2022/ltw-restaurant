@@ -28,6 +28,11 @@ drawHeader();
             <label for="phoneNumber"><b>Phone Number</b>
             <input name="phoneNumber" type="number" max="999999999" min="900000000" placeholder="Your phone number ..">
             </label>
+
+            <label for="address">
+                <b>Address</b>
+                <input name="address" type="text" placeholder="Your address .." required>
+            </label>
            
             <label for="birthDate"><b>Birth date</b>
             <input name="birthdate" type="date" id="date" max ='' required>

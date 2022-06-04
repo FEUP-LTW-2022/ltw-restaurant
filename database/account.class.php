@@ -60,10 +60,11 @@ class account{
     public static function register(&$info){
         try {
             $db = getDatabaseConnection();
-            $stmt = $db->prepare("INSERT INTO Users (email, name, password,type,birthDate,phoneNumber)
-                                        VALUES (:email,:name,:password,:type,:birthdate,:phoneNumber)");
+            $stmt = $db->prepare("INSERT INTO Users (email, name, address, password,type,birthDate,phoneNumber)
+                                        VALUES (:email,:name, :address, :password,:type,:birthdate,:phoneNumber)");
             $stmt->bindParam(':email', $info['email']);
             $stmt->bindParam(':name' , $info['name']);
+            $stmt->bindParam(':address' , $info['address']);
             $stmt->bindValue(':password' ,  security::generateHash($info['password']));
             $stmt->bindValue(':type', 'costumer');
             $stmt->bindParam(':birthdate',$info['birthdate']);
