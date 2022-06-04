@@ -756,12 +756,12 @@ hr#register-bar {
 }
 
 /****************************************/
-/* Edit profile page*/
+/* Edit profile and change password pages*/
 
-.edit-profile{
+.edit-profile, .change-password{
   padding: 16px;
 }
-.edit-profile input[type=email], .edit-profile input[type=text],.edit-profile input[type=number]{
+.edit-profile input[type=email], .edit-profile input[type=text],.edit-profile input[type=number], .change-password input[type=password]{
   width: 100%;
   padding: 12px 20px;
   margin-top: 8px;
@@ -773,7 +773,7 @@ hr#register-bar {
   border-radius: 20px;
 }
 
-.edit-profile button {
+.edit-profile button, .change-password button{
   background-color: #04AA6D;
   color: white;
   padding: 14px 20px;
