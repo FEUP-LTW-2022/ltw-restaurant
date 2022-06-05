@@ -14,10 +14,15 @@ WHERE restaurant_id = ?
 GROUP BY reviews.id
 ORDER BY RANDOM() LIMIT 5';
 
+const REVIEWS_Q='SELECT reviews.*, name, photo FROM reviews 
+JOIN users on reviews.id_author = users.id
+WHERE restaurant_id = ?
+GROUP BY reviews.id
+order by date DESC';
+
 const RESTAURANT='SELECT * FROM restaurant WHERE id=?';
 
 const RESTAURANT_CAT='SELECT * FROM categories WHERE id=?';
-
 
 
 function registerRestaurant( $values, $files): void
@@ -93,8 +98,16 @@ function getRestaurantCategory(PDO $db, int $id){
     return $stmt->fetch();
 }
 
-function getRandComments(PDO $db, int $id){
+function getRandComments(PDO $db, int $id): array
+{
     $stmt = $db->prepare(RAND_REVIEWS_Q);
+    $stmt->execute(array($id));
+    return $stmt->fetchAll();
+}
+
+function getComments(PDO $db, int $id): array
+{
+    $stmt = $db->prepare(REVIEWS_Q);
     $stmt->execute(array($id));
     return $stmt->fetchAll();
 }

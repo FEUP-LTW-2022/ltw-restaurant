@@ -16,38 +16,49 @@ $storeRev= countReviews($db, $id);
 $avgRev=getAverageRate($db, $id);
 $numRev=sumReviews($storeRev);
 $randComments= getRandComments($db, $id);
+$comments=getComments($db, $id);
 
 $dishes = getDishes($db,$id);
 $randDishes= getRandDishes($db, $id);
 
 $category= getRestaurantCategory($db, $restaurant['category']);
-$dish_cat= array("starters", "meat", );
-drawHeader();
+$dish_cat=  orderDishes($db, $id);
 
+drawHeader();
 drawRestaurantInfo($category, $restaurant, $avgRev);
-drawAboutRestaurant($randDishes,$avgRev, $numRev, $randComments);
-//drawRestaurantMenu()
+drawAboutRestaurant($randDishes,$avgRev, $numRev, $randComments, $storeRev);
+drawRestaurantMenu($dish_cat,$dishes);
 //drawRestaurantReviews()
 ?>
-<!-- dar print de 3/4 pratos -->
 
-    <div id="menuRest" class="tabcontent">
-        <h1>Menu</h1>
-        <section class="fullMenu">
-        <?php foreach( $dishes as $dish) {?>
-            <article>
-                <span id="dish-name"><?=$dish['name']?></span>
-                <hr id="menuHr">
-                <span id="dish-price"><?=$dish['price']?>&euro;</span>
-            </article>
-        <?php }?>
-        </section>
-    </div>
 
     <div id="reviewsRest" class="tabcontent">
-        test2
+        <div class="comments">
+            <?php foreach ($comments as $comment){?>
+
+                <article>
+                    <div class="comment-info">
+                        <div>
+                            <img src="<?=$comment['photo']?>" alt="user photo">
+                            <div id="name-date">
+                                <span id="comment-name"><b><?=$comment['name']?></b></span>
+                                <span id="comment-date"><?=date($comment['date'])?></span>
+                            </div>
+                        </div>
+                        <div>
+                            <span id="comment-rate"><?=$comment['rate']?></span>
+                            <span id="comment-max">/5</span>
+                        </div>
+                    </div>
+                    <span id="comment-text"><?=$comment['text']?></span>
+
+                </article>
+                <hr>
+            <?php } ?>
+
+        </div>
     </div>
-</div>
+
 <script src="./javascript/restaurant.js"></script>
 
 <?php drawFooter(); ?>

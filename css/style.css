@@ -327,7 +327,7 @@ display: flex;
     display: none;
   }
 }
-.rand-comments{
+.rand-comments, comments{
   margin-top: 1rem;
 }
 .comment-info{
@@ -361,11 +361,11 @@ display: flex;
 .comment-info #comment-max{
     font-size: 0.75em;
 }
-.rand-comments hr{
+.rand-comments hr, .comments hr{
     border: 1px solid #f1f1f1;
     margin:1em 0;
 }
-.rand-comments #comment-text{
+.rand-comments #comment-text, .comments #comment-text{
    font-size: 1em;
 }
 .rand-comments #reviewsBtn{

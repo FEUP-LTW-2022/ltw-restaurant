@@ -47,7 +47,7 @@ function  drawRestaurantInfo($category, $restaurant, $avgRev): void
 
 <?php }
 
-function drawAboutRestaurant($randDishes, $avgRev, $numRev, $randComments):void
+function drawAboutRestaurant($randDishes, $avgRev, $numRev, $randComments, $storeRev):void
 { ?>
        <div id="aboutRest" class="tabcontent">
 
@@ -108,6 +108,27 @@ function drawAboutRestaurant($randDishes, $avgRev, $numRev, $randComments):void
     </div>
 
 <?php }
+    function drawRestaurantMenu($dish_cat, $dishes){ ?>
+       <div id="menuRest" class="tabcontent">
+        <h1>Menu</h1>
+        <section class="fullMenu">
+
+            <?php  for($i=0; $i<=sizeof($dish_cat); $i++) {
+                    echo "<h2>". ucfirst($dish_cat[$i])."</h2>";
+                        foreach( $dishes as $dish) {
+                            if($dish['category']==$dish_cat[$i]){
+                            ?>
+                            <article>
+                                <span id="dish-name"><?=$dish['name']?></span>
+                                <hr id="menuHr">
+                                <span id="dish-price"><?=$dish['price']?>&euro;</span>
+                            </article>
+                        <?php }
+                        }
+            }?>
+        </section>
+    </div>
+   <?php }
 
 
 
