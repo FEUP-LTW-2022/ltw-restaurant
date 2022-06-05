@@ -24,25 +24,25 @@ require_once('./database/restaurants.php');
 <?php }
 
 function  drawRestaurantInfo($category, $restaurant, $avgRev){ ?>
-    <div class="restaurant-page">
-        <span><a id="header-category"><?= $category['name']  ?></a> </span> <!-- href -> search de todos restaurantes da categoria -->
-            <div class="res-page-name">
-                 <span id="r_name"><b><?= $restaurant['name']." - ".$restaurant['city']?> </b></span>
-                <div>
-        <span id="r_rate"><?=$avgRev?></span>
-        <span>/5</span>
+<div class="restaurant-page">
+    <span><a id="header-category"><?= $category['name']  ?></a> </span> <!-- href -> search de todos restaurantes da categoria -->
+        <div class="res-page-name">
+             <span id="r_name"><b><?= $restaurant['name']." - ".$restaurant['city']?> </b></span>
+            <div>
+                <span id="r_rate"><?=$avgRev?></span>
+                <span>/5</span>
+            </div>
+        </div>
+
+    <span id="maps"> <a href="https://www.google.com/maps/search/?api=1&query=<?=$restaurant['address']?>"><u><?= $restaurant['address']?></u></a></span>
+    <img src="<?=$restaurant['photo']?>" alt="restaurant photo" style="  width: 50%; height: 300px;">
+
+    <div class="restTab">
+        <button class="tablinks" onclick="openTab(0,'aboutRest')">About</button>
+        <button class="tablinks" onclick="openTab(1,'menuRest')">Menu</button>
+        <button class="tablinks" onclick="openTab(2,'reviewsRest')">Reviews</button>
     </div>
-</div>
-
-<span id="maps"> <a href="https://www.google.com/maps/search/?api=1&query=<?=$restaurant['address']?>"><u><?= $restaurant['address']?></u></a></span>
-<img src="<?=$restaurant['photo']?>" alt="restaurant photo" style="  width: 50%; height: 300px;">
-
-<div class="restTab">
-    <button class="tablinks" onclick="openTab(0,'aboutRest')">About</button>
-    <button class="tablinks" onclick="openTab(1,'menuRest')">Menu</button>
-    <button class="tablinks" onclick="openTab(2,'reviewsRest')">Reviews</button>
-</div>
-<hr id="tabLine">
+    <hr id="tabLine">
 
 <?php }
 

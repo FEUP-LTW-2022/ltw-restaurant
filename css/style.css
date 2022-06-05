@@ -277,7 +277,6 @@ display: flex;
   margin-left: 5px;
 }
 .partial-menu > article #dish-name{
-
   white-space: nowrap;
   margin-right: 5px;
 }
@@ -314,20 +313,76 @@ display: flex;
   margin: 0 1em;
 }
 
-/* Individual bars */
 .rate-table #bar-5 { width:0; height: 18px; background-color: #04AA6D; display: inline-block;}
 .rate-table #bar-4{ width: 0; ; height: 18px; background-color: #2196F3; display: inline-block;}
 .rate-table #bar-3 { width: 0; ; height: 18px; background-color: #00bcd4;display: inline-block;}
 .rate-table #bar-2 { width: 0;  height: 18px; background-color: #ff9800;display: inline-block;}
 .rate-table #bar-1{ width: 0;  height: 18px; background-color: #f44336;display: inline-block;}
 
-/* Responsive layout - make the columns stack on top of each other instead of next to each other */
 @media (max-width: 400px) {
   .rate-table #right {
     display: none;
   }
 }
-
+.rand-comments{
+  margin-top: 1rem;
+}
+.comment-info{
+  display: flex;
+  -moz-box-align: center;
+  align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1em;
+}
+.comment-info img{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+}
+.comment-info div:first-child{
+    display: flex;
+    flex-direction: row;
+}
+.comment-info #name-date{
+  display: flex;
+  flex-direction: column;
+    justify-content: center;
+}
+.comment-info #comment-date{
+    opacity: 0.6;
+}
+.comment-info #comment-rate{
+    font-size: 1.25em;
+}
+.comment-info #comment-max{
+    font-size: 0.75em;
+}
+.rand-comments hr{
+    border: 1px solid #f1f1f1;
+    margin:1em 0;
+}
+.rand-comments #comment-text{
+   font-size: 1em;
+}
+.rand-comments #reviewsBtn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.rand-comments  button{
+    background-color: #04AA6D;
+    color: white;
+    padding: 14px 20px;
+    margin: 1em auto;
+    border: none;
+    cursor: pointer;
+    width: 30%;
+    border-radius: 20px;
+}
+.rand-comments  button:hover{
+    opacity: 0.8;
+}
 /*******************************************************/
 
 
@@ -430,8 +485,8 @@ display: flex;
     margin: 0 200px 0 200px;
     height:2px;
     border-width:0;
-    color:gray;
-    background-color:gray
+    color:#f1f1f1;
+    background-color:#f1f1f1;
   }
 
   #login-newacc h2{
@@ -477,8 +532,8 @@ hr#register-bar {
   margin: 0 200px 0 200px;
   height:2px;
   border-width:0;
-  color:gray;
-  background-color:gray
+  color:#f1f1f1;
+  background-color:#f1f1f1;
 }
 /*register restaurant*/
 
@@ -725,11 +780,6 @@ hr#register-bar {
 .ContactUs-container input[type=submit]:hover {
   background-color: #45a049;
 }
-
-
-/**********************************************/
-/* Restaurant page */
-
 
 
 /*******************************************/

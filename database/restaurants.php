@@ -8,7 +8,7 @@ const RATE_Q='SELECT reviews.rate FROM reviews
 WHERE restaurant_id = ?
 GROUP BY reviews.id';
 
-const RAND_REVIEWS_Q='SELECT reviews.*, name FROM reviews 
+const RAND_REVIEWS_Q='SELECT reviews.*, name, photo FROM reviews 
 JOIN users on reviews.id_author = users.id
 WHERE restaurant_id = ?
 GROUP BY reviews.id
