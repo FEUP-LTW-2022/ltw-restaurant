@@ -1,7 +1,7 @@
 <?php
 require_once('./database/restaurants.php');
 
- function drawRestaurantList(PDO $db, array $restaurants){ ?>
+ function drawRestaurantList(PDO $db, array $restaurants):void{ ?>
     <h1>Our Restaurants</h1>
          <section class="restaurants-list" >
           <?php foreach( $restaurants as $restaurant) {  
@@ -47,8 +47,8 @@ function  drawRestaurantInfo($category, $restaurant, $avgRev): void
 
 <?php }
 
-function drawAboutRestaurant($randDishes, $avgRev, $numRev, $randComments, $storeRev):void
-{ ?>
+function drawAboutRestaurant($randDishes, $avgRev,$randComments, $storeRev):void
+{ $numRev=sumReviews($storeRev); ?>
        <div id="aboutRest" class="tabcontent">
 
         <section class="partial-menu">
@@ -108,7 +108,7 @@ function drawAboutRestaurant($randDishes, $avgRev, $numRev, $randComments, $stor
     </div>
 
 <?php }
-    function drawRestaurantMenu($dish_cat, $dishes){ ?>
+    function drawRestaurantMenu($dish_cat, $dishes):void{ ?>
        <div id="menuRest" class="tabcontent">
         <h1>Menu</h1>
         <section class="fullMenu">
@@ -130,6 +130,37 @@ function drawAboutRestaurant($randDishes, $avgRev, $numRev, $randComments, $stor
     </div>
    <?php }
 
+    function drawRestaurantReviews($comments): void{ ?>
+     <div id="reviewsRest" class="tabcontent">
+        <div class="comments">
+            <?php foreach ($comments as $comment){?>
+
+                <article>
+                    <div class="comment-info">
+                        <div>
+                            <img src="<?=$comment['photo']?>" alt="user photo">
+                            <div id="name-date">
+                                <span id="comment-name"><b><?=$comment['name']?></b></span>
+                                <span id="comment-date"><?=date($comment['date'])?></span>
+                            </div>
+                        </div>
+                        <div>
+                            <span id="comment-rate"><?=$comment['rate']?></span>
+                            <span id="comment-max">/5</span>
+                        </div>
+                    </div>
+                    <span id="comment-text"><?=$comment['text']?></span>
+
+                </article>
+                <hr>
+            <?php } ?>
+
+        </div>
+    </div>
+
+<script src="../javascript/restaurant.js"></script>
+
+    <?php }
 
 
 
