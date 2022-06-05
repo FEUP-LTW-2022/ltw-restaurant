@@ -27,7 +27,7 @@ function drawHeader(){?>
         <div id="signup">
         <?php
             if (account::isLoggedIn()){
-            echo "<a href='/user.php'>".account::getUsername()."</a>";
+            echo "<a href='/user.php'>".htmlentities(account::getUsername())."</a>";
         ?>
             <div class="dropdown">
                 <button class="dropbtn"><img src="/cart.svg" alt="shopping cart"></button>

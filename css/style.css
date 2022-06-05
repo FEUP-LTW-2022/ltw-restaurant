@@ -738,7 +738,7 @@ hr#register-bar {
   width: 20%; /* Set a width if you like */
 }
 
-.vertical-menu a {
+.vertical-menu a, .vertical-menu button {
   background-color: #eee; /* Grey background color */
   color: black; /* Black text color */
   display: block; /* Make the links appear below each other */
@@ -746,8 +746,8 @@ hr#register-bar {
   text-decoration: none; /* Remove underline from links */
 }
 
-.vertical-menu a:hover {
-  background-color: #04AA6D ; /* Dark grey background on mouse-over */
+.vertical-menu a:hover, .vertical-menu button:hover {
+  background-color: #04AA6D ; /* Green background on mouse-over */
   opacity: 0.8;
 }
 
@@ -756,12 +756,12 @@ hr#register-bar {
 }
 
 /****************************************/
-/* Edit profile page*/
+/* Edit profile and change password pages*/
 
-.edit-profile{
+.edit-profile, .change-password{
   padding: 16px;
 }
-.edit-profile input[type=email], .edit-profile input[type=text],.edit-profile input[type=number]{
+.edit-profile input[type=email], .edit-profile input[type=text],.edit-profile input[type=number], .change-password input[type=password]{
   width: 100%;
   padding: 12px 20px;
   margin-top: 8px;
@@ -773,7 +773,7 @@ hr#register-bar {
   border-radius: 20px;
 }
 
-.edit-profile button {
+.edit-profile button, .change-password button{
   background-color: #04AA6D;
   color: white;
   padding: 14px 20px;
