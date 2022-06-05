@@ -4,13 +4,21 @@ const ALL_RESTAURANTS_Q= 'SELECT * FROM restaurant
 GROUP BY restaurant.id
 ORDER BY RANDOM() LIMIT 9';
 
-const REVIEWS_Q='SELECT reviews.rate FROM reviews
+const RATE_Q='SELECT reviews.rate FROM reviews
 WHERE restaurant_id = ?
 GROUP BY reviews.id';
+
+const RAND_REVIEWS_Q='SELECT reviews.*, name FROM reviews 
+JOIN users on reviews.id_author = users.id
+WHERE restaurant_id = ?
+GROUP BY reviews.id
+ORDER BY RANDOM() LIMIT 5';
 
 const RESTAURANT='SELECT * FROM restaurant WHERE id=?';
 
 const RESTAURANT_CAT='SELECT * FROM categories WHERE id=?';
+
+
 
 function registerRestaurant($values){
 
@@ -48,7 +56,7 @@ function getAverageRate(PDO $db, int $id){
 }
 
 function getRestaurantRate(PDO $db, int $id){
-    $stmt = $db->prepare(REVIEWS_Q);
+    $stmt = $db->prepare(RATE_Q);
     $stmt->execute(array($id));
     return $stmt->fetchAll();
 }
@@ -78,3 +86,8 @@ function getRestaurantCategory(PDO $db, int $id){
     return $stmt->fetch();
 }
 
+function getRandComments(PDO $db, int $id){
+    $stmt = $db->prepare(RAND_REVIEWS_Q);
+    $stmt->execute(array($id));
+    return $stmt->fetchAll();
+}

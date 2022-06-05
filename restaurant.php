@@ -15,13 +15,12 @@ $restaurant = getRestaurant($db, $id);
 $storeRev= countReviews($db, $id);
 $avgRev=getAverageRate($db, $id);
 $numRev=sumReviews($storeRev);
+$randComments= getRandComments($db, $id);
 
 $dishes = getDishes($db,$id);
 $randDishes= getRandDishes($db, $id);
 
 $category= getRestaurantCategory($db, $restaurant['category']);
-
-
 
 drawHeader();
 
@@ -60,6 +59,17 @@ drawRestaurantInfo($category, $restaurant, $avgRev);
                 </div>
                 <span id="right" ><?=$storeRev[$i]?></span>
             </div>
+        <?php } ?>
+    </div>
+    <div class="rand-comments">
+        <?php foreach ($randComments as $comment){?>
+            <article>
+                <span id="dish-name"><?=$comment['name']?></span>
+                <span id="dish-name"><?=$comment['text']?></span>
+                <span id="dish-price"><?=$comment['rate']?>/5</span>
+                <span id="dish-price"><?=date($comment['date'])?></span>
+                <hr id="commentHr">
+            </article>
         <?php } ?>
     </div>
 
