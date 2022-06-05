@@ -261,10 +261,13 @@ hr#tabLine {
   display: block;
   margin: 2rem auto;
 }
-.partial-menu > article{
+.restTab button:first-child{
+    border-bottom: 4px solid green;
+}
+.partial-menu > article, .fullMenu > article{
 display: flex;
 }
-.partial-menu > article hr#menuHr{
+.partial-menu > article hr#menuHr , .fullMenu hr#menuHr{
   border-top: 1px dashed rgba(0,0,0,0.8);
   margin: 0.5em auto;
   width: 100%;
@@ -273,10 +276,10 @@ display: flex;
 .partial-menu > article{
   font-size: 1rem;
 }
-.partial-menu > article #dish-price{
+.partial-menu > article #dish-price, .fullMenu #dish-price {
   margin-left: 5px;
 }
-.partial-menu > article #dish-name{
+.partial-menu > article #dish-name, .fullMenu #dish-name{
   white-space: nowrap;
   margin-right: 5px;
 }
