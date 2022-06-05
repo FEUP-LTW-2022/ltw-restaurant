@@ -31,16 +31,17 @@ function registerRestaurant( $values, $files): void
 
     $photo_id = upload($files);
 
-    $stmt = $db->prepare('INSERT INTO restaurant (ownerID,name,city,address,website,openHour,closeHour,email,phoneNumber,photo) 
-                            VALUES (?,?,?,?,?,?,?,?,?,?)');
+    $stmt = $db->prepare('INSERT INTO restaurant (ownerID,name,category,address,city,website,openHour,closeHour,email,phoneNumber,photo) 
+                            VALUES (?,?,?,?,?,?,?,?,?,?,?)');
 
-    $stmt->execute(array(account::getUserID(),$values["RestaurantName"],$values["city"],$values["address"],$values["website"],$values["open-time"],
+    $stmt->execute(array(account::getUserID(),$values["RestaurantName"],$values["city"],$values["address"].", ".$values['zip-code'], $values["website"],$values["open-time"],
                             $values["close-time"],$values["email"],$values["phoneNumber"],$photo_id));
 
     header("Location: ../manage-restaurant.php");
 }
 
-function getAllRestaurants(PDO $db){
+function getAllRestaurants(PDO $db): array
+{
     $stmt = $db->prepare(ALL_RESTAURANTS_Q);
     $stmt->execute();
     return $stmt->fetchAll();
