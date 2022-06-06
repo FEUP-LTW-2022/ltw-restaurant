@@ -1,9 +1,11 @@
 <?php
     session_start();
     include_once ("templates/elements.tpl.php");
+    include_once ("database/connection.php");
     include_once ("database/restaurants.php");
     include_once ("database/account.class.php");
-
+    $db=getDatabaseConnection();
+    $categories=getCategories($db);
     drawHeader();
     if (strtoupper($_SERVER['REQUEST_METHOD']) === 'POST') {
         registerRestaurant($_POST);
@@ -18,11 +20,15 @@
             <h1>Register a restaurant</h1>
 
             <label for="RestaurantName"><b>Restaurant name</b>
-                <input name="RestaurantName" type="text" required>
+                <input name="name" type="text" required>
             </label>
 
             <label><b>Category</b>
-                <input name="category" type="text" maxlength="14" required>
+                <select name="category" required>
+                    <?php foreach ($categories as $category){ ?>
+                        <option value="<?=$category['id']?>"><?=$category['name']?></option>
+                  <?php  } ?>
+                </select>
             </label>
 
             <label><b>Address</b>
@@ -34,7 +40,7 @@
                     <input name="city" type="text" required>
                 </label>
                 <label><b>ZIP Code</b>
-                    <input name="zip-code" type="text" required>
+                    <input name="zip" type="text" required>
                  </label>
             </span>
 
@@ -43,8 +49,8 @@
             </label>
 
             <label for="openHours"><b>Open hours</b>
-                <input name="open-time" type="time" required>
-                <input name="close-time" type="time" required>
+                <input name="openHour" type="time" required>
+                <input name="closeHour" type="time" required>
             </label>
             <br>
 
@@ -56,7 +62,7 @@
                 <input name="phoneNumber" type="number" max="999999999" min="900000000">
             </label>
             <label><b>Restaurant Logo</b>
-                <input name="image" type="file" id="actual-btn" accept="image/*"><br>
+                <input name="photo" type="file" id="actual-btn" accept="image/*"><br>
             </label>
 
             <?php

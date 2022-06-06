@@ -22,22 +22,41 @@ order by date DESC';
 
 const RESTAURANT='SELECT * FROM restaurant WHERE id=?';
 
-const RESTAURANT_CAT='SELECT * FROM categories WHERE id=?';
+const RESTAURANT_CAT= 'SELECT * FROM categories WHERE id=?';
 
 
-function registerRestaurant( $values, $files): void
+function registerRestaurant(&$info): void
 {
-    $db = getDatabaseConnection();
+    try {
+        $db = getDatabaseConnection();
+        $stmt = $db->prepare("INSERT INTO restaurant (ownerID,name,category,address,city,website,openHour,closeHour,email,phoneNumber,photo) 
+                                        VALUES (:ownerID,:name,:category,:address,:city,:website,:openHour,:closeHour,:email,:phoneNumber,:photo)");
+        $userID = account::getUserID();
+        $stmt->bindParam(':ownerId', $userID);
+        $stmt->bindParam(':name', $info['name']);
+        $stmt->bindParam(':category', $info['category']);
+        $str = $info['address'] . ", ".$info['zip'];
+        $stmt->bindParam(':address', $str);
+        $stmt->bindParam(':city', $info['city']);
+        $stmt->bindParam(':website', $info['website']);
+        $stmt->bindParam(':openHour', $info['openHour']);
+        $stmt->bindParam(':closeHour', $info['closeHour']);
+        $stmt->bindParam(':email', $info['email']);
+        $stmt->bindParam(':phoneNumber', $info['phoneNumber']);
+        $stmt->bindParam(':photo', $info['photo']);
 
-    $photo_id = upload($files);
+        $stmt->execute();
+    }catch (PDOException $e){
+        error_log($e->getMessage());
+        if (strpos($e->getMessage(),"UNIQUE constraint failed: users.email")) {
+            $_SESSION['error'] = "email already registered";
 
-    $stmt = $db->prepare('INSERT INTO restaurant (ownerID,name,category,address,city,website,openHour,closeHour,email,phoneNumber,photo) 
-                            VALUES (?,?,?,?,?,?,?,?,?,?,?)');
-
-    $stmt->execute(array(account::getUserID(),$values["RestaurantName"],$values["city"],$values["address"].", ".$values['zip-code'], $values["website"],$values["open-time"],
-                            $values["close-time"],$values["email"],$values["phoneNumber"],$photo_id));
-
-    header("Location: ../manage-restaurant.php");
+            header('Location: ../register.php');
+            exit();
+        }
+    }
+    header('Location: ../login.php');
+    exit();
 }
 
 function getAllRestaurants(PDO $db): array
@@ -110,5 +129,12 @@ function getComments(PDO $db, int $id): array
 {
     $stmt = $db->prepare(REVIEWS_Q);
     $stmt->execute(array($id));
+    return $stmt->fetchAll();
+}
+
+function getCategories(PDO $db):array
+{
+    $stmt = $db->prepare('SELECT * FROM categories GROUP BY id');
+    $stmt->execute();
     return $stmt->fetchAll();
 }

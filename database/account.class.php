@@ -57,7 +57,8 @@ class account{
         return false;
     }
 
-    public static function register(&$info){
+    public static function register(&$info): void
+    {
         try {
             $db = getDatabaseConnection();
             $stmt = $db->prepare("INSERT INTO Users (email, name, address, password,birthDate,phoneNumber)
