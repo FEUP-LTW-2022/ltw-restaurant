@@ -14,16 +14,16 @@ drawHeader();
         <h1>Edit profile</h1>
     <label for="name">
         <b>Name</b>
-        <input name="name" type="text" placeholder="Your name .." required>
+        <input name="name" type="text" placeholder="Your name .." value="<?php echo account::getUserInfo("name")?>" required>
     </label>
 
     <label for="phoneNumber"><b>Phone Number</b>
-        <input name="phoneNumber" type="number" max="999999999" min="900000000" placeholder="Your phone number ..">
+        <input name="phoneNumber" type="number" max="999999999" min="900000000" value="<?php echo account::getUserInfo("phoneNumber")?>" required>
     </label>
 
     <label for="address">
         <b>Address</b>
-        <input name="address" type="text" placeholder="Your address .." required>
+        <input name="address" type="text" placeholder="Your address .." value="<?php echo account::getUserInfo("address")?>" required>
     </label>
 
     <button type="submit">Update</button>

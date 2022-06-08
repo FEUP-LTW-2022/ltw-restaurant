@@ -1,8 +1,10 @@
 PRAGMA foreign_keys=OFF;
 BEGIN TRANSACTION;
 
+--o autoincrement nao e necessaria para primary keys
+
 CREATE TABLE restaurant (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    id INTEGER PRIMARY KEY,
     ownerID INTEGER NOT NULL REFERENCES users(id),
     name VARCHAR UNIQUE NOT NULL,
     city VARCHAR NOT NULL ,
@@ -31,7 +33,7 @@ INSERT INTO restaurant VALUES(12,12,'Restaurante 12','cidade12','Rua do restaura
 
 
 CREATE TABLE reviews (
-	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	id INTEGER PRIMARY KEY,
 	restaurant_id INTEGER,
 	id_author INTEGER NOT NULL ,
 	rate INTEGER NOT NULL,
@@ -48,7 +50,7 @@ INSERT INTO reviews VALUES(4,1,1,5,'Nice restaurant','2015-04-30');
 
 
 CREATE TABLE dish(
-	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	id INTEGER PRIMARY KEY ,
 	name VARCHAR UNIQUE NOT NULL,
 	restaurant_id INTEGER,
     price INTEGER NOT NULL CHECK ( price > 0 ),
@@ -73,7 +75,7 @@ INSERT INTO dish VALUES(14,'Cheese Platter',2,11,'dessert');
 
 
 CREATE TABLE request(
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    id INTEGER PRIMARY KEY,
     userID INTEGER REFERENCES Users(id) NOT NULL ,
     restaurantID INTEGER REFERENCES Restaurant(id) NOT NULL,
     date INTEGER DEFAULT (strftime('%s','now'))
@@ -135,10 +137,8 @@ INSERT INTO categories VALUES(5,'Mediterranean');
 
 CREATE TABLE IF NOT EXISTS "users"
 (
-    id          INTEGER
-        primary key autoincrement,
-    email       VARCHAR not null
-        unique,
+    id          INTEGER primary key,
+    email       VARCHAR not null unique,
     name        VARCHAR not null,
     birthDate   VARCHAR,
     photo       VARCHAR default './images/default/default-user-image.png',
