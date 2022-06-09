@@ -1,6 +1,7 @@
 <?php declare(strict_types = 1);
     include_once("database/connection.php");
     include_once("database/account.class.php");
+    include_once("database/upload-image.php");
 
 function drawHeader(){?>
 <!DOCTYPE html>
@@ -27,7 +28,7 @@ function drawHeader(){?>
         <div id="signup">
         <?php
             if (account::isLoggedIn()){
-            echo "<a href='/user.php'>".htmlentities(account::getUsername())."</a>";
+            echo "<a href='/user.php'> <img id='userLogo' href='/user.php' src='".getimage(account::getUserID())."' > </a>"
         ?>
             <div class="dropdown">
                 <button class="dropbtn"><img src="/cart.svg" alt="shopping cart"></button>
@@ -38,9 +39,10 @@ function drawHeader(){?>
                 </div>
             </div>
         <?php }else{ ?>
-
-            <a href="/register.php">Register</a>
-            <a href="/login.php">Login</a>
+            <span id="logedOut">
+                <a href="/register.php">Register</a>
+                <a href="/login.php">Login</a>
+            </span>
         </div>
         <?php }?>
     </header>
