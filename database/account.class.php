@@ -3,7 +3,8 @@
 include_once ("password.php");
 
 class account{
-    public static function getUserRequest($count){
+    public static function getUserRequest($count): bool|array
+    {
         $db = getDatabaseConnection();
         $stmt = $db->prepare("SELECT id FROM users WHERE email=:email");
         $stmt->bindParam(":email",$_SESSION["email"]);
@@ -123,6 +124,14 @@ class account{
         $stmt->bindParam(":email",$_SESSION["email"]);
         $stmt->execute();
         return $stmt->fetch();
+    }
+
+    public static function isRestaurantOwner(): bool
+    {
+        $stmt = getDatabaseConnection()->prepare("SELECT COUNT(*) FROM restaurant INNER JOIN users ON restaurant.ownerID = users.id WHERE users.email = :email");
+        $stmt->bindParam(':email',$_SESSION['email']);
+        $stmt->execute();
+        return $stmt->fetch()["COUNT(*)"] > 0;
     }
 
 

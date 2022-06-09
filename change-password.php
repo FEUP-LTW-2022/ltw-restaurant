@@ -8,10 +8,12 @@ drawHeader();
 if (!account::isLoggedIn()){
     header("Content: index.php");
 }
-
+if (strtoupper($_SERVER['REQUEST_METHOD']) === 'POST') {
+    account::changePassword($_POST);
+}
 ?>
 <div class="change-password">
-    <form method="post" action="edit-profile.php">
+    <form method="post" action="change-password.php">
         <h1>Change password</h1>
         <label for="oldPassword">
             <b>Old Password</b>

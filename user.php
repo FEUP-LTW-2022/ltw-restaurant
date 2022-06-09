@@ -20,6 +20,9 @@ drawHeader();
     <img alt="user pic" src="<?=getimage($user['logo']) ?>" style="width: 100px; height: 100px">
 
     <a href="change-password.php">Change password</a>
+    <?php if (account::isRestaurantOwner()){ ?>
+        <a href="manage-restaurant.php">Manage Restaurant</a>
+    <?php }?>
     <a href="register-restaurant.php">Register restaurant</a>
     <a href="favourites.php">Favourites</a>
     <a href="edit-profile.php">Edit  Profile</a>
@@ -30,7 +33,9 @@ drawHeader();
 </div>
 
 <div>
-
+    <?php
+    drawUserReceipt();
+    ?>
 </div>
 
 <?php
