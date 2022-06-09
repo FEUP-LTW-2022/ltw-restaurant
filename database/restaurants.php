@@ -25,38 +25,18 @@ const RESTAURANT='SELECT * FROM restaurant WHERE id=?';
 const RESTAURANT_CAT= 'SELECT * FROM categories WHERE id=?';
 
 
-function registerRestaurant(&$info): void
-{
-    try {
-        $db = getDatabaseConnection();
-        $stmt = $db->prepare("INSERT INTO restaurant (ownerID,name,category,address,city,website,openHour,closeHour,email,phoneNumber,photo) 
-                                        VALUES (:ownerID,:name,:category,:address,:city,:website,:openHour,:closeHour,:email,:phoneNumber,:photo)");
-        $userID = account::getUserID();
-        $stmt->bindParam(':ownerId', $userID);
-        $stmt->bindParam(':name', $info['name']);
-        $stmt->bindParam(':category', $info['category']);
-        $str = $info['address'] . ", ".$info['zip'];
-        $stmt->bindParam(':address', $str);
-        $stmt->bindParam(':city', $info['city']);
-        $stmt->bindParam(':website', $info['website']);
-        $stmt->bindParam(':openHour', $info['openHour']);
-        $stmt->bindParam(':closeHour', $info['closeHour']);
-        $stmt->bindParam(':email', $info['email']);
-        $stmt->bindParam(':phoneNumber', $info['phoneNumber']);
-        $stmt->bindParam(':photo', $info['photo']);
+function registerRestaurant($values, $files){
 
-        $stmt->execute();
-    }catch (PDOException $e){
-        error_log($e->getMessage());
-        if (strpos($e->getMessage(),"UNIQUE constraint failed: users.email")) {
-            $_SESSION['error'] = "email already registered";
+    $photo_id = upload($files, random_bytes(22));
 
-            header('Location: ../register.php');
-            exit();
-        }
-    }
-    header('Location: ../login.php');
-    exit();
+    $stmt = getDatabaseConnection()->prepare("INSERT INTO restaurant (ownerID,name,city,address,website,openHour,closeHour,email,phoneNumber) 
+                        VALUES (?,?,?,?,?,?,?,?,?)");
+    $stmt->execute(array(account::getUserID(), $values["name"], $values["city"], $values["address"], $values["website"], $values["open-hour"],
+        $values["closeHour"], $values["email"], $values["phoneNumber"]));
+    $stmt->execute(array(account::getUserID(), $values["RestaurantName"], $values["city"], $values["address"], $values["website"], $values["open-time"],
+        $values["close-time"], $values["email"], $values["phoneNumber"], $photo_id));
+
+    header("Location: ../manage-restaurant.php");
 }
 
 function getAllRestaurants(PDO $db): array

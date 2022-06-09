@@ -8,7 +8,7 @@
     $categories=getCategories($db);
     drawHeader();
     if (strtoupper($_SERVER['REQUEST_METHOD']) === 'POST') {
-        registerRestaurant($_POST);
+        registerRestaurant($_POST,$_FILES);
     }
     if (!account::isLoggedIn()){
         header("Content: index.php");
