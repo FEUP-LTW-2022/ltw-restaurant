@@ -8,13 +8,13 @@ const RATE_Q='SELECT reviews.rate FROM reviews
 WHERE restaurant_id = ?
 GROUP BY reviews.id';
 
-const RAND_REVIEWS_Q='SELECT reviews.*, name, photo FROM reviews 
+const RAND_REVIEWS_Q='SELECT reviews.*, name, logo FROM reviews 
 JOIN users on reviews.id_author = users.id
 WHERE restaurant_id = ?
 GROUP BY reviews.id
 ORDER BY RANDOM() LIMIT 5';
 
-const REVIEWS_Q='SELECT reviews.*, name, photo FROM reviews 
+const REVIEWS_Q='SELECT reviews.*, name, logo FROM reviews 
 JOIN users on reviews.id_author = users.id
 WHERE restaurant_id = ?
 GROUP BY reviews.id
@@ -31,9 +31,8 @@ function registerRestaurant($values, $files){
 
     $stmt = getDatabaseConnection()->prepare("INSERT INTO restaurant (ownerID,name,city,address,website,openHour,closeHour,email,phoneNumber) 
                         VALUES (?,?,?,?,?,?,?,?,?)");
-    $stmt->execute(array(account::getUserID(), $values["name"], $values["city"], $values["address"], $values["website"], $values["open-hour"],
-        $values["closeHour"], $values["email"], $values["phoneNumber"]));
-    $stmt->execute(array(account::getUserID(), $values["RestaurantName"], $values["city"], $values["address"], $values["website"], $values["open-time"],
+
+    $stmt->execute(array(account::getUserID(), $values["RestaurantName"], $values["city"], $values["address"].", ".$values['zip'], $values["website"], $values["open-time"],
         $values["close-time"], $values["email"], $values["phoneNumber"], $photo_id));
 
     header("Location: ../manage-restaurant.php");

@@ -29,5 +29,5 @@ drawRestaurantInfo($category, $restaurant, $avgRev);
 drawAboutRestaurant($randDishes,$avgRev, $randComments, $storeRev);
 drawRestaurantMenu($dish_cat,$dishes);
 drawRestaurantReviews($comments);
- drawFooter();
+drawFooter();
 

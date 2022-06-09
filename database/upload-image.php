@@ -64,8 +64,15 @@ function upload($file)
 
   return $id;
 }
+function getPath($id){
+    $db = getDatabaseConnection();
+    $stmt = $db->prepare("SELECT * FROM photo where id = ?");
+    $stmt->execute(array($id));
 
-function getimage($id){
-    echo "<img src=\"images/originals/". $id .getDatabaseConnection()->exec("SELECT FROM photo where id = $id"). ".\" />";
+    return $stmt->fetch();
+}
+function getimage($id): string
+{
+    return "./images/originals/". $id .".".getPath($id)['extension'];
 }
 

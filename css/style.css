@@ -764,6 +764,7 @@ hr#register-bar {
 
 .ContactUs-header h2, .ContactUs-container h3{
   text-align: center;
+    margin-top: 2em;
 }
 .ContactUs-container input[type=text] , .ContactUs-container input[type=email] , .ContactUs-container textarea {
   width: 100%;
@@ -773,7 +774,6 @@ hr#register-bar {
   box-sizing: border-box;
   margin-top: 6px;
   margin-bottom: 16px;
-  resize: vertical;
 }
 
 .ContactUs-container input[type=submit] {
@@ -789,7 +789,6 @@ hr#register-bar {
 .ContactUs-container input[type=submit]:hover {
   background-color: #45a049;
 }
-
 
 /*******************************************/
 /* User page*/

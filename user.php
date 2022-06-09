@@ -5,6 +5,7 @@ include_once ('templates/elements.tpl.php');
 include_once ('database/connection.php');
 include_once ('templates/dish-request.tpl.php');
 include_once('database/account.class.php');
+include_once('database/upload-image.php');
 if(!account::isLoggedIn()){
     header("Content: index.php");
     exit();
@@ -16,7 +17,7 @@ drawHeader();
 ?>
 <div class="vertical-menu">
 
-    <img alt="user pic" src=<?=$user['photo'] ?> width="100" height="100">
+    <img alt="user pic" src="<?=getimage($user['logo']) ?>" style="width: 100px; height: 100px">
 
     <a href="change-password.php">Change password</a>
     <a href="register-restaurant.php">Register restaurant</a>

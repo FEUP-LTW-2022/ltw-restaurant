@@ -1,5 +1,6 @@
 <?php
 require_once('./database/restaurants.php');
+require_once ('./database/upload-image.php');
 
  function drawRestaurantList(PDO $db, array $restaurants):void{ ?>
     <h1>Our Restaurants</h1>
@@ -9,7 +10,7 @@ require_once('./database/restaurants.php');
              $category= getRestaurantCategory($db, $restaurant['category']); ?>
               <article>
                 <a  href="/restaurant.php?id=<?=$restaurant['id']?>">
-                  <img src="https://picsum.photos/200?<?=$restaurant['id']?>" alt="restaurant photo">
+                  <img src="<?=getimage($restaurant['logo'])?>" alt="restaurant photo" style="width: 200px; height: 200px;">
                   <span id="restaurant-category"><?=$category['name']?></span>
                   <div id="rest_info_rate">
                     <div id="restaurant-info"><b><?=$restaurant['name']?> </b> </div>
@@ -36,7 +37,7 @@ function  drawRestaurantInfo($category, $restaurant, $avgRev): void
         </div>
 
     <span id="maps"> <a href="https://www.google.com/maps/search/?api=1&query=<?=$restaurant['address']?>"><u><?= $restaurant['address']?></u></a></span>
-    <img src="<?=$restaurant['photo']?>" alt="restaurant photo" style="  width: 50%; height: 300px;">
+    <img src="<?=getImage($restaurant['logo'])?>" alt="restaurant photo" style="  width: 50%; height: 300px;">
 
     <div class="restTab">
         <button class="tablinks" onclick="openTab(0,'aboutRest')">About</button>
@@ -88,7 +89,7 @@ function drawAboutRestaurant($randDishes, $avgRev,$randComments, $storeRev):void
                 <article>
                     <div class="comment-info">
                         <div>
-                            <img src="<?=$comment['photo']?>" alt="user photo">
+                            <img src="<?=getimage($comment['logo'])?>" alt="user photo">
                             <div id="name-date">
                                 <span id="comment-name"><b><?=$comment['name']?></b></span>
                                 <span id="comment-date"><?=date($comment['date'])?></span>
@@ -138,7 +139,7 @@ function drawAboutRestaurant($randDishes, $avgRev,$randComments, $storeRev):void
                 <article>
                     <div class="comment-info">
                         <div>
-                            <img src="<?=$comment['photo']?>" alt="user photo">
+                            <img src="<?=getImage($comment['logo'])?>" alt="user photo">
                             <div id="name-date">
                                 <span id="comment-name"><b><?=$comment['name']?></b></span>
                                 <span id="comment-date"><?=date($comment['date'])?></span>

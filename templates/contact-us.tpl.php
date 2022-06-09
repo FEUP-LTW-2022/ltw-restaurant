@@ -18,7 +18,8 @@ function realEmailSender(){
         }
 }
 
-function fakeEmailSender(){
+function fakeEmailSender(): void
+{
     if(isset($_POST['submit']))
     {
         $from = $_POST['email']; 

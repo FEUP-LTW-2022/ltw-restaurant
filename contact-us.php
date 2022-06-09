@@ -3,10 +3,9 @@ session_start();
 require_once('./templates/elements.tpl.php');
 require_once('./templates/contact-us.tpl.php');
 
-realEmailSender(); // probably working, not tested 
+//realEmailSender(); // probably working, not tested
 fakeEmailSender();
 drawHeader();
-
 ?>
 <div class="ContactUs">
   <div class="ContactUs-header">
@@ -34,6 +33,5 @@ drawHeader();
     </form>
   </div>
 </div>
-
 
 <?php drawFooter(); ?>
