@@ -7,7 +7,8 @@ class account{
     {
         $db = getDatabaseConnection();
         $stmt = $db->prepare("SELECT id FROM users WHERE email=:email");
-        $stmt->bindParam(":email",$_SESSION["email"]);
+        $email = htmlspecialchars($_SESSION["email"],ENT_QUOTES);
+        $stmt->bindParam(":email",$email);
         $stmt->execute();
         $userID = $stmt->fetch();
         $stmt = $db->prepare("SELECT * FROM request WHERE userID = :userID ORDER BY date LIMIT :count");
@@ -19,6 +20,9 @@ class account{
     }
 
     public static function login($email,$password){
+        $email = htmlspecialchars($email,ENT_QUOTES);
+        $password = htmlspecialchars($password,ENT_QUOTES);
+
         $db = getDatabaseConnection();
         $stmt = $db->prepare("SELECT password,id FROM users WHERE email=:email");
         $stmt->bindParam(':email', $email);
@@ -64,6 +68,10 @@ class account{
             $db = getDatabaseConnection();
             $stmt = $db->prepare("INSERT INTO Users (email, name, address, password,birthDate,phoneNumber)
                                         VALUES (:email,:name, :address, :password,:birthdate,:phoneNumber)");
+
+            foreach ($info as $item){
+                $item = htmlspecialchars($item,ENT_QUOTES);
+            }
             $stmt->bindParam(':email', $info['email']);
             $stmt->bindParam(':name' , $info['name']);
             $stmt->bindParam(':address' , $info['address']);
@@ -88,6 +96,9 @@ class account{
             $stmt = $db->prepare("UPDATE Users 
                             SET name = :name, address =  :address, phoneNumber = :phoneNumber
                                         WHERE email = :email");
+            foreach ($info as $item){
+                $item = htmlspecialchars($item,ENT_QUOTES);
+            }
             $stmt->bindParam(':name' , $info['name']);
             $stmt->bindParam(':phoneNumber',$info['phoneNumber']);
             $stmt->bindParam(':address' , $info['address']);
@@ -134,7 +145,30 @@ class account{
         return $stmt->fetch()["COUNT(*)"] > 0;
     }
 
-
-
+    public static function changePassword(&$info): void
+    {
+        foreach ($info as $item){
+            $item = htmlspecialchars($item,ENT_QUOTES);
+        }
+         $db = getDatabaseConnection();
+        $stmt = $db->prepare("SELECT password,id FROM users WHERE email=:email");
+        $stmt->bindParam(':email', $email);
+        $stmt->execute();
+        $value = $stmt->fetch(PDO::FETCH_ASSOC);
+        if (security::checkPassword($value["password"],$info["oldPassword"])){
+            if ($info['newPassword'] == $info['newPasswordConfirmation']) {
+                $stmt = $db->prepare("UPDATE users SET password = :password where email= :email");
+                $newPassword = htmlspecialchars($info["newPassword"]);
+                $stmt->bindParam(":password", $newPassword);
+                $stmt->bindParam(":email", $_SESSION["email"]);
+                header("location: user.php");
+                exit();
+            }else{
+                $_SESSION['error'] = "new password different from confirmation";
+            }
+        }else{
+            $_SESSION["error"] = "invalid password";
+        }
+    }
 
 }

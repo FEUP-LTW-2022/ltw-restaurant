@@ -1,12 +1,13 @@
 <?php
 
-include_once ("database/account.php");
+include_once ("../database/account.class.php");
 
-function drawUserReceipt(){
+function drawUserReceipt(): void
+{
     $requests = account::getUserRequest(10);
     $db = getDatabaseConnection();
     foreach ($requests as $request){
-        $stmt = $db->prepare("SELECT name FROM restaurant WHERE id = :id");
+        $stmt = $db->prepare("SELECT name,logo FROM restaurant WHERE id = :id");
         $stmt->execute(array($request["id"]));
         $restaurant = $stmt->fetch();
 
@@ -17,6 +18,7 @@ function drawUserReceipt(){
 
         ?><article>
             <p><?php echo $restaurant["name"] ?></p>
+            <img src="<?php getimage($restaurant['id']);?>">
         <?php
 
         foreach ($dishes as $dish){?>

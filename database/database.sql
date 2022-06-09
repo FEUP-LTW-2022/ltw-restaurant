@@ -93,6 +93,8 @@ CREATE TABLE photo(
       id INT PRIMARY KEY ,
       extension VARCHAR NOT NULL
 );
+INSERT INTO photo values (0,'jpg');
+INSERT INTO photo values (1,'png');
 
 CREATE TABLE user_login_token(
     token TEXT NOT NULL,
@@ -135,16 +137,16 @@ INSERT INTO categories VALUES(4,'Pizzeria');
 INSERT INTO categories VALUES(5,'Mediterranean');
 
 
-CREATE TABLE IF NOT EXISTS "users"
+CREATE TABLE IF NOT EXISTS users
 (
     id          INTEGER primary key,
     email       VARCHAR not null unique,
     name        VARCHAR not null,
     birthDate   VARCHAR,
-    logo INT NOT NULL DEFAULT 1,
+    logo        INT DEFAULT 1,
     phoneNumber INTEGER,
     password    VARCHAR not null,
-     address VARCHAR
+    address     VARCHAR
 );
 INSERT INTO users VALUES(1,'up201805000@g.uporto.pt','Henrique Pinho','2022-05-11',1,912345678,'$2a$10$zdhB12u9ydmOXyyIFhLfvOSYC.O471gfa41YWHZ5QRTXn4sBIGqLG',NULL);
 
