@@ -504,7 +504,7 @@ display: flex;
   }
  
 /* REGISTER FORM */
-.register{
+.register, .register-restaurant{
   padding: 16px;
 }
 
@@ -520,12 +520,24 @@ display: flex;
   border-radius: 20px;
     background: white;
 }
+.register-restaurant input[type=email], .register-restaurant input[type=password], .register-restaurant input[type=text], .register-restaurant input[type=date], .register-restaurant input[type=number], .register-restaurant select{
+    width: 100%;
+    padding: 12px 20px;
+    margin-top: 8px;
+    margin-bottom: 2em;
+    display: inline-block;
+    border: 1px solid  #04AA6D;
+    box-sizing: border-box;
+    gap:2em;
+    border-radius: 20px;
+    background: white;
+}
 
-.register input:focus, .register select:focus {
+.register input:focus, .register select:focus,.register-restaurant input:focus, .register-restaurant select:focus {
     outline: none !important;
     border-color: #04AA6D;
 }
-.register button , #regToLogin button {
+.register button , #regToLogin button, .register-restaurant button {
   background-color: #04AA6D;
   color: white;
   padding: 14px 20px;
@@ -536,7 +548,7 @@ display: flex;
   border-radius: 20px
 }
 
-.register button:hover , #regToLogin button:hover  {
+.register button:hover , #regToLogin button:hover,.register-restaurant button:hover  {
   opacity: 0.8;
 }
 
@@ -549,17 +561,17 @@ hr#register-bar {
 }
 /*register restaurant*/
 
-.register #city_zip{
+.register-restaurant #city_zip{
   display: flex;
   flex-direction: row;
 }
-.register #city_zip >label {
+.register-restaurant #city_zip >label {
   width: 50%;
 }
-.register #city_zip >label:last-child {
+.register-restaurant #city_zip >label:last-child {
   margin-left: 1rem;
 }
-.register #city_zip >label:first-child {
+.register-restaurant #city_zip >label:first-child {
   margin-right: 1rem;
 }
 

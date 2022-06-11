@@ -31,7 +31,7 @@ function drawHeader(){?>
             echo "<a href='/user.php'> <img id='userLogo' src='".getimage(account::getUserInfo("logo"))."' > </a>"
         ?>
             <div class="dropdown">
-                <button class="dropbtn"><img src="/cart.svg" alt="shopping cart"></button>
+                <button class="dropbtn"><img src="/images/cart.svg" alt="shopping cart"></button>
                 <div class="dropdown-content">
                     <a href="#">Link 1</a>
                     <a href="#">Link 2</a>
