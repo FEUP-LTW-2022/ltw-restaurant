@@ -17,7 +17,6 @@ body{
     font-family: Arial, Helvetica, sans-serif;
     background-color: white;
     margin:0;
-    min-height: 100vh;
     width: 100%;
 }
 h1, h2{
@@ -133,10 +132,9 @@ body>header>a:first-child>img{
 
 
 main {
-    padding: 1em;
-    margin: auto;
+    margin: 96px auto auto;
     max-width: 66rem;
-    min-height: calc(100vh - 180px);
+    min-height: calc(100vh - 148px - 128px);
   }
   
   main a {
@@ -148,6 +146,7 @@ main {
  }
   
  .restaurants-list {
+     padding-top: 150px;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -405,6 +404,7 @@ display: flex;
 
 
 .footer{
+    margin-top: 2rem;
     background-color: black;
     color: white;
     padding: 1rem 11rem 1rem 11rem;
@@ -467,7 +467,7 @@ display: flex;
   }
   
   .login{
-    padding: 16px;
+    padding-top: 16px;
   }
   
   .login span.psw {
@@ -592,7 +592,7 @@ hr#register-bar {
 
   display: flex;
   flex-direction: column;
-  padding-top: 200px;
+  padding: 16px;
   justify-content: space-around;
   width:100%;
 }
