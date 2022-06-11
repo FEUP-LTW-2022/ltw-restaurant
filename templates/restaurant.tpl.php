@@ -109,60 +109,80 @@ function drawAboutRestaurant($randDishes, $avgRev,$randComments, $storeRev):void
     </div>
 
 <?php }
-    function drawRestaurantMenu($dish_cat, $dishes):void{ ?>
-       <div id="menuRest" class="tabcontent">
-        <h1>Menu</h1>
-        <section class="fullMenu">
+function drawRestaurantMenu($dish_cat, $dishes):void{ ?>
+   <div id="menuRest" class="tabcontent">
+    <h1>Menu</h1>
+    <section class="fullMenu">
 
-            <?php  for($i=0; $i<=sizeof($dish_cat); $i++) {
-                    echo "<h2>". ucfirst($dish_cat[$i])."</h2>";
-                        foreach( $dishes as $dish) {
-                            if($dish['category']==$dish_cat[$i]){
-                            ?>
-                            <article>
-                                <span id="dish-name"><?=$dish['name']?></span>
-                                <hr id="menuHr">
-                                <span id="dish-price"><?=$dish['price']?>&euro;</span>
-                            </article>
-                        <?php }
-                        }
-            }?>
-        </section>
-    </div>
-   <?php }
+        <?php  for($i=0; $i<=sizeof($dish_cat); $i++) {
+                echo "<h2>". ucfirst($dish_cat[$i])."</h2>";
+                    foreach( $dishes as $dish) {
+                        if($dish['category']==$dish_cat[$i]){
+                        ?>
+                        <article>
+                            <span id="dish-name"><?=$dish['name']?></span>
+                            <hr id="menuHr">
+                            <span id="dish-price"><?=$dish['price']?>&euro;</span>
+                        </article>
+                    <?php }
+                    }
+        }?>
+    </section>
+</div>
+<?php }
 
-    function drawRestaurantReviews($comments): void{ ?>
-     <div id="reviewsRest" class="tabcontent">
-        <div class="comments">
-            <?php foreach ($comments as $comment){?>
+function drawRestaurantReviews($comments): void{ ?>
+ <div id="reviewsRest" class="tabcontent">
+    <div class="comments">
+        <?php foreach ($comments as $comment){?>
 
-                <article>
-                    <div class="comment-info">
-                        <div>
-                            <img src="<?=getImage($comment['logo'])?>" alt="user photo">
-                            <div id="name-date">
-                                <span id="comment-name"><b><?=$comment['name']?></b></span>
-                                <span id="comment-date"><?=date($comment['date'])?></span>
-                            </div>
-                        </div>
-                        <div>
-                            <span id="comment-rate"><?=$comment['rate']?></span>
-                            <span id="comment-max">/5</span>
+            <article>
+                <div class="comment-info">
+                    <div>
+                        <img src="<?=getImage($comment['logo'])?>" alt="user photo">
+                        <div id="name-date">
+                            <span id="comment-name"><b><?=$comment['name']?></b></span>
+                            <span id="comment-date"><?=date($comment['date'])?></span>
                         </div>
                     </div>
-                    <span id="comment-text"><?=$comment['text']?></span>
+                    <div>
+                        <span id="comment-rate"><?=$comment['rate']?></span>
+                        <span id="comment-max">/5</span>
+                    </div>
+                </div>
+                <span id="comment-text"><?=$comment['text']?></span>
 
-                </article>
-                <hr>
-            <?php } ?>
+            </article>
+            <hr>
+        <?php } ?>
 
-        </div>
     </div>
+</div>
 
 <script src="../javascript/restaurant.js"></script>
 
+<?php }
+
+function drawUserOwnedRestaurant(){
+     $restaurants = account::getUserRestaurants();
+
+     foreach( $restaurants as $restaurant) {
+        $rate = getAverageRate(getDatabaseConnection(), $restaurant['id']) ;
+        $category= getRestaurantCategory(getDatabaseConnection(), $restaurant['category']); ?>
+    <article>
+        <a  href="/manage-restaurant-list.php?id=<?=$restaurant['id']?>">
+            <img src="<?=getimage($restaurant['logo'])?>" alt="restaurant photo" style="width: 200px; height: 200px;">
+            <span id="restaurant-category"><?=$category['name']?></span>
+            <div id="rest_info_rate">
+                <div id="restaurant-info"><b><?=$restaurant['name']?> </b> </div>
+                <div id="restaurant-rating"><b><?= $rate?></b></div>
+            </div>
+            <span id="restaurant-city"><b><?=$restaurant['city']?></b></span>
+        </a>
+    </article>
     <?php }
 
+}
 
 
 

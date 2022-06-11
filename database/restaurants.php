@@ -35,7 +35,7 @@ function registerRestaurant($values, $files){
     $stmt->execute(array(account::getUserID(), $values["RestaurantName"], $values["city"], $values["address"].", ".$values['zip'], $values["website"], $values["open-time"],
         $values["close-time"], $values["email"], $values["phoneNumber"], $photo_id));
 
-    header("Location: ../manage-restaurant.php");
+    header("Location: ../manage-restaurant-list.php");
 }
 
 function getAllRestaurants(PDO $db): array

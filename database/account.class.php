@@ -147,14 +147,18 @@ class account{
 
     public static function changePassword(&$info): void
     {
-        foreach ($info as $item){
+        error_log($info["newPassword"]);
+        foreach ($info as &$item){
             $item = htmlspecialchars($item,ENT_QUOTES);
         }
+        error_log($info["newPassword"]);
          $db = getDatabaseConnection();
         $stmt = $db->prepare("SELECT password,id FROM users WHERE email=:email");
+        $email = htmlspecialchars($_SESSION["email"]);
         $stmt->bindParam(':email', $email);
         $stmt->execute();
-        $value = $stmt->fetch(PDO::FETCH_ASSOC);
+        $value = $stmt->fetch();
+        error_log($value["password"]);
         if (security::checkPassword($value["password"],$info["oldPassword"])){
             if ($info['newPassword'] == $info['newPasswordConfirmation']) {
                 $stmt = $db->prepare("UPDATE users SET password = :password where email= :email");
@@ -169,6 +173,13 @@ class account{
         }else{
             $_SESSION["error"] = "invalid password";
         }
+    }
+
+    public static function getUserRestaurants(){
+        $stmt = getDatabaseConnection()->prepare("SELECT * FROM users INNER JOIN restaurant r on users.id = r.ownerID WHERE users.email = :email");
+        $email = htmlspecialchars($_SESSION["email"]);
+        $stmt->bindParam(":email",$email);
+        return $stmt->fetchAll();
     }
 
 }
