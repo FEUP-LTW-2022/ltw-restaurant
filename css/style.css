@@ -58,7 +58,7 @@ body>header>a:first-child>img{
 }
 
 /*sticky header */
-main, footer {
+main, footer{
   padding: 16px;
 }
 
@@ -68,7 +68,7 @@ main, footer {
   width: 100%;
 }
 
-.sticky + main ,footer{
+.sticky + main, footer{
   padding-top: 50px;
 }
 
@@ -393,24 +393,22 @@ display: flex;
 
 
   /*footer*/
-  footer {
-
-      background-color: black;
-      color: white;
-      padding: 1rem 11rem 1rem 11rem;
-      margin-top: 1rem;
-  }
-
-  #footer-main{
+.footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: black;
+    color: white;
+    padding: 1rem 11rem 1rem 11rem;
     display: flex;
-    flex-wrap: wrap;
-  }
-
+    flex-direction: row;
+}
   #footer-logo{
     display: block;
     padding: 0 2rem;
     justify-content: center;
-   
+
   }
   #footer-logo img{
     height: 7em;

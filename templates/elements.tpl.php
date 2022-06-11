@@ -55,23 +55,22 @@ function drawFooter(){ ?>
      
 </main>
     <footer>
-        <div id="footer-main">
+        <div class="footer">
             <div id="footer-logo">
             <img src="/logo.jpeg" alt="logo">
             </div>
             <ul id="footer-table">
-            <li>
-                <a href="/about-us.php">About Us</a>
-            </li>
-            <li>
-                <a href="/contact-us.php">Contact Us</a>
-            </li>
-            <li>
-                <a href="/faq.php">FAQ's</a>
-            </li>
-            
+                <li>
+                    <a href="/about-us.php">About Us</a>
+                </li>
+                <li>
+                    <a href="/contact-us.php">Contact Us</a>
+                </li>
+                <li>
+                    <a href="/faq.php">FAQ's</a>
+                </li>
             </ul>
-        </div>
+            </div>
     </footer>
 </body>
 </html>
