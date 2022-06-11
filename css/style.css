@@ -19,7 +19,6 @@ body{
     margin:0;
     min-height: 100vh;
     width: 100%;
-   
 }
 h1, h2{
     font-family: serif;
@@ -135,10 +134,9 @@ body>header>a:first-child>img{
 
 main {
     padding: 1em;
-   /* margin: 0 11rem 0 11rem;*/
     margin: auto;
     max-width: 66rem;
-
+    min-height: calc(100vh - 180px);
   }
   
   main a {
@@ -404,12 +402,8 @@ display: flex;
 
 
   /*footer*/
-footer{
-    position: fixed;
-    width: 100%;
-    bottom: 0;
 
-}
+
 .footer{
     background-color: black;
     color: white;
@@ -595,11 +589,12 @@ hr#register-bar {
 }
 
 .AboutUsPage{
+
   display: flex;
   flex-direction: column;
-  padding-top: 100px;
+  padding-top: 200px;
   justify-content: space-around;
-  width:100%
+  width:100%;
 }
 
 .AboutUsBox{
@@ -724,9 +719,8 @@ hr#register-bar {
 
 
 #FAQ {
-  margin: 0 auto;
-  padding: 40px;
-  width: 70%;
+    padding: 150px 40px 40px;
+    width: 70%;
   min-width: 300px;
 }
 #FAQ-body body {
@@ -787,7 +781,10 @@ hr#register-bar {
 }
 
 /* Contact us */
-
+ .ContactUs{
+    margin-top: 10rem;
+    margin-bottom: 5rem;
+}
 .ContactUs-header h2, .ContactUs-container h3{
   text-align: center;
     margin-top: 2em;
