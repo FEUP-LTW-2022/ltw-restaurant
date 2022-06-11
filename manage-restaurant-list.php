@@ -6,6 +6,9 @@ include_once("database/connection.php");
 include_once ('templates/elements.tpl.php');
 $db=getDatabaseConnection();
 
-drawHeader();
+drawHeader();?>
 
-drawFooter();
+    <div class="my-restaurant-list">
+
+    </div>
+<?php drawFooter(); ?>

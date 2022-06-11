@@ -12,24 +12,35 @@
 ul{
     list-style: none;
 }
-html {
-    margin: 0;
-    height: 100%;
-    width: 100%;
-}
+
 body{
     font-family: Arial, Helvetica, sans-serif;
     background-color: white;
     margin:0;
-    min-height: 100%;
+    min-height: 100vh;
     width: 100%;
+   
 }
 h1, h2{
     font-family: serif;
 }
 
 /* Header */
+
+#myHeader{
+    position:fixed;
+    top: 0;
+    width: 100%;
+}
 body > header {
+    grid-area: header;
+    position: relative;
+    height: 6em;
+
+    display: grid;
+    grid-template:
+        "logo form signup" 1fr;
+
     background-color: white;
     color:  black;  
     box-shadow: 0 7px 14px rgb(194, 195, 197);
@@ -42,7 +53,21 @@ body > header {
 body > header a{
     color: black;
     text-decoration: none;
+    grid-area: logo;
 }
+#search-bar{
+    grid-area: form;
+    align-self: center;
+}
+
+#signup{
+
+    grid-area: signup;
+    align-self: center;
+    justify-self: right;
+    padding-right: 2em;
+}
+
 
 body > header #userLogo{
     border-radius:50%;
@@ -55,21 +80,6 @@ body>header>a:first-child>img{
     margin-left: 1em;
     height: 6em;
     width: 6em;
-}
-
-/*sticky header */
-main, footer{
-  padding: 16px;
-}
-
-.sticky {
-  position: fixed;
-  top: 0;
-  width: 100%;
-}
-
-.sticky + main, footer{
-  padding-top: 50px;
 }
 
 
@@ -128,6 +138,7 @@ main {
    /* margin: 0 11rem 0 11rem;*/
     margin: auto;
     max-width: 66rem;
+
   }
   
   main a {
@@ -393,11 +404,13 @@ display: flex;
 
 
   /*footer*/
-.footer{
+footer{
     position: fixed;
-    left: 0;
-    bottom: 0;
     width: 100%;
+    bottom: 0;
+
+}
+.footer{
     background-color: black;
     color: white;
     padding: 1rem 11rem 1rem 11rem;
