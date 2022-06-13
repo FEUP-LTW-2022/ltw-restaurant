@@ -19,8 +19,9 @@ function addToCart(name,id, restaurantID, price) {
     console.log("ok")
     let cartList = document.getElementsByClassName("dropdown-content");
     let cart = cartList[0];
-    if(formHolder.length == 0){
-        console.log("bish")
+    let mybool;
+    if ((formHolder.length == 0) || (formHolder[0].id != restaurantID)) {
+        console.log("masssfef")
         let newForm = document.createElement('FORM');
         newForm.id = restaurantID;
         newForm.name = 'form';
@@ -28,21 +29,40 @@ function addToCart(name,id, restaurantID, price) {
         newForm.action = 'checkout.php';
         formHolder[0] = newForm;
         cart.appendChild(newForm);
-    } else if(formHolder[0].id != restaurantID){
-        let form = document.createElement('FORM');
-        form.id = restaurantID;
-        form.name = 'form';
-        form.method = 'POST';
-        form.action = 'checkout.php';
-        formHolder[0] = form;
-        cart.appendChild(form);
+
+        let input = document.createElement('INPUT');
+        input.type = 'HIDDEN';
+        input.name = 'dishes[' + id + ']';
+        input.id = id;
+        input.value = 1;
+        formHolder[0].appendChild(input);
+
+
+        let submit = document.createElement('buttom');
+
+    } else {
+
+        let children = formHolder[0].children;
+        console.log(children[0].value);
+        let mybool = false
+        for (let i = 0; i < children.length; i++) {
+            if (children[i].id == id) {
+                children[i].value++;
+                mybool = true;
+            }
+        }
+        if (mybool == false){
+            let input = document.createElement('INPUT');
+            input.type = 'HIDDEN';
+            input.name = 'dishes[' + id + ']';
+            input.id = id;
+            input.value = 1;
+            formHolder[0].appendChild(input);
+        }
     }
 
-    let input=document.createElement('INPUT');
-    input.type='HIDDEN';
-    input.name='dishes[]';
-    input.value=id;
-    formHolder[0].appendChild(input);
+
+
 }
 
 function encodeForAjax(data) {
