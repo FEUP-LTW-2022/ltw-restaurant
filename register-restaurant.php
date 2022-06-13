@@ -12,6 +12,7 @@
     }
     if (!account::isLoggedIn()){
         header("Content: index.php");
+        exit();
     }
 
 ?>
@@ -62,7 +63,7 @@
                 <input name="phoneNumber" type="number" max="999999999" min="900000000">
             </label>
             <label><b>Restaurant Logo</b>
-                <input name="photo" type="file" id="actual-btn" accept="image/*"><br>
+                <input name="image" type="file" id="actual-btn" accept="image/*"><br>
             </label>
 
             <?php

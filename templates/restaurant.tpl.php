@@ -111,6 +111,7 @@ function drawAboutRestaurant($randDishes, $avgRev,$randComments, $storeRev):void
     </div>
 
 <?php }
+
 function drawRestaurantMenu($dish_cat, $dishes):void{ ?>
    <div id="menuRest" class="tabcontent">
     <h1>Menu</h1>
@@ -164,6 +165,7 @@ function drawRestaurantReviews($comments): void{ ?>
 <script src="../javascript/restaurant.js"></script>
 
 <?php }
+
 
 
 

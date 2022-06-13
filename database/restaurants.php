@@ -27,15 +27,23 @@ const RESTAURANT_CAT= 'SELECT * FROM categories WHERE id=?';
 
 function registerRestaurant($values, $files){
 
+
+    foreach ($values as &$value){
+        $value = htmlspecialchars($value);
+    }
+
     $photo_id = upload($files, random_bytes(22));
 
-    $stmt = getDatabaseConnection()->prepare("INSERT INTO restaurant (ownerID,name,city,address,website,openHour,closeHour,email,phoneNumber) 
-                        VALUES (?,?,?,?,?,?,?,?,?)");
+    $stmt = getDatabaseConnection()->prepare("
+        INSERT INTO 
+        restaurant (ownerID,name,city,address,website,openHour,closeHour,email,phoneNumber,logo,category) 
+        VALUES (?,?,?,?,?,?,?,?,?,?,?)");
 
-    $stmt->execute(array(account::getUserID(), $values["RestaurantName"], $values["city"], $values["address"].", ".$values['zip'], $values["website"], $values["open-time"],
-        $values["close-time"], $values["email"], $values["phoneNumber"], $photo_id));
+    $stmt->execute(array(account::getUserID(), $values["name"], $values["city"], $values["address"].", ".$values['zip'], $values["website"],
+        $values["openHour"], $values["closeHour"], $values["email"], $values["phoneNumber"], $photo_id,$values['category']));
 
     header("Location: ../manage-restaurant-list.php");
+    exit();
 }
 
 function getAllRestaurants(PDO $db): array

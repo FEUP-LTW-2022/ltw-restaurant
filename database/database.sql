@@ -1,7 +1,4 @@
-PRAGMA foreign_keys=OFF;
-BEGIN TRANSACTION;
-
---o autoincrement nao e necessaria para primary keys
+PRAGMA foreign_keys=ON;
 
 CREATE TABLE restaurant (
     id INTEGER PRIMARY KEY,
@@ -14,10 +11,97 @@ CREATE TABLE restaurant (
     closeHour INTEGER NOT NULL ,
     email VARCHAR,
     phoneNumber VARCHAR,
-    logo INT NOT NULL DEFAULT 0,
+    logo INTEGER NOT NULL DEFAULT 0,
     category INTEGER NOT NULL, -- apagar default
     FOREIGN KEY(category) REFERENCES categories(id)
 );
+
+CREATE TABLE reviews (
+	id INTEGER PRIMARY KEY,
+	restaurant_id INTEGER,
+	id_author INTEGER NOT NULL ,
+	rate INTEGER NOT NULL,
+	text VARCHAR,
+	date INTEGER default strftime('%s','now'),
+	FOREIGN KEY(restaurant_id) REFERENCES restaurant(id),
+	FOREIGN KEY(id_author) REFERENCES users(id)
+);
+
+CREATE TABLE dish(
+	id INTEGER PRIMARY KEY ,
+	name VARCHAR UNIQUE NOT NULL,
+	restaurant_id INTEGER,
+    price INTEGER NOT NULL CHECK ( price > 0 ),
+    category VARCHAR, --(starters, meat, fish, vegetarian, dessert)
+	--(received, preparing, ready, delivered)?
+	FOREIGN KEY(restaurant_id) REFERENCES restaurant(id)
+);
+
+CREATE TABLE request(
+    id INTEGER PRIMARY KEY,
+    userID INTEGER REFERENCES Users(id) NOT NULL ,
+    restaurantID INTEGER REFERENCES Restaurant(id) NOT NULL,
+    date INTEGER DEFAULT (strftime('%s','now'))
+);
+
+CREATE TABLE request_dish(
+    dishID INTEGER REFERENCES Dish(id),
+    request INTEGER REFERENCES request(id),
+    quantity INTEGER CHECK ( quantity > 0 ),
+    PRIMARY KEY (dishID,request)
+);
+
+CREATE TABLE photo(
+      id INTEGER PRIMARY KEY autoincrement ,
+      extension VARCHAR NOT NULL
+);
+INSERT INTO photo values (0,'jpg');
+INSERT INTO photo values (1,'png');
+
+CREATE TABLE user_login_token(
+    token TEXT NOT NULL,
+    userID INTEGER NOT NULL REFERENCES users(id)
+);
+
+
+CREATE TABLE categories (
+	id INTEGER PRIMARY KEY,
+	name VARCHAR NOT NULL
+);
+
+
+
+CREATE TABLE IF NOT EXISTS users
+(
+    id          INTEGER primary key,
+    email       VARCHAR not null unique,
+    name        VARCHAR not null,
+    birthDate   VARCHAR,
+    logo        INTEGER DEFAULT 1,
+    phoneNumber INTEGER,
+    password    VARCHAR not null,
+    address     VARCHAR
+);
+INSERT INTO users VALUES(1,'up201805000@g.uporto.pt','Henrique Pinho','2022-05-11',1,912345678,'$2a$10$zdhB12u9ydmOXyyIFhLfvOSYC.O471gfa41YWHZ5QRTXn4sBIGqLG',NULL);
+
+INSERT INTO categories VALUES(1,'Steakhouse');
+INSERT INTO categories VALUES(2,'Fast Food');
+INSERT INTO categories VALUES(3,'Italian');
+INSERT INTO categories VALUES(4,'Pizzeria');
+INSERT INTO categories VALUES(5,'Mediterranean');
+
+
+INSERT INTO photo values (0,'jpg');
+INSERT INTO photo values (1,'png');
+
+CREATE TRIGGER token_creation
+    BEFORE INSERT
+    ON user_login_token
+    BEGIN
+        DELETE FROM old WHERE old.userID == new.userID;
+    end;
+/*
+
 INSERT INTO restaurant VALUES(1,1,'Restaurante 1','cidade','Rua do restaurante1',NULL,900,2200,NULL,NULL,0,1);
 INSERT INTO restaurant VALUES(2,2,'Restaurante 2','cidade2','Rua do restaurante2',NULL,900,2200,NULL,NULL,0,1);
 INSERT INTO restaurant VALUES(3,3,'Restaurante 3','cidade3','Rua do restaurante3',NULL,900,2200,NULL,NULL,0,1);
@@ -32,32 +116,6 @@ INSERT INTO restaurant VALUES(11,11,'Restaurante 11','cidade11','Rua do restaura
 INSERT INTO restaurant VALUES(12,12,'Restaurante 12','cidade12','Rua do restaurante12',NULL,900,2200,NULL,NULL,0,1);
 
 
-CREATE TABLE reviews (
-	id INTEGER PRIMARY KEY,
-	restaurant_id INTEGER,
-	id_author INTEGER NOT NULL ,
-	rate INTEGER NOT NULL,
-	text VARCHAR,
-	date VARCHAR,
-	FOREIGN KEY(restaurant_id) REFERENCES restaurant(id),
-	FOREIGN KEY(id_author) REFERENCES users(id)
-);
-INSERT INTO reviews VALUES(1,2,1,5,'Nice restaurant','2021-07-12');
-INSERT INTO reviews VALUES(2,2,1,1,'Nice restaurant','2017-12-20');
-INSERT INTO reviews VALUES(3,2,1,5,'Nice restaurant','2020-01-17');
-INSERT INTO reviews VALUES(4,1,1,5,'Nice restaurant','2015-04-30');
-
-
-
-CREATE TABLE dish(
-	id INTEGER PRIMARY KEY ,
-	name VARCHAR UNIQUE NOT NULL,
-	restaurant_id INTEGER,
-    price INTEGER NOT NULL CHECK ( price > 0 ),
-    category VARCHAR, --(starters, meat, fish, vegetarian, dessert)
-	--(received, preparing, ready, delivered)?
-	FOREIGN KEY(restaurant_id) REFERENCES restaurant(id)
-);
 INSERT INTO dish VALUES(1,'Hamburguer de vaca',1,50,NULL);
 INSERT INTO dish VALUES(2,'Mixed Olives',2,3.5,'starters');
 INSERT INTO dish VALUES(3,'Mixed Platter',2,12,'starters');
@@ -74,80 +132,10 @@ INSERT INTO dish VALUES(13,'Churros',2,5,'dessert');
 INSERT INTO dish VALUES(14,'Cheese Platter',2,11,'dessert');
 
 
-CREATE TABLE request(
-    id INTEGER PRIMARY KEY,
-    userID INTEGER REFERENCES Users(id) NOT NULL ,
-    restaurantID INTEGER REFERENCES Restaurant(id) NOT NULL,
-    date INTEGER DEFAULT (strftime('%s','now'))
-);
 
+INSERT INTO reviews VALUES(1,2,1,5,'Nice restaurant','2021-07-12');
+INSERT INTO reviews VALUES(2,2,1,1,'Nice restaurant','2017-12-20');
+INSERT INTO reviews VALUES(3,2,1,5,'Nice restaurant','2020-01-17');
+INSERT INTO reviews VALUES(4,1,1,5,'Nice restaurant','2015-04-30');
 
-CREATE TABLE request_dish(
-    dishID INTEGER REFERENCES Dish(id),
-    request INTEGER REFERENCES request(id),
-    quantity INTEGER CHECK ( quantity > 0 ),
-    PRIMARY KEY (dishID,request)
-);
-
-CREATE TABLE photo(
-      id INT PRIMARY KEY ,
-      extension VARCHAR NOT NULL
-);
-INSERT INTO photo values (0,'jpg');
-INSERT INTO photo values (1,'png');
-
-CREATE TABLE user_login_token(
-    token TEXT NOT NULL,
-    userID INTEGER NOT NULL REFERENCES users(id)
-);
-INSERT INTO user_login_token VALUES('0LHmp8tBMukw7pKBycs/Jj',1);
-INSERT INTO user_login_token VALUES('LFgUz7Os1T87.6kdMmT/dy',1);
-INSERT INTO user_login_token VALUES('imFltVBwvMYSILOolhkjZ9',1);
-INSERT INTO user_login_token VALUES('y1N5ZaJyPKchhpCbaNm01C',1);
-INSERT INTO user_login_token VALUES('iFzk.YUklRH4LH9BFzlA9m',1);
-INSERT INTO user_login_token VALUES('0LHmp8tBMukw7pKBycs/Jj',1);
-INSERT INTO user_login_token VALUES('LFgUz7Os1T87.6kdMmT/dy',1);
-INSERT INTO user_login_token VALUES('imFltVBwvMYSILOolhkjZ9',1);
-INSERT INTO user_login_token VALUES('y1N5ZaJyPKchhpCbaNm01C',1);
-INSERT INTO user_login_token VALUES('iFzk.YUklRH4LH9BFzlA9m',1);
-INSERT INTO user_login_token VALUES('0LHmp8tBMukw7pKBycs/Jj',1);
-INSERT INTO user_login_token VALUES('LFgUz7Os1T87.6kdMmT/dy',1);
-INSERT INTO user_login_token VALUES('imFltVBwvMYSILOolhkjZ9',1);
-INSERT INTO user_login_token VALUES('y1N5ZaJyPKchhpCbaNm01C',1);
-INSERT INTO user_login_token VALUES('iFzk.YUklRH4LH9BFzlA9m',1);
-INSERT INTO user_login_token VALUES('0LHmp8tBMukw7pKBycs/Jj',1);
-INSERT INTO user_login_token VALUES('LFgUz7Os1T87.6kdMmT/dy',1);
-INSERT INTO user_login_token VALUES('imFltVBwvMYSILOolhkjZ9',1);
-INSERT INTO user_login_token VALUES('y1N5ZaJyPKchhpCbaNm01C',1);
-INSERT INTO user_login_token VALUES('iFzk.YUklRH4LH9BFzlA9m',1);
-INSERT INTO user_login_token VALUES('1FVagXyEP6ld0iEqP1D.Mw',1);
-INSERT INTO user_login_token VALUES('V/bKr20sISzgtUgOIHxTPF',1);
-INSERT INTO user_login_token VALUES('Jq7GHJ7vO7VnTQMAxVD5yC',1);
-INSERT INTO user_login_token VALUES('xEQUfBFx09RuS3l3mf.G0Z',1);
-
-
-CREATE TABLE categories (
-	id INTEGER PRIMARY KEY,
-	name VARCHAR NOT NULL
-);
-INSERT INTO categories VALUES(1,'Steakhouse');
-INSERT INTO categories VALUES(2,'Fast Food');
-INSERT INTO categories VALUES(3,'Italian');
-INSERT INTO categories VALUES(4,'Pizzeria');
-INSERT INTO categories VALUES(5,'Mediterranean');
-
-
-CREATE TABLE IF NOT EXISTS users
-(
-    id          INTEGER primary key,
-    email       VARCHAR not null unique,
-    name        VARCHAR not null,
-    birthDate   VARCHAR,
-    logo        INT DEFAULT 1,
-    phoneNumber INTEGER,
-    password    VARCHAR not null,
-    address     VARCHAR
-);
-INSERT INTO users VALUES(1,'up201805000@g.uporto.pt','Henrique Pinho','2022-05-11',1,912345678,'$2a$10$zdhB12u9ydmOXyyIFhLfvOSYC.O471gfa41YWHZ5QRTXn4sBIGqLG',NULL);
-
-COMMIT;
+ */

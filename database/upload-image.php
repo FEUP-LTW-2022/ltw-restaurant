@@ -11,7 +11,7 @@ function upload($file)
 
   // Insert image data into database
   $mime = pathinfo($file['image']['name'],PATHINFO_EXTENSION);
-  $stmt = $dbh->prepare("INSERT INTO photo VALUES (null,?)");
+  $stmt = $dbh->prepare("INSERT INTO photo (extension) VALUES (?)");
   $stmt->execute(array($mime));
 
   // Get image ID
