@@ -887,6 +887,11 @@ hr#register-bar {
   text-decoration: none; /* Remove underline from links */
 }
 
+.vertical-menu button{
+    width: 100%;
+    text-align: left;
+}
+
 .vertical-menu a:hover, .vertical-menu button:hover {
   background-color: #04AA6D ; /* Green background on mouse-over */
   opacity: 0.8;

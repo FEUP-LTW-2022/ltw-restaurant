@@ -27,7 +27,7 @@ drawHeader();
     <a href="favourites.php">Favourites</a>
     <a href="edit-profile.php">Edit  Profile</a>
     <form action="database/logout.php" method="post">
-        <button formaction="database/logout.php">Logout</button>
+        <button id="logOutBtn" formaction="database/logout.php">Logout</button>
     </form>
 
 </div>

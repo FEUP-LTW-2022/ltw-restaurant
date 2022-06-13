@@ -120,6 +120,14 @@ class account{
         return $value[$info];
     }
 
+    public static function getRestaurantInfo($info){
+        $stmt = getDatabaseConnection()->prepare("SELECT * FROM restaurant WHERE email=:email");
+        $stmt->bindParam(":email",$_SESSION["email"]);
+        $stmt->execute();
+        $value = $stmt->fetch();
+        error_log($value[$info]);
+        return $value[$info];
+    }
 
     public static function getUserID(){
         $stmt = getDatabaseConnection()->prepare("SELECT id FROM users WHERE email=:email");
@@ -186,5 +194,7 @@ class account{
         $stmt->execute(array($id));
         return $stmt->fetchAll();
     }
+
+
 
 }
