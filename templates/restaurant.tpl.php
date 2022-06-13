@@ -5,7 +5,7 @@ require_once ('./database/upload-image.php');
  function drawRestaurantList(PDO $db, array $restaurants):void{ ?>
  <span id="index">
      <h1>Our Restaurants</h1>
-         <section class="restaurants-list" >
+         <span class="restaurants-list" >
           <?php foreach( $restaurants as $restaurant) {  
             $rate = getAverageRate($db, $restaurant['id']) ;
              $category= getRestaurantCategory($db, $restaurant['category']); ?>
@@ -21,7 +21,7 @@ require_once ('./database/upload-image.php');
                </a>
               </article>
           <?php }?>
-        </section>
+        </span>
 </span>
 
 <?php }

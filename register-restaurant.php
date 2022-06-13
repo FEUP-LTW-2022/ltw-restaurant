@@ -11,8 +11,9 @@
         registerRestaurant($_POST,$_FILES);
     }
     if (!account::isLoggedIn()){
-        header("Content: index.php");
-        exit();
+        ob_start();
+        header('Location: index.php');
+        die();
     }
 
 ?>

@@ -11,29 +11,37 @@ $db=getDatabaseConnection();
 $id= account::getUserID();
 $restaurants = account::getUserRestaurants($id);
 
+if (!account::isLoggedIn() && !account::isRestaurantOwner()){
+    ob_start();
+    header('Location: index.php');
+    die();
+}
 drawHeader();
 ?>
 
 <span class="my-restaurants">
     <h1>Your Restaurants</h1>
 
-     <section class="my-restaurants-list" >
-          <?php foreach( $restaurants as $restaurant) {
-              $rate = getAverageRate($db, $restaurant['id']) ;
-              $category= getRestaurantCategory($db, $restaurant['category']); ?>
-              <article>
-                <a  href="/restaurant.php?id=<?=$restaurant['id']?>">
-                  <img src="<?=getimage($restaurant['logo'])?>" alt="restaurant photo" style="width: 200px; height: 200px;">
-                  <span id="restaurant-category"><?=$category['name']?></span>
-                  <div id="rest_info_rate">
-                    <div id="restaurant-info"><b><?=$restaurant['name']?> </b> </div>
-                    <div id="restaurant-rating"><b><?= $rate?></b></div>
-                  </div>
-                  <span id="restaurant-city"><b><?=$restaurant['city']?></b></span>
-               </a>
-              </article>
+     <span class="my-restaurants-list" >
+
+          <?php foreach( $restaurants as $restaurant) {?>
+              <div id="rest-options">
+                  <article>
+                    <a  href="/restaurant.php?id=<?=$restaurant['id']?>">
+                        <img src="<?=getimage($restaurant['logo'])?>" alt="restaurant photo" style="width: 200px; height: 200px;">
+                        <div id="my-rest-name"><b><?=$restaurant['name']?> </b> </div>
+                        <span id="my-rest-city"><b><?=$restaurant['city']?></b></span>
+                   </a>
+                  </article>
+                  <span id="rest-list-btns">
+                      <h2>Manage your:</h2>
+                      <button onclick="location.href='index.php'">Restaurant</button>
+                      <button onclick="location.href='index.php'">Menu</button>
+                      <button onclick="location.href='index.php'">Orders</button>
+                  </span>
+              </div>
           <?php }?>
-        </section>
+     </span>
 </span>
 
 <?php
