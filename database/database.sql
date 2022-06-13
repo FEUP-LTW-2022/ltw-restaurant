@@ -1,4 +1,4 @@
-PRAGMA foreign_keys=OFF ;
+PRAGMA foreign_keys=OFF;
 
 CREATE TABLE restaurant (
     id INTEGER PRIMARY KEY,
@@ -9,32 +9,33 @@ CREATE TABLE restaurant (
     website VARCHAR,
     openHour INTEGER NOT NULL ,
     closeHour INTEGER NOT NULL ,
-    email VARCHAR NOT NULL ,
+    email VARCHAR NOT NULL,
     phoneNumber VARCHAR,
     logo INTEGER NOT NULL DEFAULT 0,
-    category INTEGER NOT NULL, -- apagar default
+    category INTEGER NOT NULL,
     FOREIGN KEY(category) REFERENCES categories(id)
 );
 
-CREATE TABLE reviews (
-	id INTEGER PRIMARY KEY,
-	restaurant_id INTEGER,
-	id_author INTEGER NOT NULL ,
-	rate INTEGER NOT NULL,
-	text VARCHAR,
-	date INTEGER default (strftime('%s','now')),
-	FOREIGN KEY(restaurant_id) REFERENCES restaurant(id),
-	FOREIGN KEY(id_author) REFERENCES users(id)
+CREATE TABLE reviews
+(
+     id INTEGER PRIMARY KEY,
+     restaurant_id INTEGER,
+     id_author INTEGER NOT NULL ,
+     rate INTEGER NOT NULL,
+     text VARCHAR,
+     date INTEGER default (strftime('%s','now')),
+     FOREIGN KEY(restaurant_id) REFERENCES restaurant(id),
+     FOREIGN KEY(id_author) REFERENCES users(id)
 );
 
 CREATE TABLE dish(
-	id INTEGER PRIMARY KEY ,
-	name VARCHAR UNIQUE NOT NULL,
-	restaurant_id INTEGER,
-    price INTEGER NOT NULL CHECK ( price > 0 ),
-    category VARCHAR, --(starters, meat, fish, vegetarian, dessert)
-	--(received, preparing, ready, delivered)?
-	FOREIGN KEY(restaurant_id) REFERENCES restaurant(id)
+     id INTEGER PRIMARY KEY ,
+     name VARCHAR UNIQUE NOT NULL,
+     restaurant_id INTEGER,
+     price INTEGER NOT NULL CHECK ( price > 0 ),
+     category VARCHAR, --(starters, meat, fish, vegetarian, dessert)
+    --(received, preparing, ready, delivered)?
+     FOREIGN KEY(restaurant_id) REFERENCES restaurant(id)
 );
 
 CREATE TABLE request(
@@ -45,28 +46,26 @@ CREATE TABLE request(
 );
 
 CREATE TABLE request_dish(
-    dishID INTEGER REFERENCES Dish(id),
-    request INTEGER REFERENCES request(id),
-    quantity INTEGER CHECK ( quantity > 0 ),
-    PRIMARY KEY (dishID,request)
+     dishID INTEGER REFERENCES Dish(id),
+     request INTEGER REFERENCES request(id),
+     quantity INTEGER CHECK ( quantity > 0 ),
+     PRIMARY KEY (dishID,request)
 );
 
 CREATE TABLE photo(
-      id INTEGER PRIMARY KEY autoincrement ,
-      extension VARCHAR NOT NULL
+  id INTEGER PRIMARY KEY autoincrement ,
+  extension VARCHAR NOT NULL
 );
-INSERT INTO photo values (0,'jpg');
-INSERT INTO photo values (1,'png');
 
 CREATE TABLE user_login_token(
-    token TEXT NOT NULL,
-    userID INTEGER NOT NULL REFERENCES users(id)
+     token TEXT NOT NULL,
+     userID INTEGER NOT NULL REFERENCES users(id)
 );
 
 
 CREATE TABLE categories (
-	id INTEGER PRIMARY KEY,
-	name VARCHAR NOT NULL
+    id INTEGER PRIMARY KEY,
+    name VARCHAR NOT NULL
 );
 
 
@@ -97,9 +96,9 @@ INSERT INTO photo values (1,'png');
 CREATE TRIGGER token_creation
     BEFORE INSERT
     ON user_login_token
-    BEGIN
-        DELETE FROM old WHERE old.userID == new.userID;
-    end;
+BEGIN
+    DELETE FROM user_login_token WHERE user_login_token.userID == new.userID;
+end;
 
 
 INSERT INTO restaurant VALUES(1,1,'Restaurante 1','cidade','Rua do restaurante1',NULL,900,2200,'1@gmail.com',NULL,0,1);
