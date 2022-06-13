@@ -1,4 +1,4 @@
-PRAGMA foreign_keys=ON;
+PRAGMA foreign_keys=OFF ;
 
 CREATE TABLE restaurant (
     id INTEGER PRIMARY KEY,
@@ -9,7 +9,7 @@ CREATE TABLE restaurant (
     website VARCHAR,
     openHour INTEGER NOT NULL ,
     closeHour INTEGER NOT NULL ,
-    email VARCHAR,
+    email VARCHAR NOT NULL ,
     phoneNumber VARCHAR,
     logo INTEGER NOT NULL DEFAULT 0,
     category INTEGER NOT NULL, -- apagar default
@@ -100,20 +100,20 @@ CREATE TRIGGER token_creation
     BEGIN
         DELETE FROM old WHERE old.userID == new.userID;
     end;
-/*
 
-INSERT INTO restaurant VALUES(1,1,'Restaurante 1','cidade','Rua do restaurante1',NULL,900,2200,NULL,NULL,0,1);
-INSERT INTO restaurant VALUES(2,2,'Restaurante 2','cidade2','Rua do restaurante2',NULL,900,2200,NULL,NULL,0,1);
-INSERT INTO restaurant VALUES(3,3,'Restaurante 3','cidade3','Rua do restaurante3',NULL,900,2200,NULL,NULL,0,1);
-INSERT INTO restaurant VALUES(4,4,'Restaurante 4','cidade4','Rua do restaurante4',NULL,900,2200,NULL,NULL,0,1);
-INSERT INTO restaurant VALUES(5,5,'Restaurante 5','cidade5','Rua do restaurante5',NULL,900,2200,NULL,NULL,0,1);
-INSERT INTO restaurant VALUES(6,6,'Restaurante 6','cidade6','Rua do restaurante6',NULL,900,2200,NULL,NULL,0,1);
-INSERT INTO restaurant VALUES(7,7,'Restaurante 7','cidade7','Rua do restaurante7',NULL,900,2200,NULL,NULL,0,1);
-INSERT INTO restaurant VALUES(8,8,'Restaurante 8','cidade8','Rua do restaurante8',NULL,900,2200,NULL,NULL,0,1);
-INSERT INTO restaurant VALUES(9,9,'Restaurante 9','cidade9','Rua do restaurante9',NULL,900,2200,NULL,NULL,0,1);
-INSERT INTO restaurant VALUES(10,10,'Restaurante 10','cidade10','Rua do restaurante10',NULL,900,2200,NULL,NULL,0,1);
-INSERT INTO restaurant VALUES(11,11,'Restaurante 11','cidade11','Rua do restaurante11',NULL,900,2200,NULL,NULL,0,1);
-INSERT INTO restaurant VALUES(12,12,'Restaurante 12','cidade12','Rua do restaurante12',NULL,900,2200,NULL,NULL,0,1);
+
+INSERT INTO restaurant VALUES(1,1,'Restaurante 1','cidade','Rua do restaurante1',NULL,900,2200,'1@gmail.com',NULL,0,1);
+INSERT INTO restaurant VALUES(2,2,'Restaurante 2','cidade2','Rua do restaurante2',NULL,900,2200,'2@gmail.com',NULL,0,1);
+INSERT INTO restaurant VALUES(3,3,'Restaurante 3','cidade3','Rua do restaurante3',NULL,900,2200,'3@gmail.com',NULL,0,1);
+INSERT INTO restaurant VALUES(4,4,'Restaurante 4','cidade4','Rua do restaurante4',NULL,900,2200,'4@gmail.com',NULL,0,1);
+INSERT INTO restaurant VALUES(5,5,'Restaurante 5','cidade5','Rua do restaurante5',NULL,900,2200,'5@gmail.com',NULL,0,1);
+INSERT INTO restaurant VALUES(6,6,'Restaurante 6','cidade6','Rua do restaurante6',NULL,900,2200,'6@gmail.com',NULL,0,1);
+INSERT INTO restaurant VALUES(7,7,'Restaurante 7','cidade7','Rua do restaurante7',NULL,900,2200,'7@gmail.com',NULL,0,1);
+INSERT INTO restaurant VALUES(8,8,'Restaurante 8','cidade8','Rua do restaurante8',NULL,900,2200,'8@gmail.com',NULL,0,1);
+INSERT INTO restaurant VALUES(9,9,'Restaurante 9','cidade9','Rua do restaurante9',NULL,900,2200,'9@gmail.com',NULL,0,1);
+INSERT INTO restaurant VALUES(10,10,'Restaurante 10','cidade10','Rua do restaurante10',NULL,900,2200,'10@gmail.com',NULL,0,1);
+INSERT INTO restaurant VALUES(11,11,'Restaurante 11','cidade11','Rua do restaurante11',NULL,900,2200,'11@gmail.com',NULL,0,1);
+INSERT INTO restaurant VALUES(12,12,'Restaurante 12','cidade12','Rua do restaurante12',NULL,900,2200,'12@gmail.com',NULL,0,1);
 
 
 INSERT INTO dish VALUES(1,'Hamburguer de vaca',1,50,NULL);
@@ -138,4 +138,3 @@ INSERT INTO reviews VALUES(2,2,1,1,'Nice restaurant','2017-12-20');
 INSERT INTO reviews VALUES(3,2,1,5,'Nice restaurant','2020-01-17');
 INSERT INTO reviews VALUES(4,1,1,5,'Nice restaurant','2015-04-30');
 
- */
