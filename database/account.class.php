@@ -111,6 +111,24 @@ class account{
     }
 
 
+    public static  function updateRestaurantInfo(&$info){
+        $db = getDatabaseConnection();
+        $stmt = $db->prepare("UPDATE restaurant 
+                            SET name = :name, category = :category, address =  :address, openHour = :openHour, closeHour = :closeHour
+                                        WHERE email = :email");
+        foreach ($info as $item){
+            $item = htmlspecialchars($item,ENT_QUOTES);
+        }
+        $stmt->bindParam(':name' , $info['name']);
+        $stmt->bindParam(':category',$info['category']);
+        $stmt->bindParam(':address' , $info['address']);
+        $stmt->bindParam(':openHour',$info['openHour']);
+        $stmt->bindParam(':closeHour',$info['closeHour']);
+        $stmt->bindParam(':email',$_SESSION["email"]);
+        $stmt->execute();
+    }
+
+
     public static function getUserInfo($info){
         $stmt = getDatabaseConnection()->prepare("SELECT * FROM users WHERE email=:email");
         $stmt->bindParam(":email",$_SESSION["email"]);
