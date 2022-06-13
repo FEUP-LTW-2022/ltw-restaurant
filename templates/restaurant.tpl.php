@@ -36,7 +36,7 @@ function  drawRestaurantInfo($category, $restaurant, $avgRev): void
             </div>
         </div>
 
-    <span id="maps"> <a href="https://www.google.com/maps/search/?api=1&query=<?=$restaurant['address']?>"><u><?= $restaurant['address']?></u></a></span>
+    <span id="maps"> <a href="https://www.google.com/maps/search/?api=1&query=<?=$restaurant['address']?>" target="_blank" rel="noopener noreferrer" ><u><?= $restaurant['address']?></u></a></span>
     <img src="<?=getImage($restaurant['logo'])?>" alt="restaurant photo" style="  width: 50%; height: 300px;">
 
     <div class="restTab">

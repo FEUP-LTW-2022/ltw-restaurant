@@ -3,7 +3,7 @@
 include_once ("password.php");
 
 class account{
-    public static function getUserRequest($count): bool|array
+    public static function getUserRequest($count): array
     {
         $db = getDatabaseConnection();
         $stmt = $db->prepare("SELECT id FROM users WHERE email=:email");

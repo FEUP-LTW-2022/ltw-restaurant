@@ -16,7 +16,7 @@
     }
 
 ?>
-    <div class="register">
+    <div class="register-restaurant">
         <form method="post" action="register-restaurant.php" enctype="multipart/form-data">
             <h1>Register a restaurant</h1>
 

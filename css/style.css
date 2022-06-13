@@ -12,16 +12,11 @@
 ul{
     list-style: none;
 }
-html {
-    margin: 0;
-    height: 100%;
-    width: 100%;
-}
+
 body{
     font-family: Arial, Helvetica, sans-serif;
     background-color: white;
     margin:0;
-    min-height: 100%;
     width: 100%;
 }
 h1, h2{
@@ -29,7 +24,21 @@ h1, h2{
 }
 
 /* Header */
+
+#myHeader{
+    position:fixed;
+    top: 0;
+    width: 100%;
+}
 body > header {
+    grid-area: header;
+    position: relative;
+    height: 6em;
+
+    display: grid;
+    grid-template:
+        "logo form signup" 1fr;
+
     background-color: white;
     color:  black;  
     box-shadow: 0 7px 14px rgb(194, 195, 197);
@@ -42,7 +51,21 @@ body > header {
 body > header a{
     color: black;
     text-decoration: none;
+    grid-area: logo;
 }
+#search-bar{
+    grid-area: form;
+    align-self: center;
+}
+
+#signup{
+
+    grid-area: signup;
+    align-self: center;
+    justify-self: right;
+    padding-right: 2em;
+}
+
 
 body > header #userLogo{
     border-radius:50%;
@@ -55,21 +78,6 @@ body>header>a:first-child>img{
     margin-left: 1em;
     height: 6em;
     width: 6em;
-}
-
-/*sticky header */
-main, footer {
-  padding: 16px;
-}
-
-.sticky {
-  position: fixed;
-  top: 0;
-  width: 100%;
-}
-
-.sticky + main ,footer{
-  padding-top: 50px;
 }
 
 
@@ -124,10 +132,9 @@ main, footer {
 
 
 main {
-    padding: 1em;
-   /* margin: 0 11rem 0 11rem;*/
-    margin: auto;
+    margin: 96px auto auto;
     max-width: 66rem;
+    min-height: calc(100vh - 148px - 128px);
   }
   
   main a {
@@ -139,6 +146,7 @@ main {
  }
   
  .restaurants-list {
+     padding-top: 150px;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -393,24 +401,21 @@ display: flex;
 
 
   /*footer*/
-  footer {
 
-      background-color: black;
-      color: white;
-      padding: 1rem 11rem 1rem 11rem;
-      margin-top: 1rem;
-  }
 
-  #footer-main{
+.footer{
+    margin-top: 2rem;
+    background-color: black;
+    color: white;
+    padding: 1rem 11rem 1rem 11rem;
     display: flex;
-    flex-wrap: wrap;
-  }
-
+    flex-direction: row;
+}
   #footer-logo{
     display: block;
     padding: 0 2rem;
     justify-content: center;
-   
+
   }
   #footer-logo img{
     height: 7em;
@@ -462,7 +467,7 @@ display: flex;
   }
   
   .login{
-    padding: 16px;
+    padding-top: 16px;
   }
   
   .login span.psw {
@@ -504,7 +509,7 @@ display: flex;
   }
  
 /* REGISTER FORM */
-.register{
+.register, .register-restaurant{
   padding: 16px;
 }
 
@@ -520,12 +525,24 @@ display: flex;
   border-radius: 20px;
     background: white;
 }
+.register-restaurant input[type=email], .register-restaurant input[type=password], .register-restaurant input[type=text], .register-restaurant input[type=date], .register-restaurant input[type=number], .register-restaurant select{
+    width: 100%;
+    padding: 12px 20px;
+    margin-top: 8px;
+    margin-bottom: 2em;
+    display: inline-block;
+    border: 1px solid  #04AA6D;
+    box-sizing: border-box;
+    gap:2em;
+    border-radius: 20px;
+    background: white;
+}
 
-.register input:focus, .register select:focus {
+.register input:focus, .register select:focus,.register-restaurant input:focus, .register-restaurant select:focus {
     outline: none !important;
     border-color: #04AA6D;
 }
-.register button , #regToLogin button {
+.register button , #regToLogin button, .register-restaurant button {
   background-color: #04AA6D;
   color: white;
   padding: 14px 20px;
@@ -536,7 +553,7 @@ display: flex;
   border-radius: 20px
 }
 
-.register button:hover , #regToLogin button:hover  {
+.register button:hover , #regToLogin button:hover,.register-restaurant button:hover  {
   opacity: 0.8;
 }
 
@@ -549,17 +566,17 @@ hr#register-bar {
 }
 /*register restaurant*/
 
-.register #city_zip{
+.register-restaurant #city_zip{
   display: flex;
   flex-direction: row;
 }
-.register #city_zip >label {
+.register-restaurant #city_zip >label {
   width: 50%;
 }
-.register #city_zip >label:last-child {
+.register-restaurant #city_zip >label:last-child {
   margin-left: 1rem;
 }
-.register #city_zip >label:first-child {
+.register-restaurant #city_zip >label:first-child {
   margin-right: 1rem;
 }
 
@@ -572,11 +589,12 @@ hr#register-bar {
 }
 
 .AboutUsPage{
+
   display: flex;
   flex-direction: column;
-  padding-top: 100px;
+  padding: 16px;
   justify-content: space-around;
-  width:100%
+  width:100%;
 }
 
 .AboutUsBox{
@@ -701,9 +719,8 @@ hr#register-bar {
 
 
 #FAQ {
-  margin: 0 auto;
-  padding: 40px;
-  width: 70%;
+    padding: 150px 40px 40px;
+    width: 70%;
   min-width: 300px;
 }
 #FAQ-body body {
@@ -764,7 +781,10 @@ hr#register-bar {
 }
 
 /* Contact us */
-
+ .ContactUs{
+    margin-top: 10rem;
+    margin-bottom: 5rem;
+}
 .ContactUs-header h2, .ContactUs-container h3{
   text-align: center;
     margin-top: 2em;

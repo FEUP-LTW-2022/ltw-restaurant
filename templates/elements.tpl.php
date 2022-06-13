@@ -11,7 +11,6 @@ function drawHeader(){?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="/css/style.css" rel="stylesheet">
-    <link href="/css/layout.css" rel="stylesheet">
     
 </head>
 <body> 
@@ -31,7 +30,7 @@ function drawHeader(){?>
             echo "<a href='/user.php'> <img id='userLogo' src='".getimage(account::getUserInfo("logo"))."' > </a>"
         ?>
             <div class="dropdown">
-                <button class="dropbtn"><img src="/cart.svg" alt="shopping cart"></button>
+                <button class="dropbtn"><img src="/images/cart.svg" alt="shopping cart"></button>
                 <div class="dropdown-content">
                     <a href="#">Link 1</a>
                     <a href="#">Link 2</a>
@@ -51,27 +50,27 @@ function drawHeader(){?>
 
 <?php }
 
-function drawFooter(){ ?>
+function drawFooter(): void
+{ ?>
      
 </main>
     <footer>
-        <div id="footer-main">
+        <div class="footer">
             <div id="footer-logo">
             <img src="/logo.jpeg" alt="logo">
             </div>
             <ul id="footer-table">
-            <li>
-                <a href="/about-us.php">About Us</a>
-            </li>
-            <li>
-                <a href="/contact-us.php">Contact Us</a>
-            </li>
-            <li>
-                <a href="/faq.php">FAQ's</a>
-            </li>
-            
+                <li>
+                    <a href="/about-us.php">About Us</a>
+                </li>
+                <li>
+                    <a href="/contact-us.php">Contact Us</a>
+                </li>
+                <li>
+                    <a href="/faq.php">FAQ's</a>
+                </li>
             </ul>
-        </div>
+            </div>
     </footer>
 </body>
 </html>
