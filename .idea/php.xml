@@ -2,9 +2,7 @@
 <project version="4">
   <component name="PhpInterpreters">
     <interpreters>
-      <interpreter id="a499bc15-aff2-4d88-889c-00509db72577" name="Ubuntu-18.04" home="\\wsl$\Ubuntu-18.04/usr/bin/php" debugger_id="php.debugger.XDebug">
-        <remote_data INTERPRETER_PATH="/usr/bin/php" HELPERS_PATH="" INITIALIZED="false" VALID="true" RUN_AS_ROOT_VIA_SUDO="false" DISTRIBUTION_ID="Ubuntu-18.04" />
-      </interpreter>
+      <interpreter id="a499bc15-aff2-4d88-889c-00509db72577" name="Ubuntu-18.04" home="\\wsl$\Ubuntu-18.04/usr/bin/php" debugger_id="php.debugger.XDebug" />
     </interpreters>
   </component>
   <component name="PhpInterpretersPhpInfoCache">
@@ -58,7 +56,7 @@
       </interpreter>
     </phpInfoCache>
   </component>
-  <component name="PhpProjectSharedConfiguration" php_language_level="8.0">
+  <component name="PhpProjectSharedConfiguration" php_language_level="7.4">
     <option name="suggestChangeDefaultLanguageLevel" value="false" />
   </component>
 </project>

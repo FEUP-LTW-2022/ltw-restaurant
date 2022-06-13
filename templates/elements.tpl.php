@@ -20,15 +20,15 @@ function drawHeader(): void
         <a href="/index.php">
             <img src="/logo.jpeg" alt="logo">
         </a>
-        <form id="search-bar" action="/search-results.php" method="get">
+        <form id="search-bar" action="../search-results.php" method="get">
             <label>
-                <input type="text" name="search-bar" placeholder="Restaurant, city, ...">
+                <input type="text" name="search" placeholder="Restaurant, city, ...">
             </label>
         </form>
         <div id="signup">
         <?php
             if (account::isLoggedIn()){
-            echo "<a href='/user.php'> <img id='userLogo' src='".getimage(account::getUserInfo("logo"))."' > </a>"
+            echo "<a href='./user.php'> <img id='userLogo' src='".getimage(account::getUserInfo("logo"))."' > </a>"
         ?>
             <div class="dropdown">
                 <button class="dropbtn"><img src="/images/cart.svg" alt="shopping cart"></button>
