@@ -1,6 +1,7 @@
 <?php
 require_once('./database/restaurants.php');
 require_once ('./database/upload-image.php');
+
 function checkStoreRev($storeRev, $numRev):float{
     if($numRev!=0){
         return ($storeRev*100)/$numRev;
@@ -9,6 +10,7 @@ function checkStoreRev($storeRev, $numRev):float{
         return 0;
     }
 }
+
  function drawRestaurantList(PDO $db, array $restaurants):void{ ?>
  <span id="index">
      <h1>Our Restaurants</h1>
@@ -144,6 +146,11 @@ function drawRestaurantMenu($dish_cat, $dishes,$restaurant):void{ ?>
 
 function drawRestaurantReviews($comments): void{ ?>
  <div id="reviewsRest" class="tabcontent">
+    <div class="write-comment">
+        <form method="post" action="../restaurant.php" enctype="multipart/form-data">
+
+        </form>
+    </div>
     <div class="comments">
         <?php foreach ($comments as $comment){?>
 
