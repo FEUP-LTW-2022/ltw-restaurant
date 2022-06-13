@@ -3,8 +3,9 @@ require_once('./database/restaurants.php');
 require_once ('./database/upload-image.php');
 
  function drawRestaurantList(PDO $db, array $restaurants):void{ ?>
-    <h1>Our Restaurants</h1>
-         <section class="restaurants-list" >
+ <span id="index">
+     <h1>Our Restaurants</h1>
+         <span class="restaurants-list" >
           <?php foreach( $restaurants as $restaurant) {  
             $rate = getAverageRate($db, $restaurant['id']) ;
              $category= getRestaurantCategory($db, $restaurant['category']); ?>
@@ -20,7 +21,8 @@ require_once ('./database/upload-image.php');
                </a>
               </article>
           <?php }?>
-        </section>
+        </span>
+</span>
 
 <?php }
 
@@ -164,26 +166,7 @@ function drawRestaurantReviews($comments): void{ ?>
 
 <?php }
 
-function drawUserOwnedRestaurant(){
-     $restaurants = account::getUserRestaurants();
-     print_r($restaurants);
-     foreach( $restaurants as $restaurant) {
-        $rate = getAverageRate(getDatabaseConnection(), $restaurant['id']) ;
-        $category= getRestaurantCategory(getDatabaseConnection(), $restaurant['category']); ?>
-    <article>
-        <a  href="/manage-restaurant.php?id=<?=$restaurant['id']?>">
-            <img src="<?=getimage($restaurant['logo'])?>" alt="restaurant photo" style="width: 200px; height: 200px;">
-            <span id="restaurant-category"><?=$category['name']?></span>
-            <div id="rest_info_rate">
-                <div id="restaurant-info"><b><?=$restaurant['name']?> </b> </div>
-                <div id="restaurant-rating"><b><?= $rate?></b></div>
-            </div>
-            <span id="restaurant-city"><b><?=$restaurant['city']?></b></span>
-        </a>
-    </article>
-    <?php }
 
-}
 
 
 

@@ -144,9 +144,12 @@ main {
   main h1{
     text-align: center;
  }
-  
+
+  #index h1{
+      padding-top: 50px;
+  }
  .restaurants-list {
-     padding-top: 150px;
+
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -382,7 +385,64 @@ display: flex;
     display: flex;
     align-items: center;
     justify-content: center;
-}
+}.restaurants-list {
+
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 3em;
+
+  }
+
+  .restaurants-list article {
+    width: 300px;
+    height: 290px;
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    justify-content: center;
+    color: black;
+  }
+
+
+  .restaurants-list article a {
+
+    color: black;
+    align-self: center;
+    justify-self: center;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 10px 0 10px;
+
+  }
+  .restaurants-list article a:hover {
+    -moz-box-shadow: 0 0 10px #ccc;
+    -webkit-box-shadow: 0 0 10px #ccc;
+    box-shadow: 0 0 10px #ccc;
+  }
+
+
+ .restaurants-list #restaurant-category {
+    font-size: 13px;
+     color: rgba(0,0,0,0.6);
+
+  }
+  .restaurants-list #rest_info_rate{
+    display:flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    font-size: 1rem;
+  }
+  .restaurants-list #restaurant-rating{
+    flex:auto;
+    text-align: right;
+    display: block;
+
+  }
+  .restaurants-list #restaurant-city{
+    font-size: 1rem;
+  }
 .rand-comments  button{
     background-color: #04AA6D;
     color: white;
@@ -864,4 +924,63 @@ hr#register-bar {
   cursor: pointer;
   width: 100%;
   border-radius: 20px
+}
+/**»*********************************************/
+/*USer restaurants*/
+
+.my-restaurants h1{
+    padding-top: 50px;
+}
+.my-restaurants-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 3em;
+    font-size: 1rem;
+}
+
+.my-restaurants-list article {
+    width: 300px;
+    height: 290px;
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    justify-content: center;
+    color: black;
+}
+
+
+.my-restaurants-list article a {
+
+    color: black;
+    align-self: center;
+    justify-self: center;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 10px 0 10px;
+
+}
+.my-restaurants-list article a:hover {
+    -moz-box-shadow: 0 0 10px #ccc;
+    -webkit-box-shadow: 0 0 10px #ccc;
+    box-shadow: 0 0 10px #ccc;
+}
+.my-restaurants-list article #my-rest-name{
+    margin-top: 0.5rem;
+    margin-bottom: 0.25rem;
+}
+.my-restaurants-list #rest-options{
+    display: flex;
+    flex-direction: row;
+}
+.my-restaurants-list #rest-list-btns button{
+    background-color: #04AA6D;
+    color: white;
+    padding: 14px 20px;
+    margin-top: 1em;
+    border: none;
+    cursor: pointer;
+    width:50%;
+    border-radius: 20px
 }

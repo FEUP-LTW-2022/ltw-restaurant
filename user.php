@@ -21,7 +21,7 @@ drawHeader();
 
     <a href="change-password.php">Change password</a>
     <?php if (account::isRestaurantOwner()){ ?>
-        <a href="manage-restaurant-list.php">Manage Restaurant</a>
+        <a href="manage-restaurant-list.php">Manage Your Restaurants</a>
     <?php }?>
     <a href="register-restaurant.php">Register restaurant</a>
     <a href="favourites.php">Favourites</a>
