@@ -837,12 +837,12 @@ hr#register-bar {
 }
 
 /****************************************/
-/* Edit profile and change password pages*/
+/* Edit profile, change password and manage restaurant pages*/
 
-.edit-profile, .change-password{
+.edit-profile, .change-password, .manage-restaurant{
   padding: 16px;
 }
-.edit-profile input[type=email], .edit-profile input[type=text],.edit-profile input[type=number], .change-password input[type=password]{
+.edit-profile input[type=email], .edit-profile input[type=text],.edit-profile input[type=number], .change-password input[type=password], .manage-restaurant input[type=text], .manage-restaurant select{
   width: 100%;
   padding: 12px 20px;
   margin-top: 8px;
@@ -854,7 +854,7 @@ hr#register-bar {
   border-radius: 20px;
 }
 
-.edit-profile button, .change-password button{
+.edit-profile button, .change-password button, .manage-restaurant button{
   background-color: #04AA6D;
   color: white;
   padding: 14px 20px;
