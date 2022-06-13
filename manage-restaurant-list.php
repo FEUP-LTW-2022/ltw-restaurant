@@ -35,7 +35,7 @@ drawHeader();
                   </article>
                   <span id="rest-list-btns">
                       <h2>Manage your:</h2>
-                      <button onclick="location.href='manage-restaurant.php?id=<?=$restaurant['id']?>'">Restaurant</button>
+                      <button onclick="location.href='edit-restaurant.php?id=<?=$restaurant['id']?>'">Restaurant</button>
                       <button onclick="location.href='index.php?id=<?=$restaurant['id']?>'">Menu</button>
                       <button onclick="location.href='index.php?id=<?=$restaurant['id']?>'">Orders</button>
                   </span>

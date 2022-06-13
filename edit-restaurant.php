@@ -19,8 +19,8 @@ if (strtoupper($_SERVER['REQUEST_METHOD']) === 'POST') {
 drawHeader();
 ?>
 
-<div class="manage-restaurant">
-    <form method="post" action="manage-restaurant.php">
+<div class="edit-restaurant">
+    <form method="post" action="edit-restaurant.php">
         <h1>Edit restaurant</h1>
         <label for="name">
             <b>Name</b>

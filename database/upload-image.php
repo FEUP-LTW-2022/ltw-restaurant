@@ -34,9 +34,9 @@ function upload($file)
   move_uploaded_file($file['image']['tmp_name'], $originalFileName);
 
   // Crete an image representation of the original image
-  $original = @imagecreatefromjpeg($originalFileName);
-  if (!$original) $original = @imagecreatefrompng($originalFileName);
-  if (!$original) $original = @imagecreatefromgif($originalFileName);
+  $original = imagecreatefromjpeg($originalFileName);
+  if (!$original) $original = imagecreatefrompng($originalFileName);
+  if (!$original) $original = imagecreatefromgif($originalFileName);
 
   if (!$original) die();
 
