@@ -3,7 +3,8 @@
     include_once("database/account.class.php");
     include_once("database/upload-image.php");
 
-function drawHeader(){?>
+function drawHeader(): void
+{?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

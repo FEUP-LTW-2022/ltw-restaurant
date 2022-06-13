@@ -175,10 +175,10 @@ class account{
         }
     }
 
-    public static function getUserRestaurants(){
-        $stmt = getDatabaseConnection()->prepare("SELECT * FROM users INNER JOIN restaurant r on users.id = r.ownerID WHERE users.email = :email");
-        $email = htmlspecialchars($_SESSION["email"]);
-        $stmt->bindParam(":email",$email);
+    public static function getUserRestaurants($id):array
+    {
+        $stmt = getDatabaseConnection()->prepare("SELECT * FROM restaurant WHERE restaurant.ownerID = ? ");
+        $stmt->execute(array($id));
         return $stmt->fetchAll();
     }
 

@@ -144,9 +144,12 @@ main {
   main h1{
     text-align: center;
  }
-  
+
+  #index h1{
+      padding-top: 50px;
+  }
  .restaurants-list {
-     padding-top: 150px;
+
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -864,4 +867,10 @@ hr#register-bar {
   cursor: pointer;
   width: 100%;
   border-radius: 20px
+}
+/**»*********************************************/
+/*USer restaurants*/
+
+.my-restaurants h1{
+    padding-top: 50px;
 }
