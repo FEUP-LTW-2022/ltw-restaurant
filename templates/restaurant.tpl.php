@@ -1,7 +1,14 @@
 <?php
 require_once('./database/restaurants.php');
 require_once ('./database/upload-image.php');
-
+function checkStoreRev($storeRev, $numRev):float|int{
+    if($numRev!=0){
+        return ($storeRev*100)/$numRev;
+    }
+    else{
+        return 0;
+    }
+}
  function drawRestaurantList(PDO $db, array $restaurants):void{ ?>
  <span id="index">
      <h1>Our Restaurants</h1>
@@ -78,7 +85,7 @@ function drawAboutRestaurant($randDishes, $avgRev,$randComments, $storeRev):void
                 <div id="line">
                     <span><?=$i?>&nbsp;star</span>
                     <div id="middle">
-                        <span id="bar-<?=$i?>" style="width: <?=(int) (($storeRev[$i]*100)/$numRev)?>%"></span>
+                        <span id="bar-<?=$i?>" style="width: <?= (int) checkStoreRev($storeRev[$i], $numRev)?>%"></span>
                     </div>
                     <span id="right" ><?=$storeRev[$i]?></span>
                 </div>
