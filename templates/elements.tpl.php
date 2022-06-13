@@ -33,9 +33,6 @@ function drawHeader(): void
             <div class="dropdown">
                 <button class="dropbtn"><img src="/images/cart.svg" alt="shopping cart"></button>
                 <div class="dropdown-content">
-                    <a href="#">Link 1</a>
-                    <a href="#">Link 2</a>
-                    <a href="#">Link 3</a>
                 </div>
             </div>
         <?php }else{ ?>

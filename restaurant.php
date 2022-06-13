@@ -27,7 +27,7 @@ $dish_cat=  orderDishes($db, $id);
 drawHeader();
 drawRestaurantInfo($category, $restaurant, $avgRev);
 drawAboutRestaurant($randDishes,$avgRev, $randComments, $storeRev);
-drawRestaurantMenu($dish_cat,$dishes);
+drawRestaurantMenu($dish_cat,$dishes,$restaurant);
 drawRestaurantReviews($comments);
 drawFooter();
 

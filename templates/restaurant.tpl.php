@@ -112,7 +112,7 @@ function drawAboutRestaurant($randDishes, $avgRev,$randComments, $storeRev):void
 
 <?php }
 
-function drawRestaurantMenu($dish_cat, $dishes):void{ ?>
+function drawRestaurantMenu($dish_cat, $dishes,$restaurant):void{ ?>
    <div id="menuRest" class="tabcontent">
     <h1>Menu</h1>
     <section class="fullMenu">
@@ -123,7 +123,7 @@ function drawRestaurantMenu($dish_cat, $dishes):void{ ?>
                         if($dish['category']==$dish_cat[$i]){
                         ?>
                         <article>
-                            <span id="dish-name"><?=$dish['name']?></span>
+                            <button id="dish-name" onclick="addToCart('<?= $dish['name']?>', <?= $dish['id']?> , <?= $restaurant['id']?>, <?= $dish['price']?>)"><?=$dish['name']?></button>
                             <hr id="menuHr">
                             <span id="dish-price"><?=$dish['price']?>&euro;</span>
                         </article>
@@ -133,6 +133,7 @@ function drawRestaurantMenu($dish_cat, $dishes):void{ ?>
     </section>
 </div>
 <?php }
+
 
 function drawRestaurantReviews($comments): void{ ?>
  <div id="reviewsRest" class="tabcontent">
