@@ -33,6 +33,10 @@ if(strtoupper($_SERVER['REQUEST_METHOD']) === 'POST') {
                 </label>Stay logged in
                 <span class="psw">Forgot <a href="/recover-password.php">password?</a></span>
             </div>
+            <?php if(isset($_SESSION['error'])){
+                echo "<p>".$_SESSION['error'] ."</p>";
+                unset($_SESSION['error']);
+            } ?>
             <button type="submit">Login</button>
         </form>
         <hr id="login-bar">

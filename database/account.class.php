@@ -12,14 +12,14 @@ class account{
         $stmt->execute();
         $userID = $stmt->fetch();
         $stmt = $db->prepare("SELECT * FROM request WHERE userID = :userID ORDER BY date LIMIT :count");
-        $stmt->bindParam(":userID",$userID);
+        $stmt->bindParam(":userID",$userID['id']);
         $stmt->bindParam(":count",$count);
         $stmt->execute();
         return $stmt->fetchAll();
 
     }
 
-    public static function login($email,$password){
+    public static function login($email, $password){
         $email = htmlspecialchars($email,ENT_QUOTES);
         $password = htmlspecialchars($password,ENT_QUOTES);
 
@@ -28,17 +28,21 @@ class account{
         $stmt->bindParam(':email', $email);
         $stmt->execute();
         $value = $stmt->fetch(PDO::FETCH_ASSOC);
-        
-        if (security::checkPassword($value["password"],$password)){
-            $_SESSION["token"] = security::generateToken();
-            $_SESSION["email"] = $email;
-            $stmt = $db->prepare("INSERT INTO user_login_token VALUES (:token,:id)");
-            $stmt->bindParam(":token",$_SESSION["token"]);
-            $stmt->bindParam(":id",$value["id"]);
-            $stmt->execute();
-            header("Location:index.php");
+        if (isset($value['password'])) {
+            if (security::checkPassword($value["password"], $password)) {
+                $_SESSION["token"] = security::generateToken();
+                $_SESSION["email"] = $email;
+                $stmt = $db->prepare("INSERT INTO user_login_token VALUES (:token,:id)");
+                $stmt->bindParam(":token", $_SESSION["token"]);
+                $stmt->bindParam(":id", $value["id"]);
+                $stmt->execute();
+                header("Location:index.php");
+            } else {
+                $_SESSION["error"] = "wrong email or password";
+                header("Location:login.php");
+            }
         }else{
-            $_SESSION["error"] = "bad credentials";
+            $_SESSION["error"] = "email is not registered";
             header("Location:login.php");
         }
         exit();
@@ -56,7 +60,7 @@ class account{
             $stmt->execute();
             $tokens = $stmt->fetchAll();
             foreach ($tokens as $token){
-                if ($token['token'] == $_SESSION["token"])return true;
+                    if ($token['token'] == $_SESSION["token"])return true;
             }
         }
         return false;
@@ -69,7 +73,7 @@ class account{
             $stmt = $db->prepare("INSERT INTO Users (email, name, address, password,birthDate,phoneNumber)
                                         VALUES (:email,:name, :address, :password,:birthdate,:phoneNumber)");
 
-            foreach ($info as $item){
+            foreach ($info as &$item){
                 $item = htmlspecialchars($item,ENT_QUOTES);
             }
             $stmt->bindParam(':email', $info['email']);
@@ -176,9 +180,15 @@ class account{
     }
 
     public static function getUserRestaurants(){
+        /*
         $stmt = getDatabaseConnection()->prepare("SELECT * FROM users INNER JOIN restaurant r on users.id = r.ownerID WHERE users.email = :email");
         $email = htmlspecialchars($_SESSION["email"]);
-        $stmt->bindParam(":email",$email);
+        $stmt->bindParam(":email",$_SESSION["email"]);
+        */
+        $stmt = getDatabaseConnection()->prepare("SELECT * FROM restaurant INNER JOIN users ON restaurant.ownerID = users.id WHERE users.email = :email");
+        $email = htmlspecialchars($_SESSION["email"]);
+        $stmt->bindParam(':email',$email);
+        $stmt->execute();
         return $stmt->fetchAll();
     }
 

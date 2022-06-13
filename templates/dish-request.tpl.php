@@ -1,6 +1,6 @@
 <?php
 
-include_once ("../database/account.class.php");
+include_once ("database/account.class.php");
 
 function drawUserReceipt(): void
 {

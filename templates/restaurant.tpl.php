@@ -109,6 +109,7 @@ function drawAboutRestaurant($randDishes, $avgRev,$randComments, $storeRev):void
     </div>
 
 <?php }
+
 function drawRestaurantMenu($dish_cat, $dishes):void{ ?>
    <div id="menuRest" class="tabcontent">
     <h1>Menu</h1>
@@ -165,12 +166,12 @@ function drawRestaurantReviews($comments): void{ ?>
 
 function drawUserOwnedRestaurant(){
      $restaurants = account::getUserRestaurants();
-
+     print_r($restaurants);
      foreach( $restaurants as $restaurant) {
         $rate = getAverageRate(getDatabaseConnection(), $restaurant['id']) ;
         $category= getRestaurantCategory(getDatabaseConnection(), $restaurant['category']); ?>
     <article>
-        <a  href="/manage-restaurant-list.php?id=<?=$restaurant['id']?>">
+        <a  href="/manage-restaurant.php?id=<?=$restaurant['id']?>">
             <img src="<?=getimage($restaurant['logo'])?>" alt="restaurant photo" style="width: 200px; height: 200px;">
             <span id="restaurant-category"><?=$category['name']?></span>
             <div id="rest_info_rate">
@@ -183,6 +184,7 @@ function drawUserOwnedRestaurant(){
     <?php }
 
 }
+
 
 
 
