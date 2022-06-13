@@ -74,7 +74,8 @@ function getAverageRate(PDO $db, int $id){
     return number_format($i/$j , 1, ',','.');
 }
 
-function getRestaurantRate(PDO $db, int $id){
+function getRestaurantRate(PDO $db, int $id): array
+{
     $stmt = $db->prepare(RATE_Q);
     $stmt->execute(array($id));
     return $stmt->fetchAll();
