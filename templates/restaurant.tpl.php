@@ -1,7 +1,7 @@
 <?php
 require_once('./database/restaurants.php');
 require_once ('./database/upload-image.php');
-function checkStoreRev($storeRev, $numRev):float|int{
+function checkStoreRev($storeRev, $numRev):float{
     if($numRev!=0){
         return ($storeRev*100)/$numRev;
     }
