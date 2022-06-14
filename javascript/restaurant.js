@@ -1,6 +1,5 @@
 var formHolder = [] ;
-var total;
-var totalPrice;
+
 function openTab(x, TabName) {
     let i, tabcontent, tablinks;
     tabcontent = document.getElementsByClassName("tabcontent");
@@ -16,15 +15,41 @@ function openTab(x, TabName) {
     tablinks[x].style.borderBottom="4px solid green";
     document.getElementById(TabName).style.display = "block";
 }
+function updatePrice(id,value) {
+    children = formHolder[0].children;
+    for (let i = 0; i < children.length; i++) {
+        if (children[i].id == id) {
 
-
-
-function Generate() {
-    
+            children[i].children[1].innerHTML = parseFloat(children[i].children[1].id) * parseInt(value);
+            mybool = true;
+        }
+    }
 }
+
+
+function generateOrder(name,id,price) {
+    let input = document.createElement('INPUT');
+    input.classList.add("inputCart");
+    input.type = 'number';
+    input.name = 'dishes[' + id + ']';
+    input.id = id;
+    input.value = 1;
+    let p = document.createElement('p');
+    p.id = id;
+    p.innerText = name;
+    let priceElem = document.createElement('p');
+    priceElem.id = price;
+    priceElem.innerText = price;
+    input.onchange = function () {
+        updatePrice(input.id,input.value);
+    }
+    p.appendChild(input);
+    p.appendChild(priceElem);
+    formHolder[0].appendChild(p);
+}
+
 function addToCart(name,id,price, restaurantID) {
     console.log("ok")
-    total = 1;
     let cartList = document.getElementsByClassName("dropdown-content");
     let cart = cartList[0];
     if ((formHolder.length == 0) || (formHolder[0].id != restaurantID)) {
@@ -37,20 +62,7 @@ function addToCart(name,id,price, restaurantID) {
         formHolder[0] = newForm;
         cart.appendChild(newForm);
 
-        let input = document.createElement('INPUT');
-        input.classList.add("inputCart");
-        input.type = 'number';
-        input.name = 'dishes[' + id + ']';
-        input.id = id;
-        input.value = 1;
-        let p = document.createElement('p');
-        p.id = id;
-        p.innerText = name;
-        let priceElem = document.createElement('p');
-        priceElem.innerText = price;
-        p.appendChild(input);
-        p.appendChild(priceElem);
-        formHolder[0].appendChild(p);
+        generateOrder(name,id,price);
 
         let checkoutBtn = document.createElement('button');
         checkoutBtn.innerHTML = "Checkout"
@@ -58,7 +70,7 @@ function addToCart(name,id,price, restaurantID) {
         checkoutBtn.onclick =function (){formHolder[0].submit()};
         cart.appendChild(checkoutBtn);
 
-        totalPrice = price;
+
     } else {
 
         let children = formHolder[0].children;
@@ -74,22 +86,8 @@ function addToCart(name,id,price, restaurantID) {
         }
 
         if (mybool === false){
-            let input = document.createElement('INPUT');
-            input.type = 'number';
-            input.name = 'dishes[' + id + ']';
-            input.id = id;
-            input.value = 1;
-            let p = document.createElement('p');
-            p.id = id;
-            p.innerText = name;
-            let priceElem = document.createElement('p');
-            priceElem.innerHTML = price;
-            p.appendChild(input);
-            p.appendChild(priceElem);
-            formHolder[0].appendChild(p);
+            generateOrder(name,id,price);
         }
-        total++;
-        totalPrice = parseFloat(totalPrice) + parseFloat(price);
     }
 
 
