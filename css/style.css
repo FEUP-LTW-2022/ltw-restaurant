@@ -1038,7 +1038,7 @@ hr#register-bar {
 .reviewRate #rateText{
     font-size: 1rem;
     background: #f1f1f1;
-    border: 1px solid black;
+    border: 1px solid #04AA6D;
     border-radius: 20px 0 0 20px;
     width: 10%;
     padding: 10px;
@@ -1093,4 +1093,81 @@ hr#register-bar {
 }
 .searchResults #index h1:first-child{
     display: none;
+}
+
+
+
+/****************************************/
+/** CHECKOUT */
+
+.checkout {
+    padding-top: 50px;
+    display: -ms-flexbox; /* IE10 */
+    display: flex;
+    -ms-flex-wrap: wrap; /* IE10 */
+    flex-wrap: wrap;
+    margin: 0 -16px;
+}
+
+.col-50 {
+    -ms-flex: 50%; /* IE10 */
+    flex: 50%;
+}
+
+.col-75 {
+    -ms-flex: 75%; /* IE10 */
+    flex: 75%;
+}
+
+
+.col-50,
+.col-75 {
+    padding: 0 16px;
+}
+
+.checkout .container {
+    background-color: #f1f1f1;
+    padding: 5px 20px 15px 20px;
+    border: 1px solid lightgrey;
+    border-radius: 3px;
+}
+
+.checkout .icon-container {
+    margin-bottom: 20px;
+    padding: 7px 0;
+    font-size: 24px;
+}
+
+.checkout .btn {
+    background-color: #04AA6D;
+    color: white;
+    padding: 12px;
+    margin: 10px 0;
+    border: none;
+    width: 100%;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 17px;
+}
+
+.checkout .btn:hover {
+    background-color: #45a049;
+}
+
+.checkout hr {
+    border: 1px solid lightgrey;
+}
+
+.checkout span.price {
+    float: right;
+    color: grey;
+}
+
+@media (max-width: 800px) {
+    .checkout{
+        flex-direction: column-reverse;
+    }
+    .col-25 {
+        margin-bottom: 20px;
+    }
 }

@@ -9,11 +9,11 @@
 - [ ] Add Dish Photo
 - [x] List Reviews
 - [ ] Restaurant Owner Can Answer to Review
-- [x] List Customer Orders
+- [ ] List Customer Orders
 - [ ] Change Order State
-- [ ] Search Restaurants
+- [x] Search Restaurants
 - [ ] Order Dishes
-- [x] List My Orders
+- [ ] List My Orders
 - [ ] Mark Restaurant as Favourite
 - [ ] Mark Dish as Favourite
 - [x] Customer Can Leave a Review
