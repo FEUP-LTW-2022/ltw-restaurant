@@ -169,6 +169,9 @@ body>header>a:first-child>img{
     border-radius: 20px;
 }
 
+.price-unit:before {
+    content: '$';
+}
 
 /*restaurant list */
 
