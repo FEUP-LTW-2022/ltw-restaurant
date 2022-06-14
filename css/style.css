@@ -1079,3 +1079,16 @@ hr#register-bar {
     width:100%;
     border-radius: 20px
 }
+
+/**********************************/
+/*** Search result */
+
+.searchResults h1:first-child{
+    padding-top: 50px;
+}
+.searchResults h1{
+    text-align: left;
+}
+.searchResults #index h1:first-child{
+    display: none;
+}
