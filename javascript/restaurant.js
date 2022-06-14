@@ -20,7 +20,7 @@ function updatePrice(id,value) {
     for (let i = 0; i < children.length; i++) {
         if (children[i].id == id) {
 
-            children[i].children[1].innerHTML = parseFloat(children[i].children[1].id) * parseInt(value);
+            children[i].children[1].innerHTML = children[i].children[1].id * parseInt(value) + '€';
             mybool = true;
         }
     }
@@ -31,6 +31,7 @@ function generateOrder(name,id,price) {
     let input = document.createElement('INPUT');
     input.classList.add("inputCart");
     input.type = 'number';
+    input.min=0;
     input.name = 'dishes[' + id + ']';
     input.id = id;
     input.value = 1;
@@ -39,7 +40,7 @@ function generateOrder(name,id,price) {
     p.innerText = name;
     let priceElem = document.createElement('p');
     priceElem.id = price;
-    priceElem.innerText = price;
+    priceElem.innerText = price+"€";
     input.onchange = function () {
         updatePrice(input.id,input.value);
     }
@@ -80,7 +81,7 @@ function addToCart(name,id,price, restaurantID) {
         for (let i = 0; i < children.length; i++) {
             if (children[i].id == id) {
                 children[i].children[0].value++;
-                children[i].children[1].innerHTML = parseFloat(children[i].children[1].innerHTML) + parseFloat(price);
+                children[i].children[1].innerHTML = children[i].children[1].innerHTML + parseFloat(price);
                 mybool = true;
             }
         }
@@ -89,8 +90,6 @@ function addToCart(name,id,price, restaurantID) {
             generateOrder(name,id,price);
         }
     }
-
-
 
 }
 

@@ -23,6 +23,18 @@ h1, h2{
 }
 
 /* Header */
+@media (max-width: 720px) {
+    #myHeader > a:first-child{
+        display: none;
+    }
+    #myHeader #userLogo{
+        border-radius:50%;
+        width:40px;
+        height: 40px;
+        border: 1px solid #04AA6D;
+        box-sizing: border-box;
+    }
+}
 
 #myHeader{
     position:fixed;
@@ -121,7 +133,11 @@ body>header>a:first-child>img{
     border: 1px solid lightgrey;
 }
 
+.dropdown-content > form >p p{
+    text-align: right;
+}
 .dropdown-content p, .dropdown-content button {
+    text-align: center;
   color: black;
   background-color: #f1f1f1;
   text-decoration: none;
@@ -479,19 +495,22 @@ display: flex;
     opacity: 0.8;
 }
 /*******************************************************/
-
-
-
-  /*footer*/
+ /*footer*/
 
 
 .footer{
     margin-top: 2rem;
     background-color: black;
     color: white;
-    padding: 1rem 11rem 1rem 11rem;
+    padding: 1rem 0 1rem 0;
     display: flex;
     flex-direction: row;
+}
+.footerCont{
+    margin-left: 6rem;
+    display: flex;
+    flex-direction: row;
+
 }
   #footer-logo{
     display: block;
@@ -503,15 +522,22 @@ display: flex;
       height: 7rem;
    filter: invert(1);
   }
-
-  #footer-table{
+#footer-table2{
+    margin-left: 1rem;
+}
+  #footer-table, #footer-table2{
     display: block;
   }
-  #footer-table li{
+  #footer-table li, #footer-table2 li{
     margin-bottom: 5px;
-    font-size: 15px;
+      font-size: 1rem;
   }
 
+@media (max-width: 720px) {
+    #footer-logo{
+       display: none;
+    }
+}
 
   /*login form */
 
