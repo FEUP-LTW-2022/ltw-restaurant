@@ -4,6 +4,12 @@ include_once('database/connection.php');
 include_once('database/account.class.php');
 require_once('templates/elements.tpl.php');
 
+if (!account::isLoggedIn()){
+    ob_start();
+    header('Location: login.php');
+    die();
+}
+
 if (strtoupper($_SERVER['REQUEST_METHOD']) === 'POST') {
     account::updateUserInfo($_POST);
 }

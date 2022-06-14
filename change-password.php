@@ -6,7 +6,9 @@ require_once('templates/elements.tpl.php');
 
 drawHeader();
 if (!account::isLoggedIn()){
-    header("Content: index.php");
+    ob_start();
+    header('Location: login.php');
+    die();
 }
 if (strtoupper($_SERVER['REQUEST_METHOD']) === 'POST') {
     account::changePassword($_POST);

@@ -11,7 +11,12 @@ $db=getDatabaseConnection();
 $id= account::getUserID();
 $restaurants = account::getUserRestaurants($id);
 
-if (!account::isLoggedIn() && !account::isRestaurantOwner()){
+if (!account::isLoggedIn()){
+    ob_start();
+    header('Location: login.php');
+    die();
+}
+if(!account::isRestaurantOwner()){
     ob_start();
     header('Location: index.php');
     die();

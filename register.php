@@ -3,6 +3,12 @@ session_start();
 include_once('database/connection.php');
 include_once('database/account.class.php');
 require_once('templates/elements.tpl.php');
+
+if (account::isLoggedIn()){
+    ob_start();
+    header('Location: index.php');
+    die();
+}
 if (strtoupper($_SERVER['REQUEST_METHOD']) === 'POST') {
     account::register($_POST);
 }
