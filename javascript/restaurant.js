@@ -37,20 +37,32 @@ function addToCart(name,id,price, restaurantID) {
         formHolder[0] = newForm;
         cart.appendChild(newForm);
 
+
         let input = document.createElement('INPUT');
+        let d1 = document.createElement("div");
+        let d2 = document.createElement("div");
+        d1.style.marginRight = "1rem";
+        d2.style.marginRight = "1rem";
         input.classList.add("inputCart");
         input.type = 'number';
         input.name = 'dishes[' + id + ']';
         input.id = id;
         input.value = 1;
         let p = document.createElement('p');
+        p.classList.add("inputCart");
         p.id = id;
         p.innerText = name;
         let priceElem = document.createElement('p');
         priceElem.innerText = price;
         p.appendChild(input);
-        p.appendChild(priceElem);
-        formHolder[0].appendChild(p);
+        let platediv = document.createElement("div");
+        platediv.appendChild(d1);
+        d1.appendChild(input);
+        d1.appendChild(p)
+        platediv.appendChild(d2);
+        d2.appendChild(priceElem);
+        platediv.classList.add("inputCartplateDiv");
+        formHolder[0].appendChild(platediv);
 
         let checkoutBtn = document.createElement('button');
         checkoutBtn.innerHTML = "Checkout"
@@ -75,18 +87,31 @@ function addToCart(name,id,price, restaurantID) {
 
         if (mybool === false){
             let input = document.createElement('INPUT');
+            let d1 = document.createElement("div");
+            let d2 = document.createElement("div");
+            d1.style.marginRight = "1rem";
+            d2.style.marginRight = "1rem";
+            input.classList.add("inputCart");
             input.type = 'number';
             input.name = 'dishes[' + id + ']';
             input.id = id;
             input.value = 1;
             let p = document.createElement('p');
+            p.classList.add("inputCart");
             p.id = id;
             p.innerText = name;
             let priceElem = document.createElement('p');
             priceElem.innerHTML = price;
             p.appendChild(input);
-            p.appendChild(priceElem);
-            formHolder[0].appendChild(p);
+            let platediv = document.createElement("div");
+            platediv.appendChild(p);
+            platediv.classList.add("inputCartplateDiv");
+            platediv.appendChild(d1);
+            d1.appendChild(input);
+            d1.appendChild(p)
+            platediv.appendChild(d2);
+            d2.appendChild(priceElem);
+            formHolder[0].appendChild(platediv);
         }
         total++;
         totalPrice = parseFloat(totalPrice) + parseFloat(price);

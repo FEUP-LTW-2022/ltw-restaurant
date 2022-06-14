@@ -107,6 +107,12 @@ body>header>a:first-child>img{
   display: inline-block;
 }
 
+
+.inputCartplateDiv{
+    display: flex;
+    flex-direction: row;
+}
+
 .dropdown-content {
   display: none;
   position: absolute;
