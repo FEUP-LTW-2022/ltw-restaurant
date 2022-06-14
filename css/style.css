@@ -52,6 +52,10 @@ body > header a{
     text-decoration: none;
     grid-area: logo;
 }
+#myHeader >a img{
+    height: 95px;
+    width: 250px
+}
 #search-bar{
     grid-area: form;
     align-self: center;
@@ -496,8 +500,8 @@ display: flex;
 
   }
   #footer-logo img{
-    height: 7em;
-    width: 7em;
+      height: 7rem;
+   filter: invert(1);
   }
 
   #footer-table{
@@ -897,30 +901,31 @@ hr#register-bar {
 
 /*******************************************/
 /* User page*/
-.vertical-menu {
-  width: 20%; /* Set a width if you like */
+.user-page {
+  width: 20%;
+    padding-top: 50px;
 }
 
-.vertical-menu a, .vertical-menu button {
-  background-color: #eee; /* Grey background color */
-  color: black; /* Black text color */
-  display: block; /* Make the links appear below each other */
-  padding: 12px; /* Add some padding */
-  text-decoration: none; /* Remove underline from links */
+.user-page a, .user-pagebutton {
+  background-color: #eee;
+  color: black;
+  display: block;
+  padding: 12px;
+  text-decoration: none;
 }
 
-.vertical-menu button{
+.user-page button{
     width: 100%;
     text-align: left;
     font-size: 100%;
 }
 
-.vertical-menu a:hover, .vertical-menu button:hover {
-  background-color: #04AA6D ; /* Green background on mouse-over */
+.user-page a:hover, .user-page button:hover {
+  background-color: #04AA6D ;
   opacity: 0.8;
 }
 
-.vertical-menu img{
+.user-page img{
   border-radius: 50%;
 }
 
