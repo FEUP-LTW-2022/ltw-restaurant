@@ -47,6 +47,7 @@ function addToCart(name,id,price, restaurantID) {
 
         let checkoutBtn = document.createElement('button');
         checkoutBtn.innerHTML = "Checkout"
+        checkoutBtn.classList.add("checkbtn")
         checkoutBtn.onclick =function (){formHolder[0].submit()};
         cart.appendChild(checkoutBtn);
 
