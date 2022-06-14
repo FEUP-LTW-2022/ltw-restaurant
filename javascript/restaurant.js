@@ -38,7 +38,7 @@ function addToCart(name,id,price, restaurantID) {
         p.id = id;
         p.innerText = name;
         let priceElem = document.createElement('p');
-        priceElem.innerHTML = price;
+        priceElem.innerText = price;
         p.appendChild(input);
         p.appendChild(priceElem);
         formHolder[0].appendChild(p);
@@ -54,7 +54,7 @@ function addToCart(name,id,price, restaurantID) {
         for (let i = 0; i < children.length; i++) {
             if (children[i].id == id) {
                 children[i].children[0].value++;
-                children[i].children[1].innerHTML += children[i].children[1].innerHTML;
+                children[i].children[1].innerHTML = parseFloat(children[i].children[1].innerHTML) + parseFloat(price);
                 mybool = true;
             }
         }
