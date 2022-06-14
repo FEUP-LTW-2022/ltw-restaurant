@@ -45,6 +45,7 @@ function registerRestaurant($values, $files){
     header("Location: ../manage-restaurant-list.php");
     die();
 }
+
 function registerReview($values, $id){
     foreach ($values as &$value){
         $value = htmlspecialchars($value);
@@ -59,6 +60,7 @@ function registerReview($values, $id){
     header("Location: ../restaurant.php?id=".$id);
     die();
 }
+
 function getAllRestaurants(PDO $db): array
 {
     $stmt = $db->prepare(ALL_RESTAURANTS_Q);
