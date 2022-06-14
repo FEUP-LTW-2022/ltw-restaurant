@@ -8,7 +8,7 @@ function drawHeader(): void
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Title</title>
+    <title>Food Boutique</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="/css/style.css" rel="stylesheet">
@@ -18,7 +18,7 @@ function drawHeader(): void
 
     <header id="myHeader">
         <a href="/index.php">
-            <img src="/logo.jpeg" alt="logo">
+            <img src="/images/logo.png" alt="logo">
         </a>
         <form id="search-bar" action="../search-results.php" method="get">
             <label>
@@ -56,9 +56,9 @@ function drawFooter(): void
 </main>
     <footer>
         <div class="footer">
-            <div id="footer-logo">
-            <img src="/logo.jpeg" alt="logo">
-            </div>
+            <span id="footer-logo">
+                <img src="/images/logo.png" alt="logo">
+            </span>
             <ul id="footer-table">
                 <li>
                     <a href="/about-us.php">About Us</a>

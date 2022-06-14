@@ -17,7 +17,7 @@ if (!account::isLoggedIn()){
 drawHeader();
 
 ?>
-<div class="vertical-menu">
+<div class="user-page">
 
     <img alt="user pic" src="<?=getimage($user['logo']) ?>" style="width: 100px; height: 100px">
 
