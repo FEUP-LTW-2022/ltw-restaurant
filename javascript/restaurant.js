@@ -20,7 +20,6 @@ function addToCart(name,id,price, restaurantID) {
     console.log("ok")
     let cartList = document.getElementsByClassName("dropdown-content");
     let cart = cartList[0];
-    let mybool;
     if ((formHolder.length == 0) || (formHolder[0].id != restaurantID)) {
         let newForm = document.createElement('FORM');
         newForm.id = restaurantID;
@@ -44,18 +43,22 @@ function addToCart(name,id,price, restaurantID) {
         p.appendChild(priceElem);
         formHolder[0].appendChild(p);
 
-        let submit = document.createElement('buttom');
+        let checkoutBtn = document.createElement('button');
+        checkoutBtn.innerHTML = "Check Out"
+        checkoutBtn.onclick =function (){formHolder[0].submit()};
+        cart.appendChild(checkoutBtn);
+
 
     } else {
 
         let children = formHolder[0].children;
         console.log(children[0]);
 
-        let mybool = false
+        let mybool = false;
         for (let i = 0; i < children.length; i++) {
             if (children[i].id == id) {
                 children[i].children[0].value++;
-                children[i].children[1].innerHTML = parseFloat(children[i].children[1].innerHTML) + parseFloat(price);
+                children[i].children[1].innerHTML = Float(children[i].children[1].innerHTML) + parseFloat(price);
                 mybool = true;
             }
         }

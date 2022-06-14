@@ -34,8 +34,8 @@ function drawHeader(): void
                 <button class="dropbtn"><img src="/images/cart.svg" alt="shopping cart"></button>
                 <div class="dropdown-content">
 
-
                 </div>
+
             </div>
         <?php }else{ ?>
             <span id="logedOut">
