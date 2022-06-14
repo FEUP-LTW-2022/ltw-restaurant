@@ -75,7 +75,7 @@ function drawUserPage($user){ ?>
             <a href="../pages/edit-profile.php">Edit  Profile</a>
             <a href="">My Orders</a>
             <form action="../database/logout.php" method="post">
-                <button id="logOutBtn" formaction="database/logout.php">Logout</button>
+                <button id="logOutBtn" formaction="../database/logout.php">Logout</button>
             </form>
         </div>
         <div id="userInfo">

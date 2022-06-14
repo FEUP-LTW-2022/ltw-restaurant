@@ -6,7 +6,7 @@ require_once(__DIR__ .'/../templates/elements.tpl.php');
 
 if (account::isLoggedIn()){
     ob_start();
-    header('Location: index.php');
+    header('Location: ../pages/index.php');
     die();
 }
 if (strtoupper($_SERVER['REQUEST_METHOD']) === 'POST') {
@@ -15,7 +15,7 @@ if (strtoupper($_SERVER['REQUEST_METHOD']) === 'POST') {
 drawHeader();
 ?>
     <div class="register">
-        <form method="post" action="register.php">
+        <form method="post" action="./register.php">
             <h1>Create a new account</h1>
 
             <label for="name">

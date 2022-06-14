@@ -32,7 +32,7 @@ if(strtoupper($_SERVER['REQUEST_METHOD']) === 'POST') {
                 <label for="login-checkbox">
                     <input type="checkbox" checked name="stayloggedin">
                 </label>Stay logged in
-                <span class="psw">Forgot <a href="/recover-password.php">password?</a></span>
+                <span class="psw">Forgot <a href="../pages/recover-password.php">password?</a></span>
             </div>
             <?php if(isset($_SESSION['error'])){
                 echo "<p>".$_SESSION['error'] ."</p>";

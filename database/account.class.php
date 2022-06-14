@@ -88,11 +88,11 @@ class account{
             if (strpos($e->getMessage(),"UNIQUE constraint failed: users.email")) {
                 $_SESSION['error'] = "email already registered";
 
-                header('Location: ../register.php');
+                header('Location: ../pages/register.php');
                 exit();
             }
         }
-        header('Location: ../login.php');
+        header('Location: ../pages/login.php');
         exit();
     }
     public static  function updateUserInfo(&$info){
