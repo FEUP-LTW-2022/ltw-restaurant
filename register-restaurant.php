@@ -7,7 +7,7 @@
     $db=getDatabaseConnection();
     $categories=getCategories($db);
     drawHeader();
-    if (strtoupper($_SERVER['REQUEST_METHOD']) === 'POST') {
+    if (strtoupper($_SERVER['REQUEST_METHOD']) === 'POST' && $_POST['token'] == $_SESSION['token']) {
         registerRestaurant($_POST,$_FILES);
     }
     if (!account::isLoggedIn()){
@@ -19,6 +19,10 @@
 ?>
     <div class="register-restaurant">
         <form method="post" action="register-restaurant.php" enctype="multipart/form-data">
+
+            <input name="token" value="<?php echo $_SESSION["token"] ?>" type="hidden">
+
+
             <h1>Register a restaurant</h1>
 
             <label for="RestaurantName"><b>Restaurant name</b>

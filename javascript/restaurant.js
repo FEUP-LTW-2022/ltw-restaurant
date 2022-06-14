@@ -1,4 +1,4 @@
-let formHolder = [] ;
+let formHolder = [] ;   
 
 function openTab(x, TabName) {
     let i, tabcontent, tablinks;
@@ -7,6 +7,7 @@ function openTab(x, TabName) {
         tabcontent[i].style.display = "none";
     }
     tablinks = document.getElementsByClassName("tablinks");
+
     for (i = 0; i < tablinks.length; i++) {
         tablinks[i].className = tablinks[i].className.replace(" active", "");
         tablinks[i].style.borderBottom="none";}
@@ -15,7 +16,7 @@ function openTab(x, TabName) {
     document.getElementById(TabName).style.display = "block";
 }
 
-function addToCart(name,id, restaurantID, price) {
+function addToCart(name,id,price, restaurantID) {
     console.log("ok")
     let cartList = document.getElementsByClassName("dropdown-content");
     let cart = cartList[0];
@@ -35,13 +36,13 @@ function addToCart(name,id, restaurantID, price) {
         input.id = id;
         input.value = 1;
         let p = document.createElement('p');
-        console.log(typeof p);
-        p.innerText = name;
         p.id = id;
-
+        p.innerText = name;
+        let priceElem = document.createElement('p');
+        priceElem.innerText = price;
         p.appendChild(input);
+        p.appendChild(priceElem);
         formHolder[0].appendChild(p);
-
 
         let submit = document.createElement('buttom');
 
@@ -53,13 +54,13 @@ function addToCart(name,id, restaurantID, price) {
         let mybool = false
         for (let i = 0; i < children.length; i++) {
             if (children[i].id == id) {
-
                 children[i].children[0].value++;
+                children[i].children[1].innerHTML = parseFloat(children[i].children[1].innerHTML) + parseFloat(price);
                 mybool = true;
             }
         }
 
-        if (mybool == false){
+        if (mybool === false){
             let input = document.createElement('INPUT');
             input.type = 'number';
             input.name = 'dishes[' + id + ']';
@@ -68,7 +69,10 @@ function addToCart(name,id, restaurantID, price) {
             let p = document.createElement('p');
             p.id = id;
             p.innerText = name;
+            let priceElem = document.createElement('p');
+            priceElem.innerHTML = price;
             p.appendChild(input);
+            p.appendChild(priceElem);
             formHolder[0].appendChild(p);
         }
     }

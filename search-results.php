@@ -32,4 +32,3 @@ drawHeader();
 
 </div>
 
-<?php drawFooter();?>

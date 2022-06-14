@@ -132,7 +132,7 @@ function drawRestaurantMenu($dish_cat, $dishes,$restaurant):void{ ?>
                         if($dish['category']==$dish_cat[$i]){
                         ?>
                         <article>
-                            <button id="dish-name" onclick="addToCart('<?= $dish['name']?>', <?= $dish['id']?> , <?= $restaurant['id']?>, <?= $dish['price']?>)"><?=$dish['name']?></button>
+                            <button id="dish-name" onclick="addToCart('<?= $dish['name']?>', <?= $dish['id']?>, <?= $dish['price']?>, <?= $restaurant['id']?>)"><?=$dish['name']?></button>
                             <hr id="menuHr">
                             <span id="dish-price"><?=$dish['price']?>&euro;</span>
                         </article>
@@ -175,7 +175,6 @@ function drawRestaurantReviews($comments): void{ ?>
             </article>
             <hr>
         <?php } ?>
-
     </div>
 </div>
 

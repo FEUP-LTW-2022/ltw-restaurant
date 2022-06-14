@@ -1,5 +1,4 @@
 
-
 *{
     color: inherit;
     text-decoration: none;
@@ -93,7 +92,7 @@ body>header>a:first-child>img{
  .dropbtn {
   background-color: #FFFFFF;
   color: white;
-  padding: 16px;
+  padding:16px;
   font-size: 16px;
   border: none;
 }
@@ -121,7 +120,7 @@ body>header>a:first-child>img{
   display: block;
 }
 
-.dropdown-content p:hover {background-color: #ddd;}
+.opopdown-content p:hover {background-color: #ddd;}
 
 .dropdown:hover .dropdown-content {display: block;}
 
@@ -251,6 +250,7 @@ main {
 .restTab button:hover {
   background-color:#f1f1f1;
 }
+
 
 #menuRest,  #reviewsRest{
   display: none;

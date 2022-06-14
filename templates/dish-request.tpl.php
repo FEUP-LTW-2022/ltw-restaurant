@@ -11,21 +11,21 @@ function drawUserReceipt(): void
         $stmt->execute(array($request["id"]));
         $restaurant = $stmt->fetch();
 
-
-        $stmt = $db->prepare("SELECT * FROM request_dish WHERE request = :request");
-        $stmt->execute();
-        $dishes = $stmt->fetchAll();
-
         ?><article>
             <p><?php echo $restaurant["name"] ?></p>
             <img src="<?php getimage($restaurant['id']);?>">
         <?php
 
+
+        $stmt = $db->prepare("SELECT * FROM request_dish WHERE request = :request");
+        $stmt->execute(array($request["id"]));
+        $dishes = $stmt->fetchAll();
+
+
         foreach ($dishes as $dish){?>
             <div about="">
                 <p><?php echo $dish["name"] ?></p>
-                <img src="database/generateimage.php?photo_id=<?php echo is_null($dish['photo_id']) ?  "0" : $dish['name'] ?>">
-                <p class="dish-price"><?php echo $dish["price"] ?></p>
+                <p class="dish-price"><?php echo $dish["price"]*$request["quantity"] ?></p>
             </div>
 
         <?php }

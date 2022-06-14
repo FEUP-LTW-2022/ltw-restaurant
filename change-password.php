@@ -10,13 +10,14 @@ if (!account::isLoggedIn()){
     header('Location: login.php');
     die();
 }
-if (strtoupper($_SERVER['REQUEST_METHOD']) === 'POST') {
+if (strtoupper($_SERVER['REQUEST_METHOD']) === 'POST' && $_POST['token'] == $_SESSION['token']) {
     account::changePassword($_POST);
 }
 ?>
 <div class="change-password">
     <form method="post" action="change-password.php">
         <h1>Change password</h1>
+        <input name="token" value="<?php echo $_SESSION["token"] ?>" type="hidden">
         <label for="oldPassword">
             <b>Old Password</b>
             <input name="oldPassword" type="password" placeholder="Type your old password .." minlength="8" required>
