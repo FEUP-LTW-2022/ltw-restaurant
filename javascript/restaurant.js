@@ -1,5 +1,6 @@
 var formHolder = [] ;
-
+var total;
+var totalPrice;
 function openTab(x, TabName) {
     let i, tabcontent, tablinks;
     tabcontent = document.getElementsByClassName("tabcontent");
@@ -16,8 +17,14 @@ function openTab(x, TabName) {
     document.getElementById(TabName).style.display = "block";
 }
 
+
+
+function Generate() {
+    
+}
 function addToCart(name,id,price, restaurantID) {
     console.log("ok")
+    total = 1;
     let cartList = document.getElementsByClassName("dropdown-content");
     let cart = cartList[0];
     if ((formHolder.length == 0) || (formHolder[0].id != restaurantID)) {
@@ -51,7 +58,7 @@ function addToCart(name,id,price, restaurantID) {
         checkoutBtn.onclick =function (){formHolder[0].submit()};
         cart.appendChild(checkoutBtn);
 
-
+        totalPrice = price;
     } else {
 
         let children = formHolder[0].children;
@@ -81,6 +88,8 @@ function addToCart(name,id,price, restaurantID) {
             p.appendChild(priceElem);
             formHolder[0].appendChild(p);
         }
+        total++;
+        totalPrice = parseFloat(totalPrice) + parseFloat(price);
     }
 
 
