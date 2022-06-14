@@ -146,7 +146,8 @@ function drawRestaurantMenu($dish_cat, $dishes,$restaurant):void{ ?>
 
 function drawRestaurantReviews($comments): void{ ?>
  <div id="reviewsRest" class="tabcontent">
-    <?php drawReviewsForm() ?>
+    <?php if(account::isLoggedIn()){
+     drawReviewsForm();} ?>
     <div class="write-comment">
         <form method="post" action="../restaurant.php" enctype="multipart/form-data">
 
