@@ -1036,7 +1036,7 @@ hr#register-bar {
 .reviewRate #rateText{
     font-size: 1rem;
     background: #f1f1f1;
-    border: 1px solid black;
+    border: 1px solid #04AA6D;
     border-radius: 20px 0 0 20px;
     width: 10%;
     padding: 10px;
