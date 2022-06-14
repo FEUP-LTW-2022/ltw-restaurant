@@ -1,8 +1,8 @@
 <?php
 session_start();
-include_once('templates/elements.tpl.php');
-include_once ('database/connection.php');
-include_once('database/account.class.php');
+include_once(__DIR__ .'/../templates/elements.tpl.php');
+include_once(__DIR__ .'/../database/connection.php');
+include_once(__DIR__ .'/../database/account.class.php');
 
 drawHeader();
 if (account::isLoggedIn()){
@@ -50,6 +50,6 @@ if(strtoupper($_SERVER['REQUEST_METHOD']) === 'POST') {
 
 <?php drawFooter() ?>
 
-<script src="./javascript/login&register.js"> 
+<script src="../javascript/login&register.js">
     loginToReg()
  </script>

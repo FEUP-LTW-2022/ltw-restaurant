@@ -12,8 +12,8 @@
 - [ ] List Customer Orders
 - [ ] Change Order State
 - [x] Search Restaurants
-- [ ] Order Dishes
-- [ ] List My Orders
+- [x] Order Dishes
+- [x] List My Orders
 - [ ] Mark Restaurant as Favourite
 - [ ] Mark Dish as Favourite
 - [x] Customer Can Leave a Review

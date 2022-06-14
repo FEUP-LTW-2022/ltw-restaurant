@@ -67,7 +67,7 @@ function CreateRequest($request){
     $requestID = $db->lastInsertId();
 
     foreach ($request['dishes'] as $key => $quantity){
-        $stmt = $db->prepare('INSERT INTO request_dish VALUES (?,?,?,)');
+        $stmt = $db->prepare('INSERT INTO request_dish VALUES (?,?,?)');
         $stmt->execute(array($key,$requestID,$quantity));
     }
 

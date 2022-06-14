@@ -704,9 +704,10 @@ hr#register-bar {
 #AboutUsPageMembers{
   display: none;
 }
-
+#AboutUsPageInfo{
+    padding-top: 50px;
+}
 .AboutUsPage{
-
   display: flex;
   flex-direction: column;
   padding: 16px;
@@ -961,7 +962,6 @@ hr#register-bar {
     margin-top: 2rem;
 
 }
-
 
 #userOpt a:hover, #userOpt button:hover {
     background-color: #04AA6D ;

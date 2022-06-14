@@ -1,10 +1,10 @@
 <?php
 session_start();
-require_once('./database/connection.php');
-require_once('./database/search.php');
+require_once(__DIR__ .'/../database/connection.php');
+require_once(__DIR__ .'/../database/search.php');
 
-require_once('./templates/elements.tpl.php');
-require_once('./templates/restaurant.tpl.php');
+require_once(__DIR__ .'/../templates/elements.tpl.php');
+require_once(__DIR__ .'/../templates/restaurant.tpl.php');
 
 $search=$_GET['search'];
 $db =getDatabaseConnection();

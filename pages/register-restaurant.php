@@ -1,9 +1,9 @@
 <?php
     session_start();
-    include_once ("templates/elements.tpl.php");
-    include_once ("database/connection.php");
-    include_once ("database/restaurants.php");
-    include_once ("database/account.class.php");
+    include_once(__DIR__ .'/../templates/elements.tpl.php');
+    include_once(__DIR__ .'/../database/connection.php');
+    include_once(__DIR__ .'/../database/restaurants.php');
+    include_once(__DIR__ .'/../database/account.class.php');
     $db=getDatabaseConnection();
     $categories=getCategories($db);
     drawHeader();

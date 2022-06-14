@@ -1,13 +1,13 @@
 <?php
 session_start();
 
-include_once('database/connection.php');
-include_once('database/account.class.php');
-require_once('templates/elements.tpl.php');
-include_once ("templates/elements.tpl.php");
-include_once ("database/connection.php");
-include_once ("database/restaurants.php");
-include_once ("database/account.class.php");
+include_once(__DIR__ .'/../database/connection.php');
+include_once(__DIR__ .'/../database/account.class.php');
+require_once(__DIR__ .'/../templates/elements.tpl.php');
+include_once(__DIR__ .'/../templates/elements.tpl.php');
+include_once(__DIR__ .'/../database/connection.php');
+include_once(__DIR__ .'/../database/restaurants.php');
+include_once(__DIR__ .'/../database/account.class.php');
 
 if (!account::isLoggedIn()){
     ob_start();

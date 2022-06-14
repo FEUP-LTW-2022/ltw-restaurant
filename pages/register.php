@@ -1,8 +1,8 @@
 <?php
 session_start();
-include_once('database/connection.php');
-include_once('database/account.class.php');
-require_once('templates/elements.tpl.php');
+include_once(__DIR__ .'/../database/connection.php');
+include_once(__DIR__ .'/../database/account.class.php');
+require_once(__DIR__ .'/../templates/elements.tpl.php');
 
 if (account::isLoggedIn()){
     ob_start();
@@ -60,6 +60,6 @@ drawHeader();
     </div>
 <?php drawFooter()?>
 
-<script src="./javascript/login&register.js">
+<script src="../javascript/login&register.js">
 RegToLogin()
  </script>

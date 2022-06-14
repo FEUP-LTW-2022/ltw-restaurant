@@ -1,11 +1,11 @@
 <?php
 session_start();
-require_once('./database/connection.php');
-require_once('./database/restaurants.php');
-require_once ('./database/dishes.php');
+require_once(__DIR__.'/../database/connection.php');
+require_once(__DIR__.'/../database/restaurants.php');
+require_once(__DIR__.'/../database/dishes.php');
 
-require_once('./templates/elements.tpl.php');
-require_once('./templates/restaurant.tpl.php');
+require_once(__DIR__ .'/../templates/elements.tpl.php');
+require_once(__DIR__ .'/../templates/restaurant.tpl.php');
 
 $id=intval($_GET['id']);
 $db = getDatabaseConnection();

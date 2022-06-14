@@ -73,6 +73,6 @@ function getPath($id){
 }
 function getimage($id): string
 {
-    return "./images/originals/". $id .".".getPath($id)['extension'];
+    return "/../images/originals/". $id .".".getPath($id)['extension'];
 }
 

@@ -1,7 +1,7 @@
 <?php declare(strict_types = 1);
-    include_once("database/connection.php");
-    include_once("database/account.class.php");
-    include_once("database/upload-image.php");
+    include_once(__DIR__ ."/../database/connection.php");
+    include_once(__DIR__ ."/../database/account.class.php");
+    include_once(__DIR__ ."/../database/upload-image.php");
 
 function drawHeader(): void
 {?>
@@ -17,11 +17,11 @@ function drawHeader(): void
 <body> 
 
     <header id="myHeader">
-        <a href="/index.php">
+        <a href="/pages/index.php">
             <img src="/images/logo.png" alt="logo">
         </a>
 
-        <form id="search-bar" action="../search-results.php" method="get">
+        <form id="search-bar" action="../pages/search-results.php" method="get">
             <label>
                 <input type="text" name="search" placeholder="Restaurant, city, ...">
             </label>
@@ -40,8 +40,8 @@ function drawHeader(): void
             </div>
         <?php }else{ ?>
             <span id="logedOut">
-                <a href="/register.php">Register</a>
-                <a href="/login.php">Login</a>
+                <a href="/pages/register.php">Register</a>
+                <a href="/pages/login.php">Login</a>
             </span>
         </div>
         <?php }?>
@@ -63,24 +63,24 @@ function drawFooter(): void
             <div class="footerCont">
                 <ul id="footer-table">
                     <li>
-                        <a href="/about-us.php">About Us</a>
+                        <a href="/pages/about-us.php">About Us</a>
                     </li>
                     <li>
-                        <a href="/contact-us.php">Contact Us</a>
+                        <a href="/pages/contact-us.php">Contact Us</a>
                     </li>
                     <li>
-                        <a href="/faq.php">FAQ's</a>
+                        <a href="/pages/faq.php">FAQ's</a>
                     </li>
                 </ul>
                 <ul id="footer-table2">
                     <li>
-                        <a href="/index.php">Home</a>
+                        <a href="/pages/index.php">Home</a>
                     </li>
                     <li>
-                        <a href="/login.php">Login</a>
+                        <a href="/pages/login.php">Login</a>
                     </li>
                     <li>
-                        <a href="/register.php">Register</a>
+                        <a href="/pages/register.php">Register</a>
                     </li>
                 </ul>
             </div>

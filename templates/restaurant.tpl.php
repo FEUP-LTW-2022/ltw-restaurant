@@ -1,6 +1,6 @@
 <?php
-require_once('./database/restaurants.php');
-require_once ('./database/upload-image.php');
+require_once(__DIR__ .'/../database/restaurants.php');
+require_once (__DIR__ .'/../database/upload-image.php');
 
 function checkStoreRev($storeRev, $numRev):float{
     if($numRev!=0){
@@ -19,7 +19,7 @@ function checkStoreRev($storeRev, $numRev):float{
             $rate = getAverageRate($db, $restaurant['id']) ;
              $category= getRestaurantCategory($db, $restaurant['category']); ?>
               <article>
-                <a  href="/restaurant.php?id=<?=$restaurant['id']?>">
+                <a  href="/pages/restaurant.php?id=<?=$restaurant['id']?>">
                   <img src="<?=getimage($restaurant['logo'])?>" alt="restaurant photo" style="width: 200px; height: 200px;">
                   <span id="restaurant-category"><?=$category['name']?></span>
                   <div id="rest_info_rate">
@@ -153,7 +153,7 @@ function drawRestaurantReviews($comments): void{ ?>
     <?php if(account::isLoggedIn()){
      drawReviewsForm();} ?>
     <div class="write-comment">
-        <form method="post" action="../restaurant.php" enctype="multipart/form-data">
+        <form method="post" action="../pages/restaurant.php" enctype="multipart/form-data">
 
         </form>
     </div>
@@ -187,7 +187,7 @@ function drawRestaurantReviews($comments): void{ ?>
 <?php }
 
 function drawReviewsForm(){ ?>
-<form id="feedback" method="post" action="../restaurant.php?id=<?=$_GET['id']?>" enctype="multipart/form-data">
+<form id="feedback" method="post" action="../pages/restaurant.php?id=<?=$_GET['id']?>" enctype="multipart/form-data">
 
  <div class="pinfo">Rate our overall services.</div>
 

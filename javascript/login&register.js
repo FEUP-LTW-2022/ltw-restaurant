@@ -1,11 +1,11 @@
 
 'use strict'
 function RegToLogin(){
-    window.location.href="./login.php"
+    window.location.href="../pages/login.php"
 }
 
 function loginToReg(){
-    window.location.href="./register.php"
+    window.location.href="../pages/register.php"
 }
 
 
