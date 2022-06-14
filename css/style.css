@@ -489,9 +489,12 @@ display: flex;
     margin-top: 2rem;
     background-color: black;
     color: white;
-    padding: 1rem 11rem 1rem 11rem;
+    padding: 1rem 0 1rem 0;
     display: flex;
     flex-direction: row;
+}
+.footerCont{
+    margin-left: 6rem;
 }
   #footer-logo{
     display: block;

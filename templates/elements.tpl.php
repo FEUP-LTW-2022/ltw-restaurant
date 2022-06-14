@@ -28,7 +28,7 @@ function drawHeader(): void
         <div id="signup">
         <?php
             if (account::isLoggedIn()){
-            echo "<a href='./user.php'> <img id='userLogo' src='".getimage(account::getUserInfo("logo"))."' > </a>"
+            echo "<a href='./user.php'> <img id='userLogo' src='".getimage(account::getUserInfo("logo"))."'  alt='user logo'> </a>"
         ?>
             <div class="dropdown">
                 <button class="dropbtn"><img src="/images/cart.svg" alt="shopping cart"></button>
@@ -59,17 +59,19 @@ function drawFooter(): void
             <span id="footer-logo">
                 <img src="/images/logo.png" alt="logo">
             </span>
-            <ul id="footer-table">
-                <li>
-                    <a href="/about-us.php">About Us</a>
-                </li>
-                <li>
-                    <a href="/contact-us.php">Contact Us</a>
-                </li>
-                <li>
-                    <a href="/faq.php">FAQ's</a>
-                </li>
-            </ul>
+            <div class="footerCont">
+                <ul id="footer-table">
+                    <li>
+                        <a href="/about-us.php">About Us</a>
+                    </li>
+                    <li>
+                        <a href="/contact-us.php">Contact Us</a>
+                    </li>
+                    <li>
+                        <a href="/faq.php">FAQ's</a>
+                    </li>
+                </ul>
+            </div>
             </div>
     </footer>
 </body>
