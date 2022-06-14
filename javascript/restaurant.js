@@ -32,7 +32,7 @@ function updatePrice(id,value) {
     totalPrice = parseFloat(totalPrice) + parseFloat(value);
     console.log(totalPrice);
 
-    cart.children[2].children[0].innerHTML = totalPrice;
+    cart.children[2].children[0].innerHTML = totalPrice +"€";
 }
 
 
@@ -83,7 +83,7 @@ function addToCart(name,id,price, restaurantID) {
         let CartPrice = document.createElement('div');
         CartPrice.innerHTML = 'total';
         let priceDiv = document.createElement('div');
-        priceDiv.innerHTML = price;
+        priceDiv.innerHTML = price +"€";
 
 
         CartPrice.appendChild(priceDiv);
@@ -100,7 +100,7 @@ function addToCart(name,id,price, restaurantID) {
         for (let i = 0; i < children.length; i++) {
             if (children[i].id == id) {
                 children[i].children[0].value++;
-                children[i].children[1].innerHTML = children[i].children[1].innerHTML + parseFloat(price);
+                children[i].children[1].innerHTML = parseFloat(children[i].children[1].innerHTML) + parseFloat(price);
                 mybool = true;
             }
         }
