@@ -81,7 +81,7 @@ CREATE TABLE IF NOT EXISTS users
     password    VARCHAR not null,
     address     VARCHAR
 );
-INSERT INTO users VALUES(1,'up201805000@g.uporto.pt','Henrique Pinho','2022-05-11',1,912345678,'$2a$10$zdhB12u9ydmOXyyIFhLfvOSYC.O471gfa41YWHZ5QRTXn4sBIGqLG',NULL);
+INSERT INTO users VALUES(1,'johndoe@example.com','John Doe','1953-06-01',1,NULL,'$2a$10$Wm23XkPlpuKy8ji5qOCvouInlP7.BAiHu0.Uj8lmcYrHGbJNNxyO2','Box 564, Disneyland');
 
 INSERT INTO categories VALUES(1,'Steakhouse');
 INSERT INTO categories VALUES(2,'Fast Food');
