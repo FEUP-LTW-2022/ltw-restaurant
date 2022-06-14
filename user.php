@@ -18,20 +18,37 @@ drawHeader();
 
 ?>
 <div class="user-page">
+    <div id="userOpt">
+        <h2>Options: </h2>
+        <a href="change-password.php">Change password</a>
+        <?php if (account::isRestaurantOwner()){ ?>
+            <a href="manage-restaurant-list.php">Manage Your Restaurants</a>
+        <?php }?>
+        <a href="register-restaurant.php">Register restaurant</a>
+        <a href="favourites.php">Favourites</a>
+        <a href="edit-profile.php">Edit  Profile</a>
+        <form action="database/logout.php" method="post">
+            <button id="logOutBtn" formaction="database/logout.php">Logout</button>
+        </form>
+    </div>
+    <div id="userInfo">
+        <h2>Your personal info </h2>
+        <img alt="user pic" src="<?=getimage($user['logo']) ?>" style="width: 100px; height: 100px">
 
-    <img alt="user pic" src="<?=getimage($user['logo']) ?>" style="width: 100px; height: 100px">
+        <label for="">  <b>Name:</b></label>
+        <span><?=account::getUserInfo('name') ?> </span>
 
-    <a href="change-password.php">Change password</a>
-    <?php if (account::isRestaurantOwner()){ ?>
-        <a href="manage-restaurant-list.php">Manage Your Restaurants</a>
-    <?php }?>
-    <a href="register-restaurant.php">Register restaurant</a>
-    <a href="favourites.php">Favourites</a>
-    <a href="edit-profile.php">Edit  Profile</a>
-    <form action="database/logout.php" method="post">
-        <button id="logOutBtn" formaction="database/logout.php">Logout</button>
-    </form>
+        <label for=""><b> E-mail:</b> </label>
+        <span><?= account::getUserInfo('email')?> </span>
 
+        <label for=""><b> Phone Number:</b> </label>
+        <span><?= account::getUserInfo('phoneNumber')?> </span>
+
+        <label for=""><b>Address:</b></label>
+        <span><?= account::getUserInfo('address')?> </span>
+
+
+    </div>
 </div>
 
 <div>

@@ -885,32 +885,56 @@ hr#register-bar {
 /*******************************************/
 /* User page*/
 .user-page {
-  width: 20%;
-    padding-top: 50px;
-}
-
-.user-page a, .user-pagebutton {
-  background-color: #eee;
-  color: black;
-  display: block;
-  padding: 12px;
-  text-decoration: none;
-}
-
-.user-page button{
     width: 100%;
-    text-align: left;
-    font-size: 100%;
+    padding-top: 50px;
+    display: flex;
+    flex-direction: row;
 }
 
-.user-page a:hover, .user-page button:hover {
-  background-color: #04AA6D ;
-  opacity: 0.8;
+
+#userOpt{
+    width: 50%;
+}
+#userOpt a, #userOpt button {
+    text-align: center;
+    display: block;
+    text-decoration: none;
+    background-color: #04AA6D;
+    color: white;
+    padding: 12px 20px;
+    width: 50%;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 2rem;
+
 }
 
-.user-page img{
+
+#userOpt a:hover, #userOpt button:hover {
+    background-color: #04AA6D ;
+    opacity: 0.8;
+}
+#userInfo{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+#userInfo img{
   border-radius: 50%;
 }
+#userInfo label{
+    margin-top: 2rem;
+}
+#userInfo span{
+    padding: 12px;
+    border: 1px solid #04AA6D;
+    border-radius: 20px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+}
+
 
 /****************************************/
 /* Edit profile, change password and manage restaurant pages*/
