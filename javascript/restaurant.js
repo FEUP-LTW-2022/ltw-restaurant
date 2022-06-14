@@ -1,7 +1,23 @@
 var formHolder = [] ;
 var total;
-var totalPrice;
+var totalPrice = 0;
 var cart;
+
+/*
+function initform(){
+    if(sessionStorage.length != 0){
+        console.log(34553)
+        formHolder = JSON.parse(sessionStorage.getItem("formHolder"));
+        cart.appendChild(formHolder[0]);
+    }
+
+}
+
+initform();
+
+ */
+
+
 
 function openTab(x, TabName) {
     let i, tabcontent, tablinks;
@@ -32,7 +48,7 @@ function updatePrice(id,value) {
     totalPrice = parseFloat(totalPrice) + parseFloat(value);
     console.log(totalPrice);
 
-    cart.children[2].children[0].innerHTML = totalPrice +"€";
+    cart.children[1].children[0].innerHTML = totalPrice + "€";
 }
 
 
@@ -56,6 +72,11 @@ function generateOrder(name,id,price) {
     p.appendChild(input);
     p.appendChild(priceElem);
     formHolder[0].appendChild(p);
+    /*
+    let stringy = JSON.stringify(formHolder[0])
+    sessionStorage.setItem("formHolder", stringy);
+    console.log(stringy)
+     */
 }
 
 function addToCart(name,id,price, restaurantID) {
@@ -77,7 +98,10 @@ function addToCart(name,id,price, restaurantID) {
         let checkoutBtn = document.createElement('button');
         checkoutBtn.innerHTML = "Checkout"
         checkoutBtn.classList.add("checkbtn")
-        checkoutBtn.onclick =function (){formHolder[0].submit()};
+        checkoutBtn.onclick =function (){
+            formHolder[0].appendChild()
+            formHolder[0].submit()
+        };
 
 
         let CartPrice = document.createElement('div');
@@ -112,8 +136,8 @@ function addToCart(name,id,price, restaurantID) {
         total++;
         totalPrice = parseFloat(totalPrice) + parseFloat(price);
         console.log(totalPrice);
-
-        cart.children[2].children[0].innerHTML = totalPrice;
+        console.log(cart.children[1]);
+        cart.children[1].children[0].innerHTML = totalPrice;
     }
 
 }
