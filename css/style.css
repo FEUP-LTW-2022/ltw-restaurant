@@ -112,7 +112,7 @@ body>header>a:first-child>img{
   z-index: 1;
 }
 
-.dropdown-content p {
+.dropdown-content p, .dropdown-content button {
   color: black;
   background-color: #f1f1f1;
   padding: 12px 16px;
@@ -120,7 +120,9 @@ body>header>a:first-child>img{
   display: block;
 }
 
+
 .opopdown-content p:hover {background-color: #ddd;}
+
 
 .dropdown:hover .dropdown-content {display: block;}
 

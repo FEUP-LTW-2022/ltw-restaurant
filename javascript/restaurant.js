@@ -1,4 +1,4 @@
-let formHolder = [] ;   
+var formHolder = [] ;
 
 function openTab(x, TabName) {
     let i, tabcontent, tablinks;
@@ -22,6 +22,7 @@ function addToCart(name,id,price, restaurantID) {
     let cart = cartList[0];
     if ((formHolder.length == 0) || (formHolder[0].id != restaurantID)) {
         let newForm = document.createElement('FORM');
+        newForm.classList.add("edit-restaurant")
         newForm.id = restaurantID;
         newForm.name = 'form';
         newForm.method = 'POST';
@@ -30,6 +31,7 @@ function addToCart(name,id,price, restaurantID) {
         cart.appendChild(newForm);
 
         let input = document.createElement('INPUT');
+        input.classList.add("inputCart");
         input.type = 'number';
         input.name = 'dishes[' + id + ']';
         input.id = id;
@@ -44,7 +46,7 @@ function addToCart(name,id,price, restaurantID) {
         formHolder[0].appendChild(p);
 
         let checkoutBtn = document.createElement('button');
-        checkoutBtn.innerHTML = "Check Out"
+        checkoutBtn.innerHTML = "Checkout"
         checkoutBtn.onclick =function (){formHolder[0].submit()};
         cart.appendChild(checkoutBtn);
 
@@ -58,7 +60,7 @@ function addToCart(name,id,price, restaurantID) {
         for (let i = 0; i < children.length; i++) {
             if (children[i].id == id) {
                 children[i].children[0].value++;
-                children[i].children[1].innerHTML = Float(children[i].children[1].innerHTML) + parseFloat(price);
+                children[i].children[1].innerHTML = parseFloat(children[i].children[1].innerHTML) + parseFloat(price);
                 mybool = true;
             }
         }
