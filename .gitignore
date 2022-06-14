@@ -1,3 +1,4 @@
 ./idea
+./idea/*
 ./database/database.db
 *.xml
