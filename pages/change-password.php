@@ -14,6 +14,4 @@ if (strtoupper($_SERVER['REQUEST_METHOD']) === 'POST' && $_POST['token'] == $_SE
     account::changePassword($_POST);
 }
 drawChangePassword();
-?>
-
-<?php drawFooter(); ?>
+ drawFooter();

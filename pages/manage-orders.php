@@ -21,6 +21,4 @@ if(!account::isRestaurantOwner()){
 }
 drawHeader();
 //era preciso fazerem alguma coisa para eu conseguir fazer isto
-?>
-
-<?php drawFooter();
+ drawFooter();
