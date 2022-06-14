@@ -1,4 +1,5 @@
 PRAGMA foreign_keys=OFF;
+BEGIN TRANSACTION;
 
 CREATE TABLE restaurant (
     id INTEGER PRIMARY KEY,
@@ -137,3 +138,4 @@ INSERT INTO reviews VALUES(2,2,1,1,'Nice restaurant','2017-12-20');
 INSERT INTO reviews VALUES(3,2,1,5,'Nice restaurant','2020-01-17');
 INSERT INTO reviews VALUES(4,1,1,5,'Nice restaurant','2015-04-30');
 
+COMMIT;
