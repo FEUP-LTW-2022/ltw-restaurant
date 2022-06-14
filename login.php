@@ -6,6 +6,7 @@ include_once('database/account.class.php');
 
 drawHeader();
 if (account::isLoggedIn()){
+    ob_start();
     header("Location:index.php");
     die();
 }

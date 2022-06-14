@@ -6,9 +6,11 @@ include_once ('database/connection.php');
 include_once ('templates/dish-request.tpl.php');
 include_once('database/account.class.php');
 include_once('database/upload-image.php');
-if(!account::isLoggedIn()){
-    header("Content: index.php");
-    exit();
+
+if (!account::isLoggedIn()){
+    ob_start();
+    header('Location: login.php');
+    die();
 }
  $user = account::getPhoto();
 

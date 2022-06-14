@@ -9,6 +9,17 @@ include_once ("database/connection.php");
 include_once ("database/restaurants.php");
 include_once ("database/account.class.php");
 
+if (!account::isLoggedIn()){
+    ob_start();
+    header('Location: login.php');
+    die();
+}
+if(!account::isRestaurantOwner()){
+    ob_start();
+    header('Location: index.php');
+    die();
+}
+
 $db=getDatabaseConnection();
 $categories=getCategories($db);
 
