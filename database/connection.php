@@ -9,3 +9,6 @@ function getDatabaseConnection(): PDO
 
     return $db;
 }
+
+
+

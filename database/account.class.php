@@ -24,7 +24,7 @@ class account{
         $password = htmlspecialchars($password,ENT_QUOTES);
 
         $db = getDatabaseConnection();
-        $stmt = $db->prepare("SELECT password,id FROM users WHERE email=:email");
+        $stmt = $db->prepare("SELECT password,id FROM usgers WHERE email=:email");
         $stmt->bindParam(':email', $email);
         $stmt->execute();
         $value = $stmt->fetch(PDO::FETCH_ASSOC);

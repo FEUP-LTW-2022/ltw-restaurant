@@ -175,7 +175,6 @@ function drawRestaurantReviews($comments): void{ ?>
             </article>
             <hr>
         <?php } ?>
-
     </div>
 </div>
 
