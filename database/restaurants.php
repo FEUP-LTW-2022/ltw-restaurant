@@ -1,5 +1,6 @@
 <?php 
 
+
 const ALL_RESTAURANTS_Q= 'SELECT * FROM restaurant
 GROUP BY restaurant.id
 ORDER BY RANDOM() LIMIT 9';
@@ -24,6 +25,7 @@ const RESTAURANT='SELECT * FROM restaurant WHERE id=?';
 
 const RESTAURANT_CAT= 'SELECT * FROM categories WHERE id=?';
 
+$db = getDatabaseConnection();
 
 function registerRestaurant($values, $files){
 
