@@ -107,7 +107,7 @@ function drawAboutRestaurant($randDishes, $avgRev,$randComments, $storeRev):void
                             <img src="<?=getimage($comment['logo'])?>" alt="user photo">
                             <div id="name-date">
                                 <span id="comment-name"><b><?=$comment['name']?></b></span>
-                                <span id="comment-date"><?=date('Y-m-d',$comment['date'])?></span>
+                                <span id="comment-date"><?=date($comment['date'])?></span>
                             </div>
                         </div>
                         <div>
@@ -166,7 +166,7 @@ function drawRestaurantReviews($comments): void{ ?>
                         <img src="<?=getImage($comment['logo'])?>" alt="user photo">
                         <div id="name-date">
                             <span id="comment-name"><b><?=$comment['name']?></b></span>
-                            <span id="comment-date"><?=date('Y-m-d',$comment['date'])?></span>
+                            <span id="comment-date"><?=date($comment['date'])?></span>
                         </div>
                     </div>
                     <div>

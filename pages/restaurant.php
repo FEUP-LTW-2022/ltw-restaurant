@@ -25,7 +25,7 @@ $randComments= getRandComments($db, $id);
 
 $dishes = getDishes($db,$id);
 $comments=getComments($db, $id);
-$dish_cat=  orderDishes($db, $id);
+$dish_cat= orderDishes($db, $id);
 
 drawHeader();
 drawRestaurantInfo($category, $restaurant, $avgRev);

@@ -39,7 +39,7 @@ function orderDishes(PDO $db, int $id): array
         $cat_array[] = $c['category'];
     }
     $dish_cat_order= array("starters", "meat","fish", "vegetarian","dessert");
-    return array_intersect($dish_cat_order,$cat_array);
+    return array_intersect($dish_cat_order, $cat_array);
 }
 
 
