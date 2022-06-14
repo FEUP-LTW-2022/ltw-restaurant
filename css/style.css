@@ -483,6 +483,7 @@ display: flex;
 
   }
   #footer-logo img{
+      height: 7rem;
    filter: invert(1);
   }
 
