@@ -19,7 +19,7 @@ drawHeader();?>
 
                     </div>
 
-                    <input type="submit" value="Continue to checkout" class="btn">
+                    <input type="submit" value="Order" class="btn">
                 </form>
             </div>
         </div>
