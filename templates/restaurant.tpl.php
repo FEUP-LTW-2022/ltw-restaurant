@@ -103,7 +103,7 @@ function drawAboutRestaurant($randDishes, $avgRev,$randComments, $storeRev):void
                             <img src="<?=getimage($comment['logo'])?>" alt="user photo">
                             <div id="name-date">
                                 <span id="comment-name"><b><?=$comment['name']?></b></span>
-                                <span id="comment-date"><?=date($comment['date'])?></span>
+                                <span id="comment-date"><?=date('Y-m-d',$comment['date'])?></span>
                             </div>
                         </div>
                         <div>
@@ -146,6 +146,8 @@ function drawRestaurantMenu($dish_cat, $dishes,$restaurant):void{ ?>
 
 function drawRestaurantReviews($comments): void{ ?>
  <div id="reviewsRest" class="tabcontent">
+    <?php if(account::isLoggedIn()){
+     drawReviewsForm();} ?>
     <div class="write-comment">
         <form method="post" action="../restaurant.php" enctype="multipart/form-data">
 
@@ -160,7 +162,7 @@ function drawRestaurantReviews($comments): void{ ?>
                         <img src="<?=getImage($comment['logo'])?>" alt="user photo">
                         <div id="name-date">
                             <span id="comment-name"><b><?=$comment['name']?></b></span>
-                            <span id="comment-date"><?=date($comment['date'])?></span>
+                            <span id="comment-date"><?=date('Y-m-d',$comment['date'])?></span>
                         </div>
                     </div>
                     <div>
@@ -179,6 +181,34 @@ function drawRestaurantReviews($comments): void{ ?>
 
 <script src="../javascript/restaurant.js"></script>
 
+<?php }
+
+function drawReviewsForm(){ ?>
+<form id="feedback" method="post" action="../restaurant.php?id=<?=$_GET['id']?>" enctype="multipart/form-data">
+
+ <div class="pinfo">Rate our overall services.</div>
+
+   <label for="rate" class="reviewRate">
+       <span id="rateText">Rate</span>
+       <select  id="rate" name="rate" required>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+    </label>
+
+
+    <label for="review" class="reviewLabel">
+        Leave your feedback
+        <textarea id="reviewText" rows="3" name="reviewText"></textarea>
+    </label>
+
+
+     <button type="submit" class="reviewBtn">Submit</button>
+
+</form>
 <?php }
 
 

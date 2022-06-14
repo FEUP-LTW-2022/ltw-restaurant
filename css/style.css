@@ -858,6 +858,10 @@ hr#register-bar {
   margin-top: 6px;
   margin-bottom: 16px;
 }
+.ContactUs-container input:focus, .ContactUs-container textarea:focus{
+    outline: none !important;
+    border-color: #04AA6D;
+}
 
 .ContactUs-container input[type=submit] {
   background-color: #04AA6D;
@@ -918,6 +922,10 @@ hr#register-bar {
   box-sizing: border-box;
   gap:2em;
   border-radius: 20px;
+}
+.edit-profile input:focus{
+    outline: none !important;
+    border-color: #04AA6D;
 }
 
 .edit-profile button, .change-password button, .edit-restaurant button{
@@ -988,5 +996,85 @@ hr#register-bar {
     border: none;
     cursor: pointer;
     width:50%;
+    border-radius: 20px
+}
+
+
+/************************************************/
+/* REVIEWS FORM */
+#feedback {
+    margin: 0;
+    width: 100%;
+    padding: 20px;
+    border: solid 1px #f1f1f1;
+    background: #fbfbfb;
+    box-shadow: #e6e6e6 0 0 4px ;
+    border-radius: 0.25rem;
+}
+
+@media (max-width: 720px) {
+    #feedback{
+        max-width: 90%;
+    }
+}
+@media (max-width: 500px) {
+    #feedback{
+        padding: 10px;
+    }
+}
+
+.reviewRate{
+    display: flex;
+    width: 100%;
+    margin-top: 8px;
+    margin-bottom: 2em;
+    text-align: center;
+
+
+}
+.reviewRate #rateText{
+    font-size: 1rem;
+    background: #f1f1f1;
+    border: 1px solid black;
+    border-radius: 20px 0 0 20px;
+    width: 10%;
+    padding: 10px;
+
+}
+.reviewRate select{
+    font-size: 1rem;
+    padding: 12px 20px;
+    display: inline-block;
+    border: 1px solid #04AA6D;
+    box-sizing: border-box;
+    border-radius: 0 20px 20px 0;
+    gap: 2em;
+    background: white;
+    width: 90%;
+}
+
+#reviewText{
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #04AA6D;
+    border-radius: 20px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: none;
+}
+
+.reviewLabel textarea:focus, .reviewRate select:focus{
+    outline: none !important;
+    border-color: #04AA6D;
+}
+.reviewBtn{
+    background-color: #04AA6D;
+    color: white;
+    padding: 14px 20px;
+    margin-top: 1em;
+    border: none;
+    cursor: pointer;
+    width:100%;
     border-radius: 20px
 }
