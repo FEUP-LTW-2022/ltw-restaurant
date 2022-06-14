@@ -44,7 +44,7 @@ function registerRestaurant($values, $files){
     $stmt->execute(array(account::getUserID(), $values["name"], $values["city"], $values["address"].", ".$values['zip'], $values["website"],
         $values["openHour"], $values["closeHour"], $values["email"], $values["phoneNumber"], $photo_id,$values['category']));
 
-    header("Location: ../manage-restaurant-list.php");
+    header("Location: ../pages/manage-restaurant-list.php");
     die();
 }
 
@@ -59,7 +59,7 @@ function registerReview($values, $id){
         VALUES (?,?,?,?)");
     $stmt->execute(array($id, account::getUserID(), $values["rate"], $values["reviewText"]));
 
-    header("Location: ../restaurant.php?id=".$id);
+    header("Location: ../pages/restaurant.php?id=".$id);
     die();
 }
 

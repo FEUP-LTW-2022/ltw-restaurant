@@ -19,16 +19,16 @@ function upload($file)
 
   // Create folders if they don't exist
 
-  if (!is_dir('.images')) mkdir('images');
-  if (!is_dir('.images/originals')) mkdir('images/originals');
-  if (!is_dir('.images/thumbs_small')) mkdir('images/thumbs_small');
-  if (!is_dir('.images/thumbs_medium')) mkdir('images/thumbs_medium');
+  if (!is_dir('../images')) mkdir('../images');
+  if (!is_dir('../images/originals')) mkdir('../images/originals');
+  if (!is_dir('../images/thumbs_small')) mkdir('../images/thumbs_small');
+  if (!is_dir('../images/thumbs_medium')) mkdir('../images/thumbs_medium');
 
   // Generate filenames for original, small and medium files
 
-  $originalFileName = "images/originals/$id.$mime";
-  $smallFileName = "images/thumbs_small/$id.$mime";
-  $mediumFileName = "images/thumbs_medium/$id.$mime";
+  $originalFileName = "../images/originals/$id.$mime";
+  $smallFileName = "../images/thumbs_small/$id.$mime";
+  $mediumFileName = "../images/thumbs_medium/$id.$mime";
 
   // Move the uploaded file to its final destination
   move_uploaded_file($file['image']['tmp_name'], $originalFileName);

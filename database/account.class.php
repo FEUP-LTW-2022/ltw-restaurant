@@ -39,11 +39,11 @@ class account{
                 header("Location:index.php");
             } else {
                 $_SESSION["error"] = "wrong email or password";
-                header("Location:login.php");
+                header("Location: ../pages/login.php");
             }
         }else{
             $_SESSION["error"] = "email is not registered";
-            header("Location:login.php");
+            header("Location: ../pages/login.php");
         }
         exit();
     }
@@ -195,7 +195,7 @@ class account{
                 $newPassword = htmlspecialchars($info["newPassword"]);
                 $stmt->bindParam(":password", $newPassword);
                 $stmt->bindParam(":email", $_SESSION["email"]);
-                header("location: user.php");
+                header("location: ../pages/user.php");
                 exit();
             }else{
                 $_SESSION['error'] = "new password different from confirmation";
