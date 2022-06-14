@@ -23,6 +23,18 @@ h1, h2{
 }
 
 /* Header */
+@media (max-width: 720px) {
+    #myHeader > a:first-child{
+        display: none;
+    }
+    #myHeader #userLogo{
+        border-radius:50%;
+        width:40px;
+        height: 40px;
+        border: 1px solid #04AA6D;
+        box-sizing: border-box;
+    }
+}
 
 #myHeader{
     position:fixed;
@@ -479,10 +491,7 @@ display: flex;
     opacity: 0.8;
 }
 /*******************************************************/
-
-
-
-  /*footer*/
+ /*footer*/
 
 
 .footer{
@@ -495,6 +504,9 @@ display: flex;
 }
 .footerCont{
     margin-left: 6rem;
+    display: flex;
+    flex-direction: row;
+
 }
   #footer-logo{
     display: block;
@@ -506,15 +518,22 @@ display: flex;
       height: 7rem;
    filter: invert(1);
   }
-
-  #footer-table{
+#footer-table2{
+    margin-left: 1rem;
+}
+  #footer-table, #footer-table2{
     display: block;
   }
-  #footer-table li{
+  #footer-table li, #footer-table2 li{
     margin-bottom: 5px;
-    font-size: 15px;
+      font-size: 1rem;
   }
 
+@media (max-width: 720px) {
+    #footer-logo{
+       display: none;
+    }
+}
 
   /*login form */
 

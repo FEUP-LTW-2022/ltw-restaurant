@@ -71,6 +71,17 @@ function drawFooter(): void
                         <a href="/faq.php">FAQ's</a>
                     </li>
                 </ul>
+                <ul id="footer-table2">
+                    <li>
+                        <a href="/index.php">Home</a>
+                    </li>
+                    <li>
+                        <a href="/login.php">Login</a>
+                    </li>
+                    <li>
+                        <a href="/register.php">Register</a>
+                    </li>
+                </ul>
             </div>
             </div>
     </footer>
