@@ -18,7 +18,10 @@ CreateRequest($_REQUEST);
                     <div class="col-50">
                             <h4>Cart <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b>4</b></span></h4>
                                 <?php foreach ($_REQUEST['dishes'] as $dishID => $quantity){
-                                   $dish = getDish($dishID);
+                                   $dishID = htmlspecialchars($dishID);
+                                   $quantity = htmlspecialchars($quantity);
+
+                                    $dish = getDish($dishID);
                                    $dishprice = getDish($dishID)['price'] * $quantity;
                                    $price += $dishprice;
                                 ?>

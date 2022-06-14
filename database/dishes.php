@@ -56,6 +56,8 @@ function CreateRequest($request){
 
     $restaurantID = null;
     foreach ($request['dishes'] as $key => $dish){
+        $key = htmlspecialchars($key);
+        $dish = htmlspecialchars($dish);
         $stmt = $db->prepare('SELECT restaurant_id FROM dish WHERE id = ?');
         $stmt->execute(array($key));
         $restaurantID = $stmt->fetch();
@@ -67,7 +69,10 @@ function CreateRequest($request){
     $requestID = $db->lastInsertId();
 
     foreach ($request['dishes'] as $key => $quantity){
-        $stmt = $db->prepare('INSERT INTO request_dish VALUES (?,?,?,)');
+        $key = htmlspecialchars($key);
+        $quantity = htmlspecialchars($quantity);
+
+        $stmt = $db->prepare('INSERT INTO request_dish VALUES (?,?,?)');
         $stmt->execute(array($key,$requestID,$quantity));
     }
 
