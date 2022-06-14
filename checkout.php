@@ -10,10 +10,10 @@ drawHeader();?>
                 <form action="">
                     <div class="col-50">
                         <h4>Cart <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b>4</b></span></h4>
-                        <p><span href="#">Product 1</span> <span class="price">15</span></p>
-                        <p><span href="#">Product</span> <span class="price">5</span></p>
-                        <p><span href="#">Product</span> <span class="price">8</span></p>
-                        <p><span href="#">Product</span> <span class="price">2</span></p>
+                        <p><span>Product 1</span> <span class="price">15</span></p>
+                        <p><span>Product</span> <span class="price">5</span></p>
+                        <p><span>Product</span> <span class="price">8</span></p>
+                        <p><span>Product</span> <span class="price">2</span></p>
                         <hr>
                         <p>Total <span class="price" style="color:black"><b>$30</b></span></p>
 
