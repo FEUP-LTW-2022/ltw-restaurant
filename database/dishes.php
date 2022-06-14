@@ -50,5 +50,30 @@ function getDish($id){
 }
 
 
+function CreateRequest($request){
+    $db = getDatabaseConnection();
+    $userID = account::getUserID();
+
+    $restaurantID = null;
+    foreach ($request['dishes'] as $key => $dish){
+        $stmt = $db->prepare('SELECT restaurant_id FROM dish WHERE id = ?');
+        $stmt->execute(array($key));
+        $restaurantID = $stmt->fetch();
+        break;
+    }
+
+    $stmt = $db->prepare("INSERT INTO request (userID, restaurantID) VALUES (?,?)");
+    $stmt->execute(array($userID,$restaurantID['restaurant_id']));
+    $requestID = $db->lastInsertId();
+
+    foreach ($request['dishes'] as $key => $quantity){
+        $stmt = $db->prepare('INSERT INTO request_dish VALUES (?,?,?,)');
+        $stmt->execute(array($key,$requestID,$quantity));
+    }
+
+    return $requestID;
+}
+
+
 
 

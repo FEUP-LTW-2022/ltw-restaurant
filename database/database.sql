@@ -43,6 +43,7 @@ CREATE TABLE request(
     id INTEGER PRIMARY KEY,
     userID INTEGER REFERENCES Users(id) NOT NULL ,
     restaurantID INTEGER REFERENCES Restaurant(id) NOT NULL,
+    isDelivered INTEGER DEFAULT (0),
     date INTEGER DEFAULT (strftime('%s','now'))
 );
 
@@ -82,6 +83,13 @@ CREATE TABLE IF NOT EXISTS users
     password    VARCHAR not null,
     address     VARCHAR
 );
+
+
+CREATE TABLE favourite(
+ userID INTEGER REFERENCES users(id),
+ dishId INTEGER REFERENCES dish(id)
+);
+
 INSERT INTO users VALUES(1,'johndoe@example.com','John Doe','1953-06-01',1,NULL,'$2a$10$Wm23XkPlpuKy8ji5qOCvouInlP7.BAiHu0.Uj8lmcYrHGbJNNxyO2','Box 564, Disneyland');
 
 INSERT INTO categories VALUES(1,'Steakhouse');

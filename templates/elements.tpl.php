@@ -12,7 +12,7 @@ function drawHeader(): void
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="/css/style.css" rel="stylesheet">
-    
+    <link href="/javascript/restaurant.js">
 </head>
 <body> 
 
@@ -20,6 +20,7 @@ function drawHeader(): void
         <a href="/index.php">
             <img src="/images/logo.png" alt="logo">
         </a>
+
         <form id="search-bar" action="../search-results.php" method="get">
             <label>
                 <input type="text" name="search" placeholder="Restaurant, city, ...">

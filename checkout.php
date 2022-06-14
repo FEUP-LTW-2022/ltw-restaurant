@@ -5,7 +5,7 @@ include_once ('./database/dishes.php');
 drawHeader();
 
 $price = 0;
-
+CreateRequest($_REQUEST);
 ?>
 
 
@@ -28,8 +28,6 @@ $price = 0;
                             <p>Total <span class="price" style="color:black"><b><?= $price ?> </b></span></p>
 
                     </div>
-
-                    <input type="submit" value="Order" class="btn">
                 </form>
             </div>
         </div>
