@@ -7,7 +7,7 @@ include_once('database/account.class.php');
 drawHeader();
 if (account::isLoggedIn()){
     header("Location:index.php");
-    exit();
+    die();
 }
 if(strtoupper($_SERVER['REQUEST_METHOD']) === 'POST') {
     account::login($_POST["email"],$_POST["password"]);

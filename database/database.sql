@@ -24,7 +24,7 @@ CREATE TABLE reviews
      id_author INTEGER NOT NULL ,
      rate INTEGER NOT NULL,
      text VARCHAR,
-     date INTEGER default (strftime('%s','now')),
+     date INTEGER default (strftime('%Y-%m-%d','now')),
      FOREIGN KEY(restaurant_id) REFERENCES restaurant(id),
      FOREIGN KEY(id_author) REFERENCES users(id)
 );

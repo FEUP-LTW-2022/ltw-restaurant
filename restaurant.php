@@ -10,6 +10,9 @@ require_once('./templates/restaurant.tpl.php');
 $id=intval($_GET['id']);
 $db = getDatabaseConnection();
 
+if (strtoupper($_SERVER['REQUEST_METHOD']) === 'POST') {
+    registerReview($_POST, $id);
+}
 
 $restaurant = getRestaurant($db, $id);
 $category= getRestaurantCategory($db, $restaurant['category']);

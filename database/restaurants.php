@@ -43,9 +43,22 @@ function registerRestaurant($values, $files){
         $values["openHour"], $values["closeHour"], $values["email"], $values["phoneNumber"], $photo_id,$values['category']));
 
     header("Location: ../manage-restaurant-list.php");
-    exit();
+    die();
 }
+function registerReview($values, $id){
+    foreach ($values as &$value){
+        $value = htmlspecialchars($value);
+    }
 
+    $stmt = getDatabaseConnection()->prepare("
+        INSERT INTO 
+        reviews (restaurant_id, id_author,rate,text) 
+        VALUES (?,?,?,?)");
+    $stmt->execute(array($id, account::getUserID(), $values["rate"], $values["reviewText"]));
+
+    header("Location: ../restaurant.php?id=".$id);
+    die();
+}
 function getAllRestaurants(PDO $db): array
 {
     $stmt = $db->prepare(ALL_RESTAURANTS_Q);
