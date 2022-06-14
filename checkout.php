@@ -1,7 +1,14 @@
 <?php
 session_start();
 require_once('./templates/elements.tpl.php');
-drawHeader();?>
+include_once ('./database/dishes.php');
+drawHeader();
+
+$price = 0;
+
+?>
+
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <div class="checkout">
@@ -9,13 +16,16 @@ drawHeader();?>
             <div class="container">
                 <form action="">
                     <div class="col-50">
-                        <h4>Cart <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b>4</b></span></h4>
-                        <p><span>Product 1</span> <span class="price">15</span></p>
-                        <p><span>Product</span> <span class="price">5</span></p>
-                        <p><span>Product</span> <span class="price">8</span></p>
-                        <p><span>Product</span> <span class="price">2</span></p>
-                        <hr>
-                        <p>Total <span class="price" style="color:black"><b>$30</b></span></p>
+                            <h4>Cart <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b>4</b></span></h4>
+                                <?php foreach ($_REQUEST['dishes'] as $dishID => $quantity){
+                                   $dish = getDish($dishID);
+                                   $dishprice = getDish($dishID)['price'] * $quantity;
+                                   $price += $dishprice;
+                                ?>
+                                    <p><span><?= getDish($dishID)['name'] ?></span> <span class="price"><?= $dishprice ?></span></p>
+                                <?php } ?>
+                            <hr>
+                            <p>Total <span class="price" style="color:black"><b><?= $price ?> </b></span></p>
 
                     </div>
 

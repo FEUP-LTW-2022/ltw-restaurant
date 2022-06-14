@@ -43,5 +43,12 @@ function orderDishes(PDO $db, int $id): array
 }
 
 
+function getDish($id){
+    $stmt = getDatabaseConnection()->prepare("SELECT * FROM dish WHERE id = ?");
+    $stmt->execute(array($id));
+    return $stmt->fetch();
+}
+
+
 
 
