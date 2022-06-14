@@ -133,7 +133,11 @@ body>header>a:first-child>img{
     border: 1px solid lightgrey;
 }
 
+.dropdown-content > form >p p{
+    text-align: right;
+}
 .dropdown-content p, .dropdown-content button {
+    text-align: center;
   color: black;
   background-color: #f1f1f1;
   text-decoration: none;
