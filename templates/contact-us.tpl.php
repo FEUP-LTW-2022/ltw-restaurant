@@ -28,7 +28,7 @@ function fakeEmailSender(): void
         $message = "$firstname $lastname ($from) wrote the following:" . "\n\n" . $_POST['message'] . "\n\n";
 
         
-    $fp = fopen('./emails/email.txt', 'a');
+    $fp = fopen('../emails/email.txt', 'a');
     fwrite($fp, $message);
 
     $message_divider="*************************************************************\n";
