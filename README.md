@@ -1,3 +1,7 @@
+# Restaurant Website
+
+This project is a restaurant website designed to provide information about the restaurant, including the menu, services, and contact details. The website is built using modern web development technologies to ensure a responsive and user-friendly experience.
+
 ## Features
 
 - [x] Register
@@ -17,6 +21,13 @@
 - [ ] Mark Restaurant as Favourite
 - [ ] Mark Dish as Favourite
 - [x] Customer Can Leave a Review
+
+## Technologies Used
+
+- **HTML5**: Markup language for structuring the website.
+- **CSS3**: Stylesheet language for designing the website.
+- **JavaScript**: Programming language for adding interactivity.
+- **PHP**: Server-side scripting language for handling backend operations.
 
 ## Credentials
 
